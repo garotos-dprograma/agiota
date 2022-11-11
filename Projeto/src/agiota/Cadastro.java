@@ -71,7 +71,6 @@ public class Cadastro extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 102, 51));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("\t\t\t\tCadastro");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -179,7 +178,6 @@ public class Cadastro extends javax.swing.JFrame {
         });
 
         btnCadastroCadastro1.setBackground(new java.awt.Color(255, 0, 51));
-        btnCadastroCadastro1.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastroCadastro1.setText("Cancelar");
         btnCadastroCadastro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -426,9 +424,7 @@ public class Cadastro extends javax.swing.JFrame {
         this.jPassword.setText("");
         this.jPasswordRepita.setText("");
         this.txtCadastroTelef.setText("");
-        this.txtCadastroCpf.setText("");
-        
-        
+        this.txtCadastroCpf.setText(""); 
     }//GEN-LAST:event_btnCadastroLimparActionPerformed
 
     private void btnCadastroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroCadastroActionPerformed

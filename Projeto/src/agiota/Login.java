@@ -1,5 +1,7 @@
 package agiota;
 
+import java.awt.Toolkit;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -8,9 +10,12 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        
+        pwdSenha.setEchoChar((char)0);
+        setIcon();
     }
-
+    
+    boolean focus = false;
+    String mostrarSenha = "/resources/eye.png";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,12 +36,13 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         pwdSenha = new javax.swing.JPasswordField();
         cbSalvarSenha1 = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblSenhaEsquecida = new javax.swing.JLabel();
         lblInaConta1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        txtEntrar = new javax.swing.JLabel();
+        btnlblEntrar = new javax.swing.JLabel();
+        lblMostrarSenha = new javax.swing.JLabel();
 
-        pwdSenha1.setBackground(new java.awt.Color(255, 255, 255));
         pwdSenha1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         pwdSenha1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pwdSenha1.setText("Senha");
@@ -69,7 +75,6 @@ public class Login extends javax.swing.JFrame {
         lblInaConta.setText("Não possui conta?");
 
         btxEntrar.setBackground(new java.awt.Color(255, 102, 51));
-        btxEntrar.setForeground(new java.awt.Color(0, 0, 0));
         btxEntrar.setText("ENTRAR");
         btxEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,23 +94,34 @@ public class Login extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGap(0, 706, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel2MouseEntered(evt);
+            }
+        });
 
-        txtUsuario1.setBackground(new java.awt.Color(255, 255, 255));
         txtUsuario1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txtUsuario1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUsuario1.setText("Usuário ou E-mail");
+        txtUsuario1.setText("E-mail");
         txtUsuario1.setBorder(null);
         txtUsuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtUsuario1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUsuario1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUsuario1FocusLost(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ENTRAR");
 
-        pwdSenha.setBackground(new java.awt.Color(255, 255, 255));
         pwdSenha.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         pwdSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pwdSenha.setText("Senha");
@@ -129,23 +145,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Esqueceu sua senha?");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblSenhaEsquecida.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblSenhaEsquecida.setForeground(new java.awt.Color(255, 255, 255));
+        lblSenhaEsquecida.setText("Esqueceu sua senha?");
+        lblSenhaEsquecida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSenhaEsquecida.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
-            }
-        });
-
-        jButton1.setBackground(new java.awt.Color(255, 102, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Entrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                lblSenhaEsquecidaMousePressed(evt);
             }
         });
 
@@ -162,26 +168,56 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        txtEntrar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txtEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        txtEntrar.setText("Entrar");
+
+        btnlblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/button.png"))); // NOI18N
+        btnlblEntrar.setText("Entrar");
+        btnlblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnlblEntrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnlblEntrarMouseEntered(evt);
+            }
+        });
+
+        lblMostrarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/eye.png"))); // NOI18N
+        lblMostrarSenha.setText("jLabel3");
+        lblMostrarSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMostrarSenhaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(97, 97, 97)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblMostrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(cbSalvarSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtUsuario1)
-                    .addComponent(jLabel1)
-                    .addComponent(pwdSenha)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addGap(84, 84, 84)
+                        .addComponent(lblSenhaEsquecida, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(txtEntrar))
+                    .addComponent(btnlblEntrar)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,18 +227,25 @@ public class Login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMostrarSenha))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbSalvarSenha1)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSenhaEsquecida))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(txtEntrar))
+                    .addComponent(btnlblEntrar))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap(91, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton2))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -265,19 +308,53 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSalvarSenha1ActionPerformed
 
-    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+    private void lblSenhaEsquecidaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSenhaEsquecidaMousePressed
         System.out.println("Perdi a senha");
-    }//GEN-LAST:event_jLabel3MousePressed
+    }//GEN-LAST:event_lblSenhaEsquecidaMousePressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new Cadastro().setVisible(true);
         Login.this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Login.this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void txtUsuario1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuario1FocusGained
+        if(focus == false)
+            focus = true;
+        else if (focus == true && txtUsuario1.getText().equals("E-mail")){
+            txtUsuario1.setText(null);
+        }
+    }//GEN-LAST:event_txtUsuario1FocusGained
+
+    private void txtUsuario1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuario1FocusLost
+        if(txtUsuario1.getText().equals(""))
+            txtUsuario1.setText("E-mail");
+    }//GEN-LAST:event_txtUsuario1FocusLost
+
+    private void btnlblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlblEntrarMouseClicked
+        System.out.println("Me impremente");
+    }//GEN-LAST:event_btnlblEntrarMouseClicked
+
+    private void btnlblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlblEntrarMouseEntered
+        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/button light.png")));
+    }//GEN-LAST:event_btnlblEntrarMouseEntered
+
+    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/button.png")));
+    }//GEN-LAST:event_jPanel2MouseEntered
+
+    private void lblMostrarSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMostrarSenhaMouseClicked
+        if(mostrarSenha.equals("/resources/eye.png")){         
+            mostrarSenha = "/resources/eye_hide.png";
+            lblMostrarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource(mostrarSenha)));            
+            pwdSenha.setEchoChar((char)0);
+        }
+        else if(mostrarSenha.equals("/resources/eye_hide.png")){
+            mostrarSenha = "/resources/eye.png";
+            lblMostrarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource(mostrarSenha)));            
+            pwdSenha.setEchoChar('*');
+        }
+            
+    }//GEN-LAST:event_lblMostrarSenhaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -316,22 +393,27 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnlblEntrar;
     private javax.swing.JButton btxEntrar;
     private javax.swing.JCheckBox cbSalvarSenha;
     private javax.swing.JCheckBox cbSalvarSenha1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblInaConta;
     private javax.swing.JLabel lblInaConta1;
+    private javax.swing.JLabel lblMostrarSenha;
+    private javax.swing.JLabel lblSenhaEsquecida;
     private javax.swing.JPasswordField pwdSenha;
 
     private javax.swing.JPasswordField pwdSenha1;
 
+    private javax.swing.JLabel txtEntrar;
     private javax.swing.JTextField txtUsuario1;
     // End of variables declaration//GEN-END:variables
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/incognito.png")));
+    }
 }

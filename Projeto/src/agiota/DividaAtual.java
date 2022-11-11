@@ -47,7 +47,6 @@ public class DividaAtual extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 102, 51));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Divida Atual Total");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -168,7 +167,6 @@ public class DividaAtual extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 102, 51));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Ola Endividado");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

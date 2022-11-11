@@ -44,13 +44,12 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
         jlimparAgiota = new javax.swing.JButton();
         btnCadastroCadastro3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 51));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nova Senha");
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -83,7 +82,6 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Repetir Nova Senha");
 
         jRepitaSenhaAgi.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +90,6 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Senha Antiga");
 
         jnovaSenhaAgiota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
@@ -283,7 +280,6 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastroCadastro2;
     private javax.swing.JButton btnCadastroCadastro3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
