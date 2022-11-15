@@ -15,6 +15,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Aprovar Empr&#xe9;stimo"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -60,16 +61,16 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnCadastroCadastro2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jBuscar" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="61" max="-2" attributes="0"/>
+                                  <Component id="lblValor" min="-2" pref="61" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" pref="61" max="-2" attributes="0"/>
+                                  <Component id="lblNome" min="-2" pref="61" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -82,44 +83,44 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="txtEmrpestimo12" alignment="0" pref="114" max="32767" attributes="0"/>
-                                      <Component id="txtEmrpestimo11" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtEmrpestimo10" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtEmrpestimo9" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtEmrpestimo8" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtEmrpestimo7" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNome6" alignment="0" pref="114" max="32767" attributes="0"/>
+                                      <Component id="txtNome5" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNome4" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNome3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNome2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNome1" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jreprovar4" min="-2" pref="83" max="-2" attributes="0"/>
+                                          <Component id="btnReprovar5" min="-2" pref="83" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="japrovar4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAprovar5" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jreprovar" min="-2" pref="83" max="-2" attributes="0"/>
+                                          <Component id="btnReprovar1" min="-2" pref="83" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="japrovar" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAprovar1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jreprovar1" min="-2" pref="83" max="-2" attributes="0"/>
+                                          <Component id="btnReprovar2" min="-2" pref="83" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="japrovar1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAprovar2" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jreprovar2" min="-2" pref="83" max="-2" attributes="0"/>
+                                          <Component id="btnReprovar3" min="-2" pref="83" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="japrovar2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAprovar3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jreprovar3" min="-2" pref="83" max="-2" attributes="0"/>
+                                          <Component id="btnReprovar4" min="-2" pref="83" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="japrovar3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAprovar4" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jreprovar5" min="-2" pref="83" max="-2" attributes="0"/>
+                                          <Component id="btnReprovar6" min="-2" pref="83" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="japrovar5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAprovar6" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -137,55 +138,55 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtEmrpestimo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEmrpestimo7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jreprovar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="japrovar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNome1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnReprovar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAprovar1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtEmrpestimo2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEmrpestimo8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jreprovar1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="japrovar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNome2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnReprovar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAprovar2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtEmrpestimo3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEmrpestimo9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jreprovar2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="japrovar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNome3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnReprovar3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAprovar3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtEmrpestimo4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEmrpestimo10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jreprovar3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="japrovar3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNome4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnReprovar4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAprovar4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtEmrpestimo5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEmrpestimo11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jreprovar4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="japrovar4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNome5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnReprovar5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAprovar5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtEmrpestimo6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEmrpestimo12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jreprovar5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="japrovar5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNome6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnReprovar6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAprovar6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="21" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCadastroCadastro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -193,7 +194,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblValor">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -216,7 +217,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="125" max="32767" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -225,14 +226,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="lblTitulo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -245,7 +246,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jBuscar">
+        <Component class="javax.swing.JButton" name="btnBuscar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/binoculars.png"/>
@@ -253,10 +254,10 @@
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBuscarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jreprovar">
+        <Component class="javax.swing.JButton" name="btnReprovar1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/delete.png"/>
@@ -264,7 +265,7 @@
             <Property name="text" type="java.lang.String" value="Negar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jreprovarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReprovar1ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmrpestimo">
@@ -272,7 +273,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmrpestimoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCadastroCadastro2">
+        <Component class="javax.swing.JButton" name="btnCancelar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -283,7 +284,7 @@
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroCadastro2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmrpestimo2">
@@ -311,7 +312,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmrpestimo6ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="lblNome">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -322,37 +323,37 @@
             <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmrpestimo7">
+        <Component class="javax.swing.JTextField" name="txtNome1">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmrpestimo7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmrpestimo8">
+        <Component class="javax.swing.JTextField" name="txtNome2">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmrpestimo8ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmrpestimo9">
+        <Component class="javax.swing.JTextField" name="txtNome3">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmrpestimo9ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome3ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmrpestimo10">
+        <Component class="javax.swing.JTextField" name="txtNome4">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmrpestimo10ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome4ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmrpestimo11">
+        <Component class="javax.swing.JTextField" name="txtNome5">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmrpestimo11ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome5ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmrpestimo12">
+        <Component class="javax.swing.JTextField" name="txtNome6">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmrpestimo12ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome6ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="japrovar">
+        <Component class="javax.swing.JButton" name="btnAprovar1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/updated.png"/>
@@ -360,10 +361,10 @@
             <Property name="text" type="java.lang.String" value="Aprovar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="japrovarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAprovar1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jreprovar1">
+        <Component class="javax.swing.JButton" name="btnReprovar2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/delete.png"/>
@@ -371,10 +372,10 @@
             <Property name="text" type="java.lang.String" value="Negar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jreprovar1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReprovar2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="japrovar1">
+        <Component class="javax.swing.JButton" name="btnAprovar2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/updated.png"/>
@@ -382,10 +383,10 @@
             <Property name="text" type="java.lang.String" value="Aprovar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="japrovar1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAprovar2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jreprovar2">
+        <Component class="javax.swing.JButton" name="btnReprovar3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/delete.png"/>
@@ -393,10 +394,10 @@
             <Property name="text" type="java.lang.String" value="Negar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jreprovar2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReprovar3ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="japrovar2">
+        <Component class="javax.swing.JButton" name="btnAprovar3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/updated.png"/>
@@ -404,10 +405,10 @@
             <Property name="text" type="java.lang.String" value="Aprovar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="japrovar2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAprovar3ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jreprovar3">
+        <Component class="javax.swing.JButton" name="btnReprovar4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/delete.png"/>
@@ -415,10 +416,10 @@
             <Property name="text" type="java.lang.String" value="Negar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jreprovar3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReprovar4ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="japrovar3">
+        <Component class="javax.swing.JButton" name="btnAprovar4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/updated.png"/>
@@ -426,10 +427,10 @@
             <Property name="text" type="java.lang.String" value="Aprovar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="japrovar3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAprovar4ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jreprovar4">
+        <Component class="javax.swing.JButton" name="btnReprovar5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/delete.png"/>
@@ -437,10 +438,10 @@
             <Property name="text" type="java.lang.String" value="Negar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jreprovar4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReprovar5ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="japrovar4">
+        <Component class="javax.swing.JButton" name="btnAprovar5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/updated.png"/>
@@ -448,10 +449,10 @@
             <Property name="text" type="java.lang.String" value="Aprovar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="japrovar4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAprovar5ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jreprovar5">
+        <Component class="javax.swing.JButton" name="btnReprovar6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/delete.png"/>
@@ -459,10 +460,10 @@
             <Property name="text" type="java.lang.String" value="Negar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jreprovar5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReprovar6ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="japrovar5">
+        <Component class="javax.swing.JButton" name="btnAprovar6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/updated.png"/>
@@ -470,7 +471,7 @@
             <Property name="text" type="java.lang.String" value="Aprovar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="japrovar5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAprovar6ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

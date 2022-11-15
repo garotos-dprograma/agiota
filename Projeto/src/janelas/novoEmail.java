@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package agiota;
+package janelas;
 
 import classe.Cliente;
 import conexoes.MySQL;
@@ -32,18 +32,18 @@ public class novoEmail extends javax.swing.JFrame {
     private void initComponents() {
 
         txtemailAntigo2 = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jSalvar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        txtemailAntigo = new javax.swing.JTextField();
-        txtemailAntigo1 = new javax.swing.JTextField();
-        txtemailAntigo3 = new javax.swing.JTextField();
-        btnCadastroCadastro2 = new javax.swing.JButton();
+        pPrincipal = new javax.swing.JPanel();
+        lblNovoEmail = new javax.swing.JLabel();
+        pTitulo = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        lblRepEmail = new javax.swing.JLabel();
+        lblEmailAnt = new javax.swing.JLabel();
+        btnSalvar = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
+        txtNovoEmail = new javax.swing.JTextField();
+        txtEmailAnt = new javax.swing.JTextField();
+        txtRepNovoEmail = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
 
         txtemailAntigo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,136 +52,137 @@ public class novoEmail extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Novo E-mail");
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
+        pPrincipal.setBackground(new java.awt.Color(255, 102, 51));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Nova E-mail");
+        lblNovoEmail.setBackground(new java.awt.Color(0, 0, 0));
+        lblNovoEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNovoEmail.setText("Nova E-mail");
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        pTitulo.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Alteração de Senha");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Alteração de Senha");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
+        pTitulo.setLayout(pTituloLayout);
+        pTituloLayout.setHorizontalGroup(
+            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
                 .addContainerGap(125, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(lblTitulo)
                 .addGap(117, 117, 117))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pTituloLayout.setVerticalGroup(
+            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pTituloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(lblTitulo)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Repetir Novo E-mail");
+        lblRepEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblRepEmail.setText("Repetir Novo E-mail");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("E-mail Antigo");
+        lblEmailAnt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblEmailAnt.setText("E-mail Antigo");
 
-        jSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
-        jSalvar.setText("Salvar");
-        jSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSalvarActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
-        jButton1.setText("Limpar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLimparActionPerformed(evt);
             }
         });
 
-        txtemailAntigo.addActionListener(new java.awt.event.ActionListener() {
+        txtNovoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtemailAntigoActionPerformed(evt);
+                txtNovoEmailActionPerformed(evt);
             }
         });
 
-        txtemailAntigo1.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailAnt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtemailAntigo1ActionPerformed(evt);
+                txtEmailAntActionPerformed(evt);
             }
         });
 
-        txtemailAntigo3.addActionListener(new java.awt.event.ActionListener() {
+        txtRepNovoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtemailAntigo3ActionPerformed(evt);
+                txtRepNovoEmailActionPerformed(evt);
             }
         });
 
-        btnCadastroCadastro2.setBackground(new java.awt.Color(255, 0, 51));
-        btnCadastroCadastro2.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastroCadastro2.setText("Cancelar");
-        btnCadastroCadastro2.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(255, 0, 51));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroCadastro2ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
+        pPrincipal.setLayout(pPrincipalLayout);
+        pPrincipalLayout.setHorizontalGroup(
+            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnLimpar)
                 .addGap(69, 69, 69)
-                .addComponent(btnCadastroCadastro2)
+                .addComponent(btnCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSalvar)
+                .addComponent(btnSalvar)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addGap(158, 158, 158)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEmailAnt)
+                    .addComponent(lblNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtemailAntigo3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtemailAntigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtemailAntigo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtRepNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmailAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pPrincipalLayout.createSequentialGroup()
+                        .addComponent(lblRepEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        pPrincipalLayout.setVerticalGroup(
+            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPrincipalLayout.createSequentialGroup()
+                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(lblEmailAnt)
                 .addGap(15, 15, 15)
-                .addComponent(txtemailAntigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmailAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(lblNovoEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtemailAntigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(lblRepEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtemailAntigo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRepNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSalvar)
-                    .addComponent(jButton1)
-                    .addComponent(btnCadastroCadastro2))
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvar)
+                    .addComponent(btnLimpar)
+                    .addComponent(btnCancelar))
                 .addContainerGap())
         );
 
@@ -189,11 +190,11 @@ public class novoEmail extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -204,11 +205,11 @@ public class novoEmail extends javax.swing.JFrame {
     public void atualizarEmail(Cliente novoCliente){
         this.conectar.conectaBanco();
         
-        String consultaEmail = this.txtemailAntigo1.getText();
+        String consultaEmail = this.txtEmailAnt.getText();
         
         try{
             var atualizaCpf = "UPDATE cadastroclientes SET "
-                    + "email = '" + txtemailAntigo.getText() + "' "
+                    + "email = '" + txtNovoEmail.getText() + "' "
                     + " WHERE "
                     + " email = '" + consultaEmail + "';"
                     ;
@@ -223,49 +224,49 @@ public class novoEmail extends javax.swing.JFrame {
             JOptionPane.showMessageDialog (null, "Erro ao buscar Email");
         
         } finally {
-            txtemailAntigo.setText(novoCliente.getSenha());
+            txtNovoEmail.setText(novoCliente.getSenha());
           
             
         }
     }
     
-    private void jSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalvarActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         atualizarEmail(novoCliente);
         new InformacoesPessoais().setVisible(true);
          novoEmail.this.dispose();
-    }//GEN-LAST:event_jSalvarActionPerformed
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void txtemailAntigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailAntigoActionPerformed
+    private void txtNovoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovoEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailAntigoActionPerformed
+    }//GEN-LAST:event_txtNovoEmailActionPerformed
 
-    private void txtemailAntigo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailAntigo1ActionPerformed
+    private void txtEmailAntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailAntActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailAntigo1ActionPerformed
+    }//GEN-LAST:event_txtEmailAntActionPerformed
 
     private void txtemailAntigo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailAntigo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtemailAntigo2ActionPerformed
 
-    private void txtemailAntigo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailAntigo3ActionPerformed
+    private void txtRepNovoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepNovoEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailAntigo3ActionPerformed
+    }//GEN-LAST:event_txtRepNovoEmailActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
         novoCliente.LimparCliente();
-        this.txtemailAntigo1.setText("");
-        this.txtemailAntigo.setText("");
-        this.txtemailAntigo3.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.txtEmailAnt.setText("");
+        this.txtNovoEmail.setText("");
+        this.txtRepNovoEmail.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void btnCadastroCadastro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroCadastro2ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         
         new InformacoesPessoais().setVisible(true);
         novoEmail.this.dispose();
-    }//GEN-LAST:event_btnCadastroCadastro2ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,19 +305,19 @@ public class novoEmail extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastroCadastro2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton jSalvar;
-    private javax.swing.JTextField txtemailAntigo;
-    private javax.swing.JTextField txtemailAntigo1;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel lblEmailAnt;
+    private javax.swing.JLabel lblNovoEmail;
+    private javax.swing.JLabel lblRepEmail;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pPrincipal;
+    private javax.swing.JPanel pTitulo;
+    private javax.swing.JTextField txtEmailAnt;
+    private javax.swing.JTextField txtNovoEmail;
+    private javax.swing.JTextField txtRepNovoEmail;
     private javax.swing.JTextField txtemailAntigo2;
-    private javax.swing.JTextField txtemailAntigo3;
     // End of variables declaration//GEN-END:variables
 
 }

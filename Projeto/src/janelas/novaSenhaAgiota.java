@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package agiota;
+package janelas;
 
 import classe.Cliente;
 import conexoes.MySQL;
@@ -31,141 +31,142 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jTrocaSenhaAgi = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        jRepitaSenhaAgi = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jsenhaAntigaAgi = new javax.swing.JPasswordField();
-        jnovaSenhaAgiota = new javax.swing.JButton();
-        jlimparAgiota = new javax.swing.JButton();
-        btnCadastroCadastro3 = new javax.swing.JButton();
+        pPrincipal = new javax.swing.JPanel();
+        lblNovaSenha = new javax.swing.JLabel();
+        pTitulo = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        pwdTrocaSenhaAgi = new javax.swing.JPasswordField();
+        lblRepSenha = new javax.swing.JLabel();
+        pwdRepitaSenhaAgi = new javax.swing.JPasswordField();
+        lblSenhaAnt = new javax.swing.JLabel();
+        pwdSenhaAntigaAgi = new javax.swing.JPasswordField();
+        btnNovaSenhaAgiota = new javax.swing.JButton();
+        btnLimparAgiota = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Nova Senha");
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
+        pPrincipal.setBackground(new java.awt.Color(255, 102, 51));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Nova Senha");
+        lblNovaSenha.setBackground(new java.awt.Color(0, 0, 0));
+        lblNovaSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNovaSenha.setText("Nova Senha");
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        pTitulo.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Alteração de Senha");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Alteração de Senha");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
+        pTitulo.setLayout(pTituloLayout);
+        pTituloLayout.setHorizontalGroup(
+            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
                 .addContainerGap(125, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(lblTitulo)
                 .addGap(117, 117, 117))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pTituloLayout.setVerticalGroup(
+            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pTituloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(lblTitulo)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jTrocaSenhaAgi.addActionListener(new java.awt.event.ActionListener() {
+        pwdTrocaSenhaAgi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTrocaSenhaAgiActionPerformed(evt);
+                pwdTrocaSenhaAgiActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Repetir Nova Senha");
+        lblRepSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblRepSenha.setText("Repetir Nova Senha");
 
-        jRepitaSenhaAgi.addActionListener(new java.awt.event.ActionListener() {
+        pwdRepitaSenhaAgi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRepitaSenhaAgiActionPerformed(evt);
+                pwdRepitaSenhaAgiActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Senha Antiga");
+        lblSenhaAnt.setText("Senha Antiga");
 
-        jnovaSenhaAgiota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
-        jnovaSenhaAgiota.setText("Salvar");
-        jnovaSenhaAgiota.addActionListener(new java.awt.event.ActionListener() {
+        btnNovaSenhaAgiota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
+        btnNovaSenhaAgiota.setText("Salvar");
+        btnNovaSenhaAgiota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jnovaSenhaAgiotaActionPerformed(evt);
+                btnNovaSenhaAgiotaActionPerformed(evt);
             }
         });
 
-        jlimparAgiota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
-        jlimparAgiota.setText("Limpar");
-        jlimparAgiota.addActionListener(new java.awt.event.ActionListener() {
+        btnLimparAgiota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
+        btnLimparAgiota.setText("Limpar");
+        btnLimparAgiota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jlimparAgiotaActionPerformed(evt);
+                btnLimparAgiotaActionPerformed(evt);
             }
         });
 
-        btnCadastroCadastro3.setBackground(new java.awt.Color(255, 0, 51));
-        btnCadastroCadastro3.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastroCadastro3.setText("Cancelar");
-        btnCadastroCadastro3.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(255, 0, 51));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroCadastro3ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
+        pPrincipal.setLayout(pPrincipalLayout);
+        pPrincipalLayout.setHorizontalGroup(
+            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addGap(158, 158, 158)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSenhaAnt)
+                    .addComponent(lblNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTrocaSenhaAgi)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addComponent(jRepitaSenhaAgi)
-                    .addComponent(jsenhaAntigaAgi))
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pwdTrocaSenhaAgi)
+                    .addComponent(lblRepSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                    .addComponent(pwdRepitaSenhaAgi)
+                    .addComponent(pwdSenhaAntigaAgi))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jlimparAgiota)
+                .addComponent(btnLimparAgiota)
                 .addGap(67, 67, 67)
-                .addComponent(btnCadastroCadastro3)
+                .addComponent(btnCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jnovaSenhaAgiota)
+                .addComponent(btnNovaSenhaAgiota)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        pPrincipalLayout.setVerticalGroup(
+            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPrincipalLayout.createSequentialGroup()
+                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(lblSenhaAnt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jsenhaAntigaAgi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pwdSenhaAntigaAgi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
+                .addComponent(lblNovaSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTrocaSenhaAgi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pwdTrocaSenhaAgi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(lblRepSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRepitaSenhaAgi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pwdRepitaSenhaAgi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jnovaSenhaAgiota)
-                    .addComponent(jlimparAgiota)
-                    .addComponent(btnCadastroCadastro3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNovaSenhaAgiota)
+                    .addComponent(btnLimparAgiota)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -173,11 +174,11 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -186,11 +187,11 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
         public void atualizarSenha(Cliente novoCliente){
         this.conectar.conectaBanco();
         
-        String consultaSenha = this.jsenhaAntigaAgi.getText();
+        String consultaSenha = this.pwdSenhaAntigaAgi.getText();
         
         try{
             var atualizaCpf = "UPDATE cadastroclientes SET "
-                    + "senha = '" + jsenhaAntigaAgi.getText() + "' "
+                    + "senha = '" + pwdSenhaAntigaAgi.getText() + "' "
                     + " WHERE "
                     + " senha = '" + consultaSenha + "';"
                     ;
@@ -205,7 +206,7 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
             JOptionPane.showMessageDialog (null, "Erro ao buscar Senha");
         
         } finally {
-            jTrocaSenhaAgi.setText(novoCliente.getSenha());
+            pwdTrocaSenhaAgi.setText(novoCliente.getSenha());
           
             
         }
@@ -213,35 +214,35 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
 
     
     
-    private void jTrocaSenhaAgiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTrocaSenhaAgiActionPerformed
+    private void pwdTrocaSenhaAgiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdTrocaSenhaAgiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTrocaSenhaAgiActionPerformed
+    }//GEN-LAST:event_pwdTrocaSenhaAgiActionPerformed
 
-    private void jRepitaSenhaAgiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRepitaSenhaAgiActionPerformed
+    private void pwdRepitaSenhaAgiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdRepitaSenhaAgiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRepitaSenhaAgiActionPerformed
+    }//GEN-LAST:event_pwdRepitaSenhaAgiActionPerformed
 
-    private void jnovaSenhaAgiotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jnovaSenhaAgiotaActionPerformed
+    private void btnNovaSenhaAgiotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovaSenhaAgiotaActionPerformed
         // TODO add your handling code here:
         atualizarSenha(novoCliente);
         new InformacoesAgiota().setVisible(true);
         novaSenhaAgiota.this.dispose();
-    }//GEN-LAST:event_jnovaSenhaAgiotaActionPerformed
+    }//GEN-LAST:event_btnNovaSenhaAgiotaActionPerformed
 
-    private void jlimparAgiotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlimparAgiotaActionPerformed
+    private void btnLimparAgiotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparAgiotaActionPerformed
         // TODO add your handling code here:
         novoCliente.LimparCliente();
-        this.jsenhaAntigaAgi.setText("");
-        this.jTrocaSenhaAgi.setText("");
-        this.jRepitaSenhaAgi.setText("");
+        this.pwdSenhaAntigaAgi.setText("");
+        this.pwdTrocaSenhaAgi.setText("");
+        this.pwdRepitaSenhaAgi.setText("");
 
-    }//GEN-LAST:event_jlimparAgiotaActionPerformed
+    }//GEN-LAST:event_btnLimparAgiotaActionPerformed
 
-    private void btnCadastroCadastro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroCadastro3ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         new InformacoesAgiota().setVisible(true);
         novaSenhaAgiota.this.dispose();
-    }//GEN-LAST:event_btnCadastroCadastro3ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,18 +281,18 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastroCadastro3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jRepitaSenhaAgi;
-    private javax.swing.JPasswordField jTrocaSenhaAgi;
-    private javax.swing.JButton jlimparAgiota;
-    private javax.swing.JButton jnovaSenhaAgiota;
-    private javax.swing.JPasswordField jsenhaAntigaAgi;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnLimparAgiota;
+    private javax.swing.JButton btnNovaSenhaAgiota;
+    private javax.swing.JLabel lblNovaSenha;
+    private javax.swing.JLabel lblRepSenha;
+    private javax.swing.JLabel lblSenhaAnt;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pPrincipal;
+    private javax.swing.JPanel pTitulo;
+    private javax.swing.JPasswordField pwdRepitaSenhaAgi;
+    private javax.swing.JPasswordField pwdSenhaAntigaAgi;
+    private javax.swing.JPasswordField pwdTrocaSenhaAgi;
     // End of variables declaration//GEN-END:variables
 
 }

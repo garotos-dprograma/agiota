@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package agiota;
+package janelas;
 
 import classe.Cliente;
 import conexoes.MySQL;
@@ -32,141 +32,142 @@ public class novaSenha extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jTrocaSenha = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        jRepitaSenha = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jsenhaAntiga = new javax.swing.JPasswordField();
-        jSalvar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        btnCadastroCadastro2 = new javax.swing.JButton();
+        pPrincipal = new javax.swing.JPanel();
+        lblNovaSenha = new javax.swing.JLabel();
+        pTitulo = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        pwdTrocaSenha = new javax.swing.JPasswordField();
+        lblRepSenha = new javax.swing.JLabel();
+        pwdRepitaSenha = new javax.swing.JPasswordField();
+        lblSenhaAnt = new javax.swing.JLabel();
+        pwdSenhaAntiga = new javax.swing.JPasswordField();
+        btnSalvar = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Nova Senha");
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
+        pPrincipal.setBackground(new java.awt.Color(255, 102, 51));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Nova Senha");
+        lblNovaSenha.setBackground(new java.awt.Color(0, 0, 0));
+        lblNovaSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblNovaSenha.setText("Nova Senha");
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        pTitulo.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Alteração de Senha");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Alteração de Senha");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
+        pTitulo.setLayout(pTituloLayout);
+        pTituloLayout.setHorizontalGroup(
+            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
                 .addContainerGap(125, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(lblTitulo)
                 .addGap(117, 117, 117))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pTituloLayout.setVerticalGroup(
+            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pTituloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(lblTitulo)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jTrocaSenha.addActionListener(new java.awt.event.ActionListener() {
+        pwdTrocaSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTrocaSenhaActionPerformed(evt);
+                pwdTrocaSenhaActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Repetir Nova Senha");
+        lblRepSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblRepSenha.setText("Repetir Nova Senha");
 
-        jRepitaSenha.addActionListener(new java.awt.event.ActionListener() {
+        pwdRepitaSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRepitaSenhaActionPerformed(evt);
+                pwdRepitaSenhaActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Senha Antiga");
+        lblSenhaAnt.setText("Senha Antiga");
 
-        jSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
-        jSalvar.setText("Salvar");
-        jSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSalvarActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
-        jButton1.setText("Limpar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLimparActionPerformed(evt);
             }
         });
 
-        btnCadastroCadastro2.setBackground(new java.awt.Color(255, 0, 51));
-        btnCadastroCadastro2.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastroCadastro2.setText("Cancelar");
-        btnCadastroCadastro2.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(255, 0, 51));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroCadastro2ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
+        pPrincipal.setLayout(pPrincipalLayout);
+        pPrincipalLayout.setHorizontalGroup(
+            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addGap(158, 158, 158)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSenhaAnt)
+                    .addComponent(lblNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTrocaSenha)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addComponent(jRepitaSenha)
-                    .addComponent(jsenhaAntiga))
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pwdTrocaSenha)
+                    .addComponent(lblRepSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                    .addComponent(pwdRepitaSenha)
+                    .addComponent(pwdSenhaAntiga))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnLimpar)
                 .addGap(66, 66, 66)
-                .addComponent(btnCadastroCadastro2)
+                .addComponent(btnCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSalvar)
+                .addComponent(btnSalvar)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        pPrincipalLayout.setVerticalGroup(
+            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPrincipalLayout.createSequentialGroup()
+                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(lblSenhaAnt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jsenhaAntiga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pwdSenhaAntiga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
+                .addComponent(lblNovaSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTrocaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pwdTrocaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(lblRepSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRepitaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pwdRepitaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSalvar)
-                    .addComponent(jButton1)
-                    .addComponent(btnCadastroCadastro2))
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvar)
+                    .addComponent(btnLimpar)
+                    .addComponent(btnCancelar))
                 .addContainerGap())
         );
 
@@ -174,11 +175,11 @@ public class novaSenha extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -187,11 +188,11 @@ public class novaSenha extends javax.swing.JFrame {
         public void atualizarSenha(Cliente novoCliente){
         this.conectar.conectaBanco();
         
-        String consultaSenha = this.jsenhaAntiga.getText();
+        String consultaSenha = this.pwdSenhaAntiga.getText();
         
         try{
             var atualizaCpf = "UPDATE cadastroclientes SET "
-                    + "senha = '" + jTrocaSenha.getText() + "' "
+                    + "senha = '" + pwdTrocaSenha.getText() + "' "
                     + " WHERE "
                     + " senha = '" + consultaSenha + "';"
                     ;
@@ -206,7 +207,7 @@ public class novaSenha extends javax.swing.JFrame {
             JOptionPane.showMessageDialog (null, "Erro ao buscar Senha");
         
         } finally {
-            jTrocaSenha.setText(novoCliente.getSenha());
+            pwdTrocaSenha.setText(novoCliente.getSenha());
           
             
         }
@@ -214,35 +215,35 @@ public class novaSenha extends javax.swing.JFrame {
 
     
     
-    private void jTrocaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTrocaSenhaActionPerformed
+    private void pwdTrocaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdTrocaSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTrocaSenhaActionPerformed
+    }//GEN-LAST:event_pwdTrocaSenhaActionPerformed
 
-    private void jRepitaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRepitaSenhaActionPerformed
+    private void pwdRepitaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdRepitaSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRepitaSenhaActionPerformed
+    }//GEN-LAST:event_pwdRepitaSenhaActionPerformed
 
-    private void jSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalvarActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         atualizarSenha(novoCliente);
          new InformacoesPessoais().setVisible(true);
          novaSenha.this.dispose();
-    }//GEN-LAST:event_jSalvarActionPerformed
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
         novoCliente.LimparCliente();
-        this.jsenhaAntiga.setText("");
-        this.jTrocaSenha.setText("");
-        this.jRepitaSenha.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.pwdSenhaAntiga.setText("");
+        this.pwdTrocaSenha.setText("");
+        this.pwdRepitaSenha.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void btnCadastroCadastro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroCadastro2ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         
          new InformacoesPessoais().setVisible(true);
          novaSenha.this.dispose();
-    }//GEN-LAST:event_btnCadastroCadastro2ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,18 +281,18 @@ public class novaSenha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastroCadastro2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jRepitaSenha;
-    private javax.swing.JButton jSalvar;
-    private javax.swing.JPasswordField jTrocaSenha;
-    private javax.swing.JPasswordField jsenhaAntiga;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel lblNovaSenha;
+    private javax.swing.JLabel lblRepSenha;
+    private javax.swing.JLabel lblSenhaAnt;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pPrincipal;
+    private javax.swing.JPanel pTitulo;
+    private javax.swing.JPasswordField pwdRepitaSenha;
+    private javax.swing.JPasswordField pwdSenhaAntiga;
+    private javax.swing.JPasswordField pwdTrocaSenha;
     // End of variables declaration//GEN-END:variables
 
 }
