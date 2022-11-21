@@ -191,7 +191,7 @@ public class novaSenha extends javax.swing.JFrame {
         String consultaSenha = this.pwdSenhaAntiga.getText();
         
         try{
-            var atualizaCpf = "UPDATE cadastroclientes SET "
+            String atualizaCpf = "UPDATE cadastroclientes SET "
                     + "senha = '" + pwdTrocaSenha.getText() + "' "
                     + " WHERE "
                     + " senha = '" + consultaSenha + "';"

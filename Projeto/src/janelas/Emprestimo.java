@@ -172,7 +172,7 @@ public class Emprestimo extends javax.swing.JFrame {
         String consultaEmail = this.txtEmprestimo.getText();
         
         try{
-            var atualizaCpf = "UPDATE cadastroclientes SET "
+            String atualizaCpf = "UPDATE cadastroclientes SET "
                     + "email = '" + txtEmprestimo.getText() + "' "
                     + " WHERE "
                     + " email = '" + consultaEmail + "';"

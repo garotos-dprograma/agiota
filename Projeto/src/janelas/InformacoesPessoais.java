@@ -483,7 +483,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         String consultaCpf = this.txtInformacoesCPF.getText();
         
         try{
-            var deletarCpf = "DELETE from cadastroclientes where cpf = '" + consultaCpf + "'";
+            String deletarCpf = "DELETE from cadastroclientes where cpf = '" + consultaCpf + "'";
                            
             this.conectar.updateSQL (deletarCpf);
             System.out.println(deletarCpf);
@@ -504,7 +504,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         String consultaCpf = this.txtInformacoesCPF.getText ();
         
         try{
-            var buscarCliente = "SELECT"
+            String buscarCliente = "SELECT"
                     +"cpf,"
                     +"nome,"
                     +"email,"

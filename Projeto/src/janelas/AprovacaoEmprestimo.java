@@ -434,7 +434,7 @@ public class AprovacaoEmprestimo extends javax.swing.JFrame {
         String consultaEmail = this.txtEmrpestimo.getText();
         
         try{
-            var atualizaCpf = "UPDATE cadastroclientes SET "
+            String atualizaCpf = "UPDATE cadastroclientes SET "
                     + "email = '" + txtEmrpestimo.getText() + "' "
                     + " WHERE "
                     + " email = '" + consultaEmail + "';"

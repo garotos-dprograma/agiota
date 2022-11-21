@@ -190,7 +190,7 @@ public class novaSenhaAgiota extends javax.swing.JFrame {
         String consultaSenha = this.pwdSenhaAntigaAgi.getText();
         
         try{
-            var atualizaCpf = "UPDATE cadastroclientes SET "
+            String atualizaCpf = "UPDATE cadastroclientes SET "
                     + "senha = '" + pwdSenhaAntigaAgi.getText() + "' "
                     + " WHERE "
                     + " senha = '" + consultaSenha + "';"

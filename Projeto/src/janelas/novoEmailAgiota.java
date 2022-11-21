@@ -1,20 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package janelas;
 
 import classe.Cliente;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author limal
- */
 public class novoEmailAgiota extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     Cliente novoCliente = new Cliente ();
+
     /**
      * Creates new form novaSenha
      */
@@ -201,7 +194,7 @@ public class novoEmailAgiota extends javax.swing.JFrame {
         String consultaEmail = this.txtEmailAnt.getText();
         
         try{
-            var atualizaCpf = "UPDATE cadastroclientes SET "
+            String atualizaCpf = "UPDATE cadastroclientes SET "
                     + "email = '" + txtEmailNovo.getText() + "' "
                     + " WHERE "
                     + " email = '" + consultaEmail + "';"

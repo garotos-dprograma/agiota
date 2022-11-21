@@ -483,7 +483,7 @@ public class InformacoesAgiota extends javax.swing.JFrame {
         String consultaCpf = this.txtAgiotaCpf.getText ();
         
         try{
-            var buscarAgiota = "SELECT"
+            String buscarAgiota = "SELECT"
                     +"cpf,"
                     +"nome,"
                     +"email,"

@@ -349,8 +349,9 @@ public class Cadastro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CadastrarCliente (Cliente novo) {
+    private boolean CadastrarCliente (Cliente novo) {
         this.conectar.conectaBanco(); //estabelecendo conexão com o bd
+        boolean sucesso = false;
         
         novo.setNome(txtCadastroNome.getText());
         novo.setRg(txtCadastroRG.getText());
@@ -368,7 +369,7 @@ public class Cadastro extends javax.swing.JFrame {
         novo.setCargo(String.valueOf(cbxCargo.getSelectedItem()));
         
         try{
-            var query = "INSERT INTO `cliente_agiota`("
+            String query = "INSERT INTO `cliente_agiota`("
                     +"nome,"
                     +"rg,"
                     +"email,"
@@ -398,15 +399,16 @@ public class Cadastro extends javax.swing.JFrame {
                     + ");";
             
             this.conectar.insertSQL(query);
-                    
+            sucesso = true;
             JOptionPane.showMessageDialog (null, "Cadastro Realizado com Sucesso!!");
         } catch (Exception e ){
+            sucesso = false;
             System.out.println("Erro ao Cadastrar Cliente  " + e.getMessage());
             JOptionPane.showMessageDialog (null, "Erro ao Cadastrar Cliente!");
         } finally {
             this.conectar.fechaBanco ();
         }
-        
+        return sucesso;
     }
     
     private void btnCadastroLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroLimparActionPerformed
@@ -429,9 +431,10 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroLimparActionPerformed
 
     private void btnCadastroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroCadastroActionPerformed
-        CadastrarCliente(novoCliente);
-        new Login().setVisible(true);
-        Cadastro.this.dispose();
+        if(CadastrarCliente(novoCliente)){
+            new Login().setVisible(true);
+            Cadastro.this.dispose();
+        }
     }
      /**
      * @param args the command line arguments

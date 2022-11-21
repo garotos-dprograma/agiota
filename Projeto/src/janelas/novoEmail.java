@@ -208,7 +208,7 @@ public class novoEmail extends javax.swing.JFrame {
         String consultaEmail = this.txtEmailAnt.getText();
         
         try{
-            var atualizaCpf = "UPDATE cadastroclientes SET "
+            String atualizaCpf = "UPDATE cadastroclientes SET "
                     + "email = '" + txtNovoEmail.getText() + "' "
                     + " WHERE "
                     + " email = '" + consultaEmail + "';"
