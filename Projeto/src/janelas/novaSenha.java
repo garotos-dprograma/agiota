@@ -4,7 +4,7 @@
  */
 package janelas;
 
-import classe.Cliente;
+import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class novaSenha extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
-    Cliente novoCliente = new Cliente ();
+    Pessoa novoCliente = new Pessoa ();
 
     /**
      * Creates new form novaSenha
@@ -185,7 +185,7 @@ public class novaSenha extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        public void atualizarSenha(Cliente novoCliente){
+        public void atualizarSenha(Pessoa novoCliente){
         this.conectar.conectaBanco();
         
         String consultaSenha = this.pwdSenhaAntiga.getText();

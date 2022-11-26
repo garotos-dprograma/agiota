@@ -1,20 +1,58 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package janelas;
 
-/**
- *
- * @author limal
- */
-public class ConsultaDivida extends javax.swing.JFrame {
+import classe.Pessoa;
+import conexoes.MySQL;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
-    /**
-     * Creates new form ConsultaDivida
-     */
+
+public class ConsultaDivida extends javax.swing.JFrame {
+    Pessoa usuarioLogado = new Pessoa();
+    MySQL conectar = new MySQL();
+
     public ConsultaDivida() {
         initComponents();
+    }
+    
+    public ConsultaDivida(Pessoa usuario) {
+        initComponents();
+        usuarioLogado = usuario;
+        buscarDividas();
+    }
+    
+    public void buscarDividas(){
+        String columnNames[] = {"Credor", "Valor inicial", "Valor atual", "Status"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        try{
+            this.conectar.conectaBanco();
+            String query = "SELECT " +
+                "pessoa.nome, " +
+                "divida.valorInicial, " +
+                "divida.valorAtual, " +
+                "Situacao.nome " +
+                "FROM divida " +
+                "JOIN pessoa ON pessoa.Id = divida.agiotaId " +
+                "JOIN situacao ON situacao.id = divida.situacaoDivida " +
+                "WHERE divida.devedorId = " + this.usuarioLogado.getId();
+            this.conectar.executarSQL(query);
+            while (this.conectar.getResultSet().next()) {
+                model.addRow(new String[]{
+                    this.conectar.getResultSet().getString(1),
+                    String.valueOf(this.conectar.getResultSet().getDouble(2)),
+                    String.valueOf(this.conectar.getResultSet().getDouble(3)),
+                    this.conectar.getResultSet().getString(4)
+                });
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Erro ao listar dívidas! " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao listar dívidas!");
+            
+        } finally {
+            this.conectar.fechaBanco();
+        }
+        
+        tConsulta.setModel(model);
     }
 
     /**
@@ -31,21 +69,22 @@ public class ConsultaDivida extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         spLista = new javax.swing.JScrollPane();
-        tbConsulta = new javax.swing.JTable();
+        tConsulta = new javax.swing.JTable();
         lblConsulta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consultar Divida");
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 102, 51));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Ola Endividado");
+        jLabel2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Olá, Endividado");
 
-        btnVoltar.setBackground(new java.awt.Color(255, 102, 51));
+        btnVoltar.setBackground(new java.awt.Color(255, 51, 51));
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
-        btnVoltar.setText("jButton1");
+        btnVoltar.setBorder(null);
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -77,47 +116,48 @@ public class ConsultaDivida extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        tbConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tbConsulta.setModel(new javax.swing.table.DefaultTableModel(
+        tConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Credor", "Valor", "Data", "Data de Vencimento", "Status"
+                "Credor", "Valor inicial", "Valor atual", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Long.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        spLista.setViewportView(tbConsulta);
+        tConsulta.setRowHeight(25);
+        spLista.setViewportView(tConsulta);
 
         lblConsulta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        lblConsulta.setText("Consultar Dividas");
+        lblConsulta.setText("Consultar dívidas");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -128,7 +168,7 @@ public class ConsultaDivida extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblConsulta)
-                        .addGap(0, 878, Short.MAX_VALUE))
+                        .addGap(0, 881, Short.MAX_VALUE))
                     .addComponent(spLista))
                 .addContainerGap())
         );
@@ -137,8 +177,8 @@ public class ConsultaDivida extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblConsulta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spLista, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(spLista, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
@@ -208,6 +248,6 @@ public class ConsultaDivida extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblConsulta;
     private javax.swing.JScrollPane spLista;
-    private javax.swing.JTable tbConsulta;
+    private javax.swing.JTable tConsulta;
     // End of variables declaration//GEN-END:variables
 }

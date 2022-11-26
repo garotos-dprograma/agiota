@@ -1,12 +1,12 @@
 package janelas;
 
-import classe.Cliente;
+import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
 public class novoEmailAgiota extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
-    Cliente novoCliente = new Cliente ();
+    Pessoa novoCliente = new Pessoa ();
 
     /**
      * Creates new form novaSenha
@@ -188,7 +188,7 @@ public class novoEmailAgiota extends javax.swing.JFrame {
 
         
 
-    public void atualizarEmail(Cliente novoCliente){
+    public void atualizarEmail(Pessoa novoCliente){
         this.conectar.conectaBanco();
         
         String consultaEmail = this.txtEmailAnt.getText();

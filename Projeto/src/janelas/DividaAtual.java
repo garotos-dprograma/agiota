@@ -1,20 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package janelas;
 
-/**
- *
- * @author limal
- */
-public class DividaAtual extends javax.swing.JFrame {
+import classe.Pessoa;
+import conexoes.MySQL;
+import javax.swing.JOptionPane;
 
-    /**
-     * Creates new form DividaAtual
-     */
+public class DividaAtual extends javax.swing.JFrame {
+    Pessoa usuarioLogado = new Pessoa();
+    MySQL conectar = new MySQL();
+
     public DividaAtual() {
         initComponents();
+    }
+    
+    public DividaAtual(Pessoa usuario) {
+        initComponents();
+        usuarioLogado = usuario;
+        this.lblOla.setText("Olá, " + this.usuarioLogado.getNome());
+        buscarDividaTotal();
+    }
+    
+    public void buscarDividaTotal(){
+        this.conectar.conectaBanco();
+        try{
+            String query = "SELECT "
+                    + "SUM(valorAtual),"
+                    + "COUNT(1) "
+                    + "FROM divida "
+                    + "WHERE devedorId = " + this.usuarioLogado.getId();
+            
+            this.conectar.executarSQL (query);
+            
+            while (this.conectar.getResultSet().next()) {
+                this.lblDividaTotalValor.setText("R$ " + this.conectar.getResultSet().getDouble(1));
+                this.lblTotalAgiotas.setText("" + this.conectar.getResultSet().getInt(2));
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar dívidas! " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao buscar dívidas!");
+            
+        } finally {
+            this.conectar.fechaBanco();
+        }
     }
 
     /**
@@ -28,7 +54,7 @@ public class DividaAtual extends javax.swing.JFrame {
 
         pInicial = new javax.swing.JPanel();
         pDivida = new javax.swing.JPanel();
-        lblDividaAtual = new javax.swing.JLabel();
+        lblDividaTotalValor = new javax.swing.JLabel();
         btnAtualConsulta = new javax.swing.JButton();
         btnAtualDados = new javax.swing.JButton();
         btnAtualNovo = new javax.swing.JButton();
@@ -37,6 +63,10 @@ public class DividaAtual extends javax.swing.JFrame {
         lblEmprestimo = new javax.swing.JLabel();
         btnAtualDados1 = new javax.swing.JButton();
         lblLogoff = new javax.swing.JLabel();
+        lblVoceEstaDevendo = new javax.swing.JLabel();
+        lblDividaAtual = new javax.swing.JLabel();
+        lblTotalAgiotas = new javax.swing.JLabel();
+        lblAgiotas = new javax.swing.JLabel();
         pTitulo = new javax.swing.JPanel();
         lblOla = new javax.swing.JLabel();
 
@@ -44,10 +74,10 @@ public class DividaAtual extends javax.swing.JFrame {
 
         pInicial.setBackground(new java.awt.Color(0, 0, 0));
 
-        pDivida.setBackground(new java.awt.Color(255, 102, 51));
+        pDivida.setBackground(new java.awt.Color(255, 51, 51));
 
-        lblDividaAtual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblDividaAtual.setText("Divida Atual Total");
+        lblDividaTotalValor.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
+        lblDividaTotalValor.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pDividaLayout = new javax.swing.GroupLayout(pDivida);
         pDivida.setLayout(pDividaLayout);
@@ -55,15 +85,15 @@ public class DividaAtual extends javax.swing.JFrame {
             pDividaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pDividaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblDividaAtual)
-                .addContainerGap(833, Short.MAX_VALUE))
+                .addComponent(lblDividaTotalValor, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pDividaLayout.setVerticalGroup(
             pDividaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pDividaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDividaAtual)
-                .addContainerGap(78, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDividaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblDividaTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         btnAtualConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/consultar.png"))); // NOI18N
@@ -110,14 +140,34 @@ public class DividaAtual extends javax.swing.JFrame {
         lblLogoff.setForeground(new java.awt.Color(255, 255, 255));
         lblLogoff.setText("Log Off");
 
+        lblVoceEstaDevendo.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblVoceEstaDevendo.setForeground(new java.awt.Color(255, 102, 102));
+        lblVoceEstaDevendo.setText("Você está devendo para");
+
+        lblDividaAtual.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        lblDividaAtual.setForeground(new java.awt.Color(255, 255, 255));
+        lblDividaAtual.setText("Dívida atual total:");
+
+        lblTotalAgiotas.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblTotalAgiotas.setForeground(new java.awt.Color(255, 102, 102));
+
+        lblAgiotas.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblAgiotas.setForeground(new java.awt.Color(255, 102, 102));
+        lblAgiotas.setText("agiotas.");
+
         javax.swing.GroupLayout pInicialLayout = new javax.swing.GroupLayout(pInicial);
         pInicial.setLayout(pInicialLayout);
         pInicialLayout.setHorizontalGroup(
             pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pInicialLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pDivida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pInicialLayout.createSequentialGroup()
+                        .addComponent(lblDividaAtual)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pInicialLayout.createSequentialGroup()
+                        .addComponent(pDivida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pInicialLayout.createSequentialGroup()
                         .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pInicialLayout.createSequentialGroup()
@@ -129,26 +179,36 @@ public class DividaAtual extends javax.swing.JFrame {
                                 .addComponent(lblConsulta)
                                 .addGap(62, 62, 62)
                                 .addComponent(lblEmprestimo)))
+                        .addGap(131, 131, 131)
+                        .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMeusDados))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pInicialLayout.createSequentialGroup()
-                                .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pInicialLayout.createSequentialGroup()
-                                .addComponent(lblMeusDados)
-                                .addGap(71, 71, 71)
-                                .addComponent(lblLogoff)
-                                .addGap(41, 41, 41)))
-                        .addGap(29, 29, 29)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                            .addComponent(lblLogoff)
+                            .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pInicialLayout.createSequentialGroup()
+                        .addComponent(lblVoceEstaDevendo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTotalAgiotas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAgiotas)
+                        .addGap(562, 562, 562))))
         );
         pInicialLayout.setVerticalGroup(
             pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pInicialLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
+                .addComponent(lblDividaAtual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pDivida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVoceEstaDevendo)
+                    .addComponent(lblTotalAgiotas, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAgiotas))
+                .addGap(24, 24, 24)
                 .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,28 +220,29 @@ public class DividaAtual extends javax.swing.JFrame {
                     .addComponent(btnAtualNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        pTitulo.setBackground(new java.awt.Color(255, 102, 51));
+        pTitulo.setBackground(new java.awt.Color(255, 51, 51));
         pTitulo.setForeground(new java.awt.Color(255, 102, 51));
 
-        lblOla.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblOla.setText("Ola Endividado");
+        lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        lblOla.setForeground(new java.awt.Color(255, 255, 255));
+        lblOla.setText("Olá, Endividado");
 
         javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
         pTitulo.setLayout(pTituloLayout);
         pTituloLayout.setHorizontalGroup(
             pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pTituloLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(lblOla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(851, 851, 851))
+                .addGap(670, 670, 670))
         );
         pTituloLayout.setVerticalGroup(
             pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(lblOla)
                 .addContainerGap())
         );
@@ -190,15 +251,18 @@ public class DividaAtual extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -218,7 +282,7 @@ public class DividaAtual extends javax.swing.JFrame {
 
     private void btnAtualConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualConsultaActionPerformed
         // TODO add your handling code here:
-        new ConsultaDivida().setVisible(true);
+        new ConsultaDivida(usuarioLogado).setVisible(true);
         DividaAtual.this.dispose();
     }//GEN-LAST:event_btnAtualConsultaActionPerformed
 
@@ -268,12 +332,16 @@ public class DividaAtual extends javax.swing.JFrame {
     private javax.swing.JButton btnAtualDados;
     private javax.swing.JButton btnAtualDados1;
     private javax.swing.JButton btnAtualNovo;
+    private javax.swing.JLabel lblAgiotas;
     private javax.swing.JLabel lblConsulta;
     private javax.swing.JLabel lblDividaAtual;
+    private javax.swing.JLabel lblDividaTotalValor;
     private javax.swing.JLabel lblEmprestimo;
     private javax.swing.JLabel lblLogoff;
     private javax.swing.JLabel lblMeusDados;
     private javax.swing.JLabel lblOla;
+    private javax.swing.JLabel lblTotalAgiotas;
+    private javax.swing.JLabel lblVoceEstaDevendo;
     private javax.swing.JPanel pDivida;
     private javax.swing.JPanel pInicial;
     private javax.swing.JPanel pTitulo;

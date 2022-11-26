@@ -1,9 +1,23 @@
 package janelas;
 
-public class consultaAgiota extends javax.swing.JFrame {
+import classe.Pessoa;
+import conexoes.MySQL;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
-    public consultaAgiota() {
+public class ConsultaAgiota extends javax.swing.JFrame {
+    Pessoa usuarioLogado = new Pessoa();
+    MySQL conectar = new MySQL();
+    
+    public ConsultaAgiota() {
         initComponents();
+    }
+
+    public ConsultaAgiota(Pessoa usuario) {
+        initComponents();
+        usuarioLogado = usuario;
+        this.lblOla.setText("Olá, Sr(a) " + usuarioLogado.getNome());
+        this.buscarDividas();
     }
 
     /**
@@ -22,20 +36,21 @@ public class consultaAgiota extends javax.swing.JFrame {
         SPConsulta = new javax.swing.JScrollPane();
         tConsulta = new javax.swing.JTable();
         lblConsulta = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta Agiota");
 
-        pTitulo.setBackground(new java.awt.Color(255, 102, 51));
+        pTitulo.setBackground(new java.awt.Color(220, 174, 50));
         pTitulo.setForeground(new java.awt.Color(255, 102, 51));
 
-        lblOla.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblOla.setText("Ola Agiota");
+        lblOla.setBackground(new java.awt.Color(0, 0, 0));
+        lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        lblOla.setForeground(new java.awt.Color(0, 0, 0));
+        lblOla.setText("Olá, Agiota");
 
-        btnVoltar.setBackground(new java.awt.Color(255, 102, 51));
+        btnVoltar.setBackground(new java.awt.Color(220, 174, 50));
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
-        btnVoltar.setText("jButton1");
+        btnVoltar.setBorder(null);
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -50,7 +65,7 @@ public class consultaAgiota extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblOla)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pTituloLayout.setVerticalGroup(
@@ -58,10 +73,10 @@ public class consultaAgiota extends javax.swing.JFrame {
             .addGroup(pTituloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pTituloLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblOla))
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -103,19 +118,13 @@ public class consultaAgiota extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tConsulta.setEnabled(false);
+        tConsulta.setRowHeight(25);
         SPConsulta.setViewportView(tConsulta);
 
-        lblConsulta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblConsulta.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         lblConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        lblConsulta.setText("Consultar Dividas");
-
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/binoculars.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
+        lblConsulta.setText("Consultar dívidas");
 
         javax.swing.GroupLayout pFuncionalLayout = new javax.swing.GroupLayout(pFuncional);
         pFuncional.setLayout(pFuncionalLayout);
@@ -129,19 +138,15 @@ public class consultaAgiota extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(pFuncionalLayout.createSequentialGroup()
                         .addComponent(lblConsulta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscar)
-                        .addGap(15, 15, 15))))
+                        .addGap(16, 883, Short.MAX_VALUE))))
         );
         pFuncionalLayout.setVerticalGroup(
             pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFuncionalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConsulta)
-                    .addComponent(btnBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SPConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(lblConsulta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SPConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
@@ -164,15 +169,52 @@ public class consultaAgiota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
-        new DividaAgiota().setVisible(true);
-        consultaAgiota.this.dispose();
+        new DividaAgiota(usuarioLogado).setVisible(true);
+        ConsultaAgiota.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
+    public void buscarDividas(){
+        String columnNames[] = {"Nome", "CPF", "RG", "Telefone", "Rua", "Nº", "Valor pago", "Valor devendo"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        try{
+            this.conectar.conectaBanco();
+            String query = "SELECT " +
+                "pessoa.nome, " +
+                "pessoa.cpf, " +
+                "pessoa.rg, " +
+                "pessoa.telefone," +
+                "pessoa.rua, " +
+                "pessoa.numero, " +
+                "ABS(divida.valorAtual - divida.valorInicial) AS valorPago," +
+                "ABS(divida.valorAtual) AS valorDevendo " +
+                "FROM divida " +
+                "JOIN pessoa ON pessoa.Id = divida.devedorId " +
+                "WHERE divida.agiotaId = " + this.usuarioLogado.getId();
+            this.conectar.executarSQL(query);
+            while (this.conectar.getResultSet().next()) {
+                model.addRow(new String[]{
+                    this.conectar.getResultSet().getString(1),
+                    this.conectar.getResultSet().getString(2),
+                    this.conectar.getResultSet().getString(3),
+                    this.conectar.getResultSet().getString(4),
+                    this.conectar.getResultSet().getString(5),
+                    this.conectar.getResultSet().getString(6),
+                    String.valueOf(this.conectar.getResultSet().getDouble(7)),
+                    String.valueOf(this.conectar.getResultSet().getDouble(8))
+                });
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Erro ao listar dívidas! " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao listar dívidas!");
+            
+        } finally {
+            this.conectar.fechaBanco();
+        }
+        
+        tConsulta.setModel(model);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -190,28 +232,29 @@ public class consultaAgiota extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(consultaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(consultaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(consultaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(consultaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new consultaAgiota().setVisible(true);
+                new ConsultaAgiota().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane SPConsulta;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel lblConsulta;
     private javax.swing.JLabel lblOla;

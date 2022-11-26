@@ -1,23 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package janelas;
 
-import classe.Cliente;
+import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author limal
- */
 public class InformacoesAgiota extends javax.swing.JFrame {
-        MySQL conectar = new MySQL();
-        Cliente novoCliente = new Cliente ();
-    /**
-     * Creates new form InformacoesPessoais
-     */
+    MySQL conectar = new MySQL();
+    Pessoa novoCliente = new Pessoa ();
+
     public InformacoesAgiota() {
         initComponents();
     }
@@ -478,7 +468,7 @@ public class InformacoesAgiota extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buscarAgiota(Cliente novoCliente) {
+    private void buscarAgiota(Pessoa novoCliente) {
         this.conectar.conectaBanco();
         String consultaCpf = this.txtAgiotaCpf.getText ();
         

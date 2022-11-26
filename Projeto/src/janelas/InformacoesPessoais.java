@@ -4,7 +4,7 @@
  */
 package janelas;
 
-import classe.Cliente;
+import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class InformacoesPessoais extends javax.swing.JFrame {
         MySQL conectar = new MySQL();
-        Cliente novoCliente = new Cliente ();
+        Pessoa novoCliente = new Pessoa ();
     /**
      * Creates new form InformacoesPessoais
      */
@@ -477,7 +477,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    public void deletarCliente(Cliente novoCliente){
+    public void deletarCliente(Pessoa novoCliente){
         this.conectar.conectaBanco();
         
         String consultaCpf = this.txtInformacoesCPF.getText();
@@ -499,7 +499,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
     
     
     
-    private void buscarCliente(Cliente novoCliente) {
+    private void buscarCliente(Pessoa novoCliente) {
         this.conectar.conectaBanco();
         String consultaCpf = this.txtInformacoesCPF.getText ();
         

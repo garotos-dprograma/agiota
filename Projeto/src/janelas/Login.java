@@ -1,21 +1,23 @@
 package janelas;
 
+import classe.Pessoa;
+import conexoes.MySQL;
 import java.awt.Toolkit;
-
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
-    /**
-     * Creates new form login
-     */
+    Pessoa usuarioLogado = new Pessoa();
+    boolean focus = false;
+    String mostrarSenha = "/resources/eye.png";
+    MySQL conectar = new MySQL();
+    
     public Login() {
         initComponents();
         pwdSenha.setEchoChar((char)0);
         setIcon();
     }
     
-    boolean focus = false;
-    String mostrarSenha = "/resources/eye.png";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,31 +28,32 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         pLogo = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         pFuncional = new javax.swing.JPanel();
-        txtUsuario1 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         lblEntrar = new javax.swing.JLabel();
         pwdSenha = new javax.swing.JPasswordField();
-        cbSalvarSenha1 = new javax.swing.JCheckBox();
-        lblSenhaEsquecida = new javax.swing.JLabel();
         lblInaConta1 = new javax.swing.JLabel();
         btnCriarConta = new javax.swing.JButton();
         txtEntrar = new javax.swing.JLabel();
         btnlblEntrar = new javax.swing.JLabel();
         lblMostrarSenha = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        pLogo.setBackground(new java.awt.Color(255, 102, 51));
+        pLogo.setBackground(new java.awt.Color(220, 174, 50));
 
         javax.swing.GroupLayout pLogoLayout = new javax.swing.GroupLayout(pLogo);
         pLogo.setLayout(pLogoLayout);
         pLogoLayout.setHorizontalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 445, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
         pLogoLayout.setVerticalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 706, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pFuncional.setBackground(new java.awt.Color(0, 0, 0));
@@ -60,17 +63,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtUsuario1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        txtUsuario1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUsuario1.setText("E-mail");
-        txtUsuario1.setBorder(null);
-        txtUsuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        txtUsuario1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtEmail.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txtEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEmail.setBorder(null);
+        txtEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsuario1FocusGained(evt);
+                txtEmailFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtUsuario1FocusLost(evt);
+                txtEmailFocusLost(evt);
             }
         });
 
@@ -80,33 +82,14 @@ public class Login extends javax.swing.JFrame {
 
         pwdSenha.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         pwdSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pwdSenha.setText("Senha");
         pwdSenha.setBorder(null);
+        pwdSenha.setEchoChar('*');
         pwdSenha.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 pwdSenhaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 pwdSenhaFocusLost(evt);
-            }
-        });
-
-        cbSalvarSenha1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        cbSalvarSenha1.setForeground(new java.awt.Color(255, 255, 255));
-        cbSalvarSenha1.setText("Salvar Informações");
-        cbSalvarSenha1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbSalvarSenha1ActionPerformed(evt);
-            }
-        });
-
-        lblSenhaEsquecida.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lblSenhaEsquecida.setForeground(new java.awt.Color(255, 255, 255));
-        lblSenhaEsquecida.setText("Esqueceu sua senha?");
-        lblSenhaEsquecida.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblSenhaEsquecida.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblSenhaEsquecidaMousePressed(evt);
             }
         });
 
@@ -129,7 +112,6 @@ public class Login extends javax.swing.JFrame {
 
         btnlblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/button.png"))); // NOI18N
-        btnlblEntrar.setText("Entrar");
         btnlblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnlblEntrarMouseClicked(evt);
@@ -147,60 +129,64 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Senha");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("E-mail");
+
         javax.swing.GroupLayout pFuncionalLayout = new javax.swing.GroupLayout(pFuncional);
         pFuncional.setLayout(pFuncionalLayout);
         pFuncionalLayout.setHorizontalGroup(
             pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFuncionalLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(91, 91, 91)
                 .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEntrar)
-                    .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMostrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addComponent(cbSalvarSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addComponent(lblSenhaEsquecida, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pFuncionalLayout.createSequentialGroup()
                         .addGap(163, 163, 163)
                         .addComponent(txtEntrar))
-                    .addComponent(btnlblEntrar)
                     .addGroup(pFuncionalLayout.createSequentialGroup()
                         .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(btnCriarConta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCriarConta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pFuncionalLayout.createSequentialGroup()
+                        .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnlblEntrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(pwdSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblMostrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38))
         );
         pFuncionalLayout.setVerticalGroup(
             pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFuncionalLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addGap(58, 58, 58)
                 .addComponent(lblEntrar)
-                .addGap(18, 18, 18)
-                .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(2, 2, 2)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMostrarSenha))
-                .addGap(18, 18, 18)
-                .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbSalvarSenha1)
-                    .addComponent(lblSenhaEsquecida))
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pFuncionalLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(txtEntrar))
                     .addComponent(btnlblEntrar))
-                .addGap(36, 36, 36)
-                .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(26, 26, 26)
+                .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnCriarConta))))
+                    .addComponent(btnCriarConta))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -209,7 +195,7 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addComponent(pFuncional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -236,36 +222,64 @@ public class Login extends javax.swing.JFrame {
         pwdSenha.setEchoChar('*');
     }//GEN-LAST:event_pwdSenhaFocusLost
 
-    private void cbSalvarSenha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalvarSenha1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbSalvarSenha1ActionPerformed
-
-    private void lblSenhaEsquecidaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSenhaEsquecidaMousePressed
-        System.out.println("Perdi a senha");
-    }//GEN-LAST:event_lblSenhaEsquecidaMousePressed
-
     private void btnCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarContaActionPerformed
         new Cadastro().setVisible(true);
         Login.this.dispose();
     }//GEN-LAST:event_btnCriarContaActionPerformed
 
-    private void txtUsuario1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuario1FocusGained
+    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
         if(focus == false)
             focus = true;
-        else if (focus == true && txtUsuario1.getText().equals("E-mail")){
-            txtUsuario1.setText(null);
+        else if (focus == true && txtEmail.getText().equals("E-mail")){
+            txtEmail.setText(null);
         }
-    }//GEN-LAST:event_txtUsuario1FocusGained
+    }//GEN-LAST:event_txtEmailFocusGained
 
-    private void txtUsuario1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuario1FocusLost
-        if(txtUsuario1.getText().equals(""))
-            txtUsuario1.setText("E-mail");
-    }//GEN-LAST:event_txtUsuario1FocusLost
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        if(txtEmail.getText().equals(""))
+            txtEmail.setText("E-mail");
+    }//GEN-LAST:event_txtEmailFocusLost
 
     private void btnlblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlblEntrarMouseClicked
-        System.out.println("Me impremente");
+        this.conectar.conectaBanco();
+        boolean sucesso = false;
+        try{
+            String query = "SELECT "
+                    + "id, "
+                    + "nome, "
+                    + "agiota "
+                    + "FROM pessoa "
+                    + "WHERE email = '" + this.txtEmail.getText() + "' "
+                    + "AND senha = '" + this.pwdSenha.getText() + "';";
+            this.conectar.executarSQL(query);
+            
+            while (this.conectar.getResultSet().next()) {
+                usuarioLogado.setId(this.conectar.getResultSet().getInt(1));
+                usuarioLogado.setNome(this.conectar.getResultSet().getString(2));
+                usuarioLogado.setAgiota(this.conectar.getResultSet().getBoolean(3));
+            }
+            if (usuarioLogado.getNome().equals("")){
+                JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
+            } else {
+                sucesso = true;
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao efetuar login! " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao efetuar login!");
+            
+        } finally {
+            this.conectar.fechaBanco();
+            if(sucesso){
+                if(this.usuarioLogado.getAgiota()){
+                    new DividaAgiota(this.usuarioLogado).setVisible(true);
+                } else {
+                    new DividaAtual(this.usuarioLogado).setVisible(true);
+                }
+                Login.this.dispose();
+            }
+        }
     }//GEN-LAST:event_btnlblEntrarMouseClicked
-
+    
     private void btnlblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlblEntrarMouseEntered
         btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/button light.png")));
     }//GEN-LAST:event_btnlblEntrarMouseEntered
@@ -327,17 +341,18 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCriarConta;
     private javax.swing.JLabel btnlblEntrar;
-    private javax.swing.JCheckBox cbSalvarSenha1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblInaConta1;
     private javax.swing.JLabel lblMostrarSenha;
-    private javax.swing.JLabel lblSenhaEsquecida;
     private javax.swing.JPanel pFuncional;
     private javax.swing.JPanel pLogo;
     private javax.swing.JPasswordField pwdSenha;
 
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JLabel txtEntrar;
-    private javax.swing.JTextField txtUsuario1;
     // End of variables declaration//GEN-END:variables
     private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/incognito.png")));
