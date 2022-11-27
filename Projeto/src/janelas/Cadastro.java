@@ -361,7 +361,6 @@ public class Cadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean CadastrarCliente(Pessoa novo) {
-        this.conectar.conectaBanco(); //estabelecendo conexão com o bd
         boolean sucesso = false;
         
         if (!pwdSenha.getText().equals(pwdRepita.getText())){
@@ -388,6 +387,8 @@ public class Cadastro extends javax.swing.JFrame {
         if(verificarCpfJaCadastrado())
             return false;
         
+        this.conectar.conectaBanco();
+
         try{
             String query = "INSERT INTO pessoa ("
                     +"nome,"
