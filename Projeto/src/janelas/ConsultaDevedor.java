@@ -1,23 +1,16 @@
 package janelas;
 
-import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static classe.Gerenciador.idLogado; 
+import static classe.Gerenciador.idLogado;
 
 
-public class ConsultaDivida extends javax.swing.JFrame {
-    Pessoa usuarioLogado = new Pessoa();
+public class ConsultaDevedor extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
 
-    public ConsultaDivida() {
+    public ConsultaDevedor() {
         initComponents();
-    }
-    
-    public ConsultaDivida(Pessoa usuario) {
-        initComponents();
-        usuarioLogado = usuario;
         buscarDividas();
     }
     
@@ -189,8 +182,8 @@ public class ConsultaDivida extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
-        new DividaAtual().setVisible(true);
-        ConsultaDivida.this.dispose();
+        new MenuDevedor().setVisible(true);
+        ConsultaDevedor.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void tConsultaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_tConsultaComponentRemoved
@@ -214,20 +207,21 @@ public class ConsultaDivida extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultaDivida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultaDivida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultaDivida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultaDivida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultaDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultaDivida().setVisible(true);
+                new ConsultaDevedor().setVisible(true);
             }
         });
     }

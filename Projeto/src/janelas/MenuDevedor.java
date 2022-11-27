@@ -1,21 +1,15 @@
 package janelas;
 
-import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
+import static classe.Gerenciador.usuarioLogado;
 
-public class DividaAtual extends javax.swing.JFrame {
-    Pessoa usuarioLogado = new Pessoa();
+public class MenuDevedor extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
 
-    public DividaAtual() {
+    public MenuDevedor() {
         initComponents();
-    }
-    
-    public DividaAtual(Pessoa usuario) {
-        initComponents();
-        usuarioLogado = usuario;
-        this.lblOla.setText("Olá, " + this.usuarioLogado.getNome());
+        this.lblOla.setText("Olá, " + usuarioLogado.getNome());
         buscarDividaTotal();
     }
     
@@ -26,7 +20,7 @@ public class DividaAtual extends javax.swing.JFrame {
                     + "SUM(valorAtual),"
                     + "COUNT(1) "
                     + "FROM divida "
-                    + "WHERE devedorId = " + this.usuarioLogado.getId();
+                    + "WHERE devedorId = " + usuarioLogado.getId();
             
             this.conectar.executarSQL (query);
             
@@ -109,7 +103,7 @@ public class DividaAtual extends javax.swing.JFrame {
         });
 
         lblConsulta.setBackground(new java.awt.Color(255, 255, 255));
-        lblConsulta.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        lblConsulta.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 48)); // NOI18N
         lblConsulta.setForeground(new java.awt.Color(255, 255, 255));
         lblConsulta.setText("Consulta");
 
@@ -197,16 +191,19 @@ public class DividaAtual extends javax.swing.JFrame {
                         .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
                         .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pInicialLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pInicialLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pInicialLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(lblConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pTitulo.setBackground(new java.awt.Color(255, 51, 51));
@@ -255,21 +252,20 @@ public class DividaAtual extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtualDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualDadosActionPerformed
-        // TODO add your handling code here:
-        new InformacoesPessoais().setVisible(true);
-        DividaAtual.this.dispose();
+        new InformacoesDevedor().setVisible(true);
+        MenuDevedor.this.dispose();
     }//GEN-LAST:event_btnAtualDadosActionPerformed
 
     private void btnAtualConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualConsultaActionPerformed
         // TODO add your handling code here:
-        new ConsultaDivida(usuarioLogado).setVisible(true);
-        DividaAtual.this.dispose();
+        new ConsultaDevedor().setVisible(true);
+        MenuDevedor.this.dispose();
     }//GEN-LAST:event_btnAtualConsultaActionPerformed
 
     private void btnAtualDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualDados1ActionPerformed
         // TODO add your handling code here:
         new Login().setVisible(true);
-        DividaAtual.this.dispose();
+        MenuDevedor.this.dispose();
     }//GEN-LAST:event_btnAtualDados1ActionPerformed
 
     /**
@@ -289,20 +285,21 @@ public class DividaAtual extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DividaAtual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DividaAtual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DividaAtual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DividaAtual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DividaAtual().setVisible(true);
+                new MenuDevedor().setVisible(true);
             }
         });
     }

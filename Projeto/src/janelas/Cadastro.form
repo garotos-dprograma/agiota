@@ -97,11 +97,11 @@
                           <Component id="lblRua" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtRua" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="lblNumero" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtNumero" min="-2" pref="74" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lblBairro" min="-2" pref="52" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtBairro" min="-2" pref="258" max="-2" attributes="0"/>
@@ -119,16 +119,16 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="lblTelefone" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtTelefone" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="lblRG" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtRG" min="-2" pref="175" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtRG" min="-2" pref="139" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lblCpf" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtCpf" min="-2" pref="164" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
@@ -136,17 +136,21 @@
                                   <Component id="txtEmail" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="txtCpf" min="-2" pref="164" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbxCadastroSexo" min="-2" pref="159" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblTelefone" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtTelefone" min="-2" pref="153" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="cbxCadastroSexo" min="-2" pref="159" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="btnCadastroCadastro1" min="-2" pref="153" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="522" max="-2" attributes="0"/>
+                          <Component id="btnCadastroCadastro1" min="-2" pref="108" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="567" max="-2" attributes="0"/>
                           <Component id="btnCadastroLimpar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnCadastroCadastro" min="-2" max="-2" attributes="0"/>
@@ -214,21 +218,17 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtEmail" alignment="3" max="32767" attributes="0"/>
                       <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTelefone" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCpf" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="lblSexo" alignment="3" max="32767" attributes="0"/>
-                          <Component id="cbxCadastroSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="lblTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTelefone" alignment="3" max="32767" attributes="0"/>
-                          <Component id="lblRG" alignment="3" max="32767" attributes="0"/>
-                          <Component id="txtRG" alignment="3" max="32767" attributes="0"/>
-                          <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblRG" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtRG" alignment="3" max="32767" attributes="0"/>
+                      <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCpf" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="lblSexo" alignment="3" max="32767" attributes="0"/>
+                      <Component id="cbxCadastroSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -257,11 +257,13 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="chbxAgiota" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnCadastroLimpar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="btnCadastroCadastro" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="btnCadastroCadastro1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnCadastroLimpar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="btnCadastroCadastro" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btnCadastroCadastro1" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

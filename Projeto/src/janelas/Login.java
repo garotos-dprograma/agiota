@@ -3,13 +3,11 @@ package janelas;
 import classe.Pessoa;
 import conexoes.MySQL;
 import java.awt.Toolkit;
-import java.util.Arrays;
-import static classe.Gerenciador.idLogado;
-import classe.Gerenciador;
+import static classe.Gerenciador.setUsuarioLogado;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-    Pessoa usuarioLogado = new Pessoa();
+    Pessoa usuarioLogin = new Pessoa();
     boolean focus = false;
     String mostrarSenha = "/resources/eye.png";
     MySQL conectar = new MySQL();
@@ -257,11 +255,11 @@ public class Login extends javax.swing.JFrame {
             this.conectar.executarSQL(query);
             
             while (this.conectar.getResultSet().next()) {
-                usuarioLogado.setId(this.conectar.getResultSet().getInt(1));
-                usuarioLogado.setNome(this.conectar.getResultSet().getString(2));
-                usuarioLogado.setAgiota(this.conectar.getResultSet().getBoolean(3));
+                usuarioLogin.setId(this.conectar.getResultSet().getInt(1));
+                usuarioLogin.setNome(this.conectar.getResultSet().getString(2));
+                usuarioLogin.setAgiota(this.conectar.getResultSet().getBoolean(3));
             }
-            if (usuarioLogado.getNome().equals("")){
+            if (usuarioLogin.getNome().equals("")){
                 JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
             } else {
                 sucesso = true;
@@ -271,13 +269,13 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao efetuar login!");
             
         } finally {
-            idLogado = usuarioLogado.getId();
+            setUsuarioLogado(this.usuarioLogin);
             this.conectar.fechaBanco();
             if(sucesso){
-                if(this.usuarioLogado.getAgiota()){
-                    new DividaAgiota(this.usuarioLogado).setVisible(true);
+                if(this.usuarioLogin.getAgiota()){
+                    new MenuAgiota().setVisible(true);
                 } else {
-                    new DividaAtual(this.usuarioLogado).setVisible(true);
+                    new MenuDevedor().setVisible(true);
                 }
                 Login.this.dispose();
             }

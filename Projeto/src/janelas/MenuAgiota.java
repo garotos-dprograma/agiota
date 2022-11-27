@@ -1,21 +1,15 @@
 package janelas;
 
-import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
+import static classe.Gerenciador.usuarioLogado;
 
-public class DividaAgiota extends javax.swing.JFrame {
-    Pessoa usuarioLogado = new Pessoa();
+public class MenuAgiota extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     
-    public DividaAgiota() {
+    public MenuAgiota() {
         initComponents();
-    }
-    
-    public DividaAgiota(Pessoa usuarioLogado){
-        initComponents();
-        this.usuarioLogado = usuarioLogado;
-        this.lblOla.setText("Olá, Sr(a) " + this.usuarioLogado.getNome());
+        this.lblOla.setText("Olá, Sr(a) " + usuarioLogado.getNome());
         buscarDividaTotal();
     }
 
@@ -51,7 +45,6 @@ public class DividaAgiota extends javax.swing.JFrame {
         pTitulo.setForeground(new java.awt.Color(220, 174, 50));
 
         lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        lblOla.setForeground(new java.awt.Color(0, 0, 0));
         lblOla.setText("Olá, Agiota");
 
         javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
@@ -76,18 +69,15 @@ public class DividaAgiota extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(220, 174, 50));
 
         jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Total de clientes devendo:");
 
         lblTotalDividas.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblTotalDividas.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Total de dívidas:");
 
         lblTotalDevedores.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
-        lblTotalDevedores.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -151,7 +141,7 @@ public class DividaAgiota extends javax.swing.JFrame {
 
         lblAprovar.setBackground(new java.awt.Color(255, 255, 255));
         lblAprovar.setForeground(new java.awt.Color(255, 255, 255));
-        lblAprovar.setText("Emprestimos para Aprovar");
+        lblAprovar.setText("Cadastrar empréstimo");
 
         btnAtualDados1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logoff.png"))); // NOI18N
         btnAtualDados1.addActionListener(new java.awt.event.ActionListener() {
@@ -175,14 +165,13 @@ public class DividaAgiota extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(lblConsulta)))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblAprovar)
-                        .addGap(42, 42, 42)
+                        .addGap(27, 27, 27)
                         .addComponent(lblMeusDados))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
                         .addComponent(btnAtualNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -251,7 +240,7 @@ public class DividaAgiota extends javax.swing.JFrame {
                     + "SUM(valorAtual),"
                     + "COUNT(1) "
                     + "FROM divida "
-                    + "WHERE agiotaId = " + this.usuarioLogado.getId();
+                    + "WHERE agiotaId = " + usuarioLogado.getId();
             
             this.conectar.executarSQL (query);
             
@@ -269,23 +258,23 @@ public class DividaAgiota extends javax.swing.JFrame {
     }
     
     private void btnAtualConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualConsultaActionPerformed
-        new ConsultaAgiota(usuarioLogado).setVisible(true);
-        DividaAgiota.this.dispose();
+        new ConsultaAgiota().setVisible(true);
+        MenuAgiota.this.dispose();
     }//GEN-LAST:event_btnAtualConsultaActionPerformed
 
     private void btnAtualDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualDadosActionPerformed
         new InformacoesAgiota().setVisible(true);
-        DividaAgiota.this.dispose();
+        MenuAgiota.this.dispose();
     }//GEN-LAST:event_btnAtualDadosActionPerformed
 
     private void btnAtualNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualNovoActionPerformed
         new Emprestimo().setVisible(true);
-        DividaAgiota.this.dispose();
+        MenuAgiota.this.dispose();
     }//GEN-LAST:event_btnAtualNovoActionPerformed
 
     private void btnAtualDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualDados1ActionPerformed
         new Login().setVisible(true);
-        DividaAgiota.this.dispose();
+        MenuAgiota.this.dispose();
     }//GEN-LAST:event_btnAtualDados1ActionPerformed
 
     /**
@@ -305,21 +294,23 @@ public class DividaAgiota extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DividaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DividaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DividaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DividaAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuAgiota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DividaAgiota().setVisible(true);
+                new MenuAgiota().setVisible(true);
             }
         });
     }

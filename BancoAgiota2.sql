@@ -45,22 +45,16 @@ create table divida (
 
 delimiter $
 
-create function proxMes (valorInicial float, taxaJuros float)
-	returns float deterministic
-    begin
-	set	@total = valorInicial + (valorInicial * (taxaJuros / 100));
-	return @total;
+create function proxMes (valorInicial float, taxaJuros float) returns float deterministic
+  begin
+	  set	@total = valorInicial + (valorInicial * (taxaJuros / 100));
+	  return @total;
   end$
-  delimiter ;
+
+delimiter ;
+
+/* testes
 select * from pessoa;
-insert into divida(devedorId, agiotaId,taxaJuros, valorAtual, parcelas, valorProMes) 
-        
+insert into divida(devedorId, agiotaId,taxaJuros, valorAtual, parcelas, valorProMes)         
                     values( 1, 2,5, 100, 6, proxMes(100, 5));
-                    
-                 select * from divida;   
-                     
-                   
-
-SELECT SUM(valorAtual), COUNT(1) FROM divida WHERE agiotaId = 1;
-
-SELECT  cpf, nome, email, sexo_id, telefone, estado_id, cidade, rua, cep,agiota from pessoa WHERE   cpf = '123'  ;
+*/

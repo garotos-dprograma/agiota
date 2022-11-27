@@ -1,21 +1,17 @@
 package janelas;
 
-import classe.Pessoa;
 import conexoes.MySQL;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static classe.Gerenciador.usuarioLogado;
 
 public class ConsultaAgiota extends javax.swing.JFrame {
-    Pessoa usuarioLogado = new Pessoa();
     MySQL conectar = new MySQL();
     
     public ConsultaAgiota() {
         initComponents();
-    }
-
-    public ConsultaAgiota(Pessoa usuario) {
-        initComponents();
-        usuarioLogado = usuario;
         this.lblOla.setText("Olá, Sr(a) " + usuarioLogado.getNome());
         this.buscarDividas();
     }
@@ -41,14 +37,14 @@ public class ConsultaAgiota extends javax.swing.JFrame {
         setTitle("Consulta Agiota");
 
         pTitulo.setBackground(new java.awt.Color(220, 174, 50));
-        pTitulo.setForeground(new java.awt.Color(255, 102, 51));
+        pTitulo.setForeground(new java.awt.Color(220, 174, 50));
 
         lblOla.setBackground(new java.awt.Color(0, 0, 0));
         lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        lblOla.setForeground(new java.awt.Color(255, 255, 255));
         lblOla.setText("Olá, Agiota");
 
         btnVoltar.setBackground(new java.awt.Color(220, 174, 50));
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
         btnVoltar.setBorder(null);
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,21 +59,22 @@ public class ConsultaAgiota extends javax.swing.JFrame {
             .addGroup(pTituloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblOla)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 814, Short.MAX_VALUE)
-                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pTituloLayout.setVerticalGroup(
             pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pTituloLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addGroup(pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        ImageIcon image = new ImageIcon(getClass().getResource("/resources/voltar.png"));
+        btnVoltar.setIcon(new ImageIcon(image.getImage().getScaledInstance(38, 38, Image.SCALE_DEFAULT)));
 
         pFuncional.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -137,24 +134,24 @@ public class ConsultaAgiota extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        new DividaAgiota(usuarioLogado).setVisible(true);
+        new MenuAgiota().setVisible(true);
         ConsultaAgiota.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
@@ -174,7 +171,7 @@ public class ConsultaAgiota extends javax.swing.JFrame {
                 "divida.valorProMes " +
                 "FROM divida " +
                 "JOIN pessoa ON pessoa.Id = divida.devedorId " +
-                "WHERE divida.agiotaId = " + this.usuarioLogado.getId();
+                "WHERE divida.agiotaId = " + usuarioLogado.getId();
             this.conectar.executarSQL(query);
             while (this.conectar.getResultSet().next()) {
                 model.addRow(new String[]{

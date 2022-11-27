@@ -1,23 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package janelas;
 
 import classe.Pessoa;
 import classe.Divida;
 import conexoes.MySQL;
-import janelas.DividaAgiota;
 import javax.swing.JOptionPane;
 import static classe.Gerenciador.idLogado;
 
-/**
- *
- * @author limal
- */
 public class Emprestimo extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
-    Pessoa novoCliente = new Pessoa ();
+    Pessoa novoCliente = new Pessoa();
     Divida divida = new Divida();
     /**
      * Creates new form novaSenha
@@ -31,9 +22,7 @@ public class Emprestimo extends javax.swing.JFrame {
 
     public void setIdDevedor(int idDevedor) {
         this.idDevedor = idDevedor;
-    }
-    
-    
+    }    
     
     public Emprestimo() {
         initComponents();
@@ -50,20 +39,19 @@ public class Emprestimo extends javax.swing.JFrame {
 
         txtemailAntigo2 = new javax.swing.JTextField();
         pPrincipal = new javax.swing.JPanel();
-        lblDigite = new javax.swing.JLabel();
+        lblValorEmprestimo = new javax.swing.JLabel();
         pTitulo = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         btnSolicitar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         txtEmprestimo = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblParcela = new javax.swing.JLabel();
         cbxParcela = new javax.swing.JComboBox<>();
         txtCPF = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblCpfDevedor = new javax.swing.JLabel();
         txtJuros = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblTaxaJuros = new javax.swing.JLabel();
 
         txtemailAntigo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,24 +63,24 @@ public class Emprestimo extends javax.swing.JFrame {
 
         pPrincipal.setBackground(new java.awt.Color(255, 102, 51));
 
-        lblDigite.setBackground(new java.awt.Color(0, 0, 0));
-        lblDigite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblDigite.setText("Digite o Valor Atual");
+        lblValorEmprestimo.setBackground(new java.awt.Color(0, 0, 0));
+        lblValorEmprestimo.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblValorEmprestimo.setForeground(new java.awt.Color(255, 255, 255));
+        lblValorEmprestimo.setText("Digite o valor do empréstimo");
 
         pTitulo.setBackground(new java.awt.Color(0, 0, 0));
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("Solicitar Empréstimo");
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("Cadastrar empréstimo");
+        lblTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
         pTitulo.setLayout(pTituloLayout);
         pTituloLayout.setHorizontalGroup(
             pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(114, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(117, 117, 117))
+            .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pTituloLayout.setVerticalGroup(
             pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +91,7 @@ public class Emprestimo extends javax.swing.JFrame {
         );
 
         btnSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
-        btnSolicitar.setText("Solicitar");
+        btnSolicitar.setText("Cadastrar");
         btnSolicitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSolicitarActionPerformed(evt);
@@ -118,12 +106,6 @@ public class Emprestimo extends javax.swing.JFrame {
             }
         });
 
-        txtEmprestimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmprestimoActionPerformed(evt);
-            }
-        });
-
         btnCancelar.setBackground(new java.awt.Color(255, 0, 51));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
@@ -133,7 +115,9 @@ public class Emprestimo extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Parcela");
+        lblParcela.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        lblParcela.setForeground(new java.awt.Color(255, 255, 255));
+        lblParcela.setText("Parcela");
 
         cbxParcela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "3", "6 ", "9", "12", "24", "48" }));
         cbxParcela.setToolTipText("");
@@ -143,7 +127,9 @@ public class Emprestimo extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("CPF");
+        lblCpfDevedor.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        lblCpfDevedor.setForeground(new java.awt.Color(255, 255, 255));
+        lblCpfDevedor.setText("CPF do devedor");
 
         txtJuros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +137,9 @@ public class Emprestimo extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Taxa de Juros(%)");
+        lblTaxaJuros.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        lblTaxaJuros.setForeground(new java.awt.Color(255, 255, 255));
+        lblTaxaJuros.setText("Taxa de Juros(%)");
 
         javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
         pPrincipal.setLayout(pPrincipalLayout);
@@ -161,7 +149,7 @@ public class Emprestimo extends javax.swing.JFrame {
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnLimpar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(64, 64, 64)
                 .addComponent(btnSolicitar)
@@ -169,23 +157,18 @@ public class Emprestimo extends javax.swing.JFrame {
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtEmprestimo, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblDigite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(cbxParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtJuros))
-                        .addGap(40, 40, 40))))
+                    .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtEmprestimo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblValorEmprestimo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCpfDevedor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblParcela)
+                    .addComponent(cbxParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTaxaJuros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtJuros))
+                .addGap(40, 40, 40))
         );
         pPrincipalLayout.setVerticalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,23 +176,21 @@ public class Emprestimo extends javax.swing.JFrame {
                 .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(lblDigite))
+                    .addComponent(lblParcela)
+                    .addComponent(lblValorEmprestimo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbxParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmprestimo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addComponent(jLabel4)
-                .addGap(28, 28, 28)
+                .addGap(52, 52, 52)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(lblCpfDevedor)
+                    .addComponent(lblTaxaJuros))
                 .addGap(6, 6, 6)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSolicitar)
@@ -232,41 +213,35 @@ public class Emprestimo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        
 
-    public void atualizarEmail(Pessoa novoCliente){
+    public void getIdPorCpf(){
         this.conectar.conectaBanco();
         
         String consultaEndividado = this.txtCPF.getText();
         
         try{
-            var pegarId = "Select id from  pessoa "
+            String pegarId = "Select id from pessoa "
                     + " WHERE "
                     + " cpf = '" + consultaEndividado + "';"
                     ;
             this.conectar.executarSQL(pegarId);
          while(this.conectar.getResultSet().next()){
-             this.setIdDevedor(Integer.parseInt(this.conectar.getResultSet().getString(1)));
+             this.setIdDevedor(this.conectar.getResultSet().getInt(1));
          }
-            
-           
                     
         } catch(Exception e) {
             System.out.println("Erro ao procurar devedor"+ e.getMessage());
             JOptionPane.showMessageDialog (null, "Erro ao buscar id");
         
         } finally {
-           
-          
-            
+           this.conectar.fechaBanco();
         }
     }
     
     
     public void criarDivida(Divida divida){
         try{
-            var criar = "insert into divida(devedorId, agiotaId, taxaJuros, parcelas, valorAtual, valorProMes) "
-        
+            String criar = "insert into divida(devedorId, agiotaId, taxaJuros, parcelas, valorAtual, valorProMes) "
                     + "values( "
                     + idDevedor + ", "
                     + idLogado + ", "
@@ -291,16 +266,11 @@ public class Emprestimo extends javax.swing.JFrame {
     }
     
     private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
-        // TODO add your handling code here:
-        atualizarEmail(novoCliente);
+        getIdPorCpf();
         criarDivida(divida);
-        new DividaAgiota().setVisible(true);
-         Emprestimo.this.dispose();
+        new MenuAgiota().setVisible(true);
+        Emprestimo.this.dispose();
     }//GEN-LAST:event_btnSolicitarActionPerformed
-
-    private void txtEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmprestimoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmprestimoActionPerformed
 
     private void txtemailAntigo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailAntigo2ActionPerformed
         // TODO add your handling code here:
@@ -318,7 +288,7 @@ public class Emprestimo extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        new DividaAgiota().setVisible(true);
+        new MenuAgiota().setVisible(true);
         Emprestimo.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -377,12 +347,11 @@ public class Emprestimo extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSolicitar;
     private javax.swing.JComboBox<String> cbxParcela;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel lblDigite;
+    private javax.swing.JLabel lblCpfDevedor;
+    private javax.swing.JLabel lblParcela;
+    private javax.swing.JLabel lblTaxaJuros;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblValorEmprestimo;
     private javax.swing.JPanel pPrincipal;
     private javax.swing.JPanel pTitulo;
     private javax.swing.JTextField txtCPF;

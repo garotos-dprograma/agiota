@@ -80,21 +80,9 @@ public class InformacoesAgiota extends javax.swing.JFrame {
         lblCpf.setForeground(new java.awt.Color(255, 255, 255));
         lblCpf.setText("CPF");
 
-        txtAgiotaCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgiotaCpfActionPerformed(evt);
-            }
-        });
-
         lblNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome Completo");
-
-        txtAgiotaNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgiotaNomeActionPerformed(evt);
-            }
-        });
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
@@ -531,7 +519,7 @@ public class InformacoesAgiota extends javax.swing.JFrame {
     
     private void btnSegurancaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSegurancaVoltarActionPerformed
         // TODO add your handling code here:
-        new DividaAgiota().setVisible(true);
+        new MenuAgiota().setVisible(true);
         InformacoesAgiota.this.dispose();
         
     }//GEN-LAST:event_btnSegurancaVoltarActionPerformed
@@ -553,24 +541,13 @@ public class InformacoesAgiota extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSegurançaExcluirActionPerformed
 
     private void btnAgiotaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgiotaBuscarActionPerformed
-        // TODO add your handling code here:
         buscarAgiota(novoCliente);
     }//GEN-LAST:event_btnAgiotaBuscarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
-        
-        new DividaAgiota(novoCliente).setVisible(true);
+        new MenuAgiota().setVisible(true);
         InformacoesAgiota.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void txtAgiotaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgiotaNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgiotaNomeActionPerformed
-
-    private void txtAgiotaCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgiotaCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgiotaCpfActionPerformed
 
     
     

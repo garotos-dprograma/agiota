@@ -263,9 +263,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAgiotaCpf">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAgiotaCpfActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblNome">
                       <Properties>
@@ -279,9 +276,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAgiotaNome">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAgiotaNomeActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEmail">
                       <Properties>

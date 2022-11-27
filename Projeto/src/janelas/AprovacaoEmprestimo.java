@@ -473,7 +473,7 @@ public class AprovacaoEmprestimo extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        new DividaAgiota().setVisible(true);
+        new MenuAgiota().setVisible(true);
         AprovacaoEmprestimo.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -532,7 +532,7 @@ public class AprovacaoEmprestimo extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         atualizarEmail(novoCliente);
-        new InformacoesPessoais().setVisible(true);
+        new InformacoesDevedor().setVisible(true);
         AprovacaoEmprestimo.this.dispose();
     }//GEN-LAST:event_btnBuscarActionPerformed
 

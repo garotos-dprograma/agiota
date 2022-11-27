@@ -226,7 +226,7 @@ public class novaSenha extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         atualizarSenha(novoCliente);
-         new InformacoesPessoais().setVisible(true);
+         new InformacoesDevedor().setVisible(true);
          novaSenha.this.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -241,7 +241,7 @@ public class novaSenha extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         
-         new InformacoesPessoais().setVisible(true);
+         new InformacoesDevedor().setVisible(true);
          novaSenha.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
