@@ -207,7 +207,12 @@ public class Emprestimo extends javax.swing.JFrame {
          while(this.conectar.getResultSet().next()){
              this.setIdDevedor(this.conectar.getResultSet().getInt(1));
          }
-         sucess = true;
+         
+         if(idLogado == idDevedor){
+             JOptionPane.showMessageDialog (null, "O CPF informado é o mesmo do usuário logado!");
+         }else{   
+            sucess = true; 
+         }
         } catch(Exception e) {
             System.out.println("Erro ao procurar devedor"+ e.getMessage());
             JOptionPane.showMessageDialog (null, "Erro ao buscar id");
