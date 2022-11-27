@@ -1,5 +1,6 @@
 package janelas;
 
+import static classe.Gerenciador.limparDados;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 import static classe.Gerenciador.usuarioLogado;
@@ -252,7 +253,7 @@ public class MenuDevedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtualDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualDadosActionPerformed
-        new InformacoesDevedor().setVisible(true);
+        new InformacoesPessoais().setVisible(true);
         MenuDevedor.this.dispose();
     }//GEN-LAST:event_btnAtualDadosActionPerformed
 
@@ -263,8 +264,8 @@ public class MenuDevedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualConsultaActionPerformed
 
     private void btnAtualDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualDados1ActionPerformed
-        // TODO add your handling code here:
         new Login().setVisible(true);
+        limparDados();
         MenuDevedor.this.dispose();
     }//GEN-LAST:event_btnAtualDados1ActionPerformed
 

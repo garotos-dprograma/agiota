@@ -21,4 +21,9 @@ public class Gerenciador {
         Gerenciador.usuarioLogado = usuario;
         Gerenciador.setIdLogado(usuario.getId());
     }
+    
+    public static void limparDados(){
+        Gerenciador.usuarioLogado.limparDados();
+        Gerenciador.idLogado = 0;
+    }
 }

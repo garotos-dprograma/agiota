@@ -4,14 +4,13 @@ import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 import static classe.Gerenciador.idLogado;
+import static classe.Gerenciador.limparDados;
 
-public class InformacoesDevedor extends javax.swing.JFrame {
-        MySQL conectar = new MySQL();
-        Pessoa novoCliente = new Pessoa ();
-    /**
-     * Creates new form InformacoesPessoais
-     */
-    public InformacoesDevedor() {
+public class InformacoesPessoais extends javax.swing.JFrame {
+    MySQL conectar = new MySQL();
+    Pessoa novoCliente = new Pessoa ();
+
+    public InformacoesPessoais() {
         initComponents();
         buscarLogado();
     }
@@ -46,11 +45,11 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         pInfoTitulo = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
-        btnInformacoesBuscar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
         lblCpf = new javax.swing.JLabel();
         lblSobrenome = new javax.swing.JLabel();
         txtSobrenome = new javax.swing.JTextField();
-        cbxCadastroSexo = new javax.swing.JComboBox<>();
+        cbxSexo = new javax.swing.JComboBox<>();
         cbxEstado = new javax.swing.JComboBox<>();
         lblNumero = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
@@ -75,7 +74,7 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         setTitle("Informações Pessoais");
 
         tpInformacoes.setBackground(new java.awt.Color(255, 102, 51));
-        tpInformacoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        tpInformacoes.setForeground(new java.awt.Color(255, 255, 255));
         tpInformacoes.setPreferredSize(new java.awt.Dimension(839, 406));
 
         pInformacoes.setBackground(new java.awt.Color(0, 0, 0));
@@ -85,12 +84,6 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         lblNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome");
-
-        txtInformacoesNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInformacoesNomeActionPerformed(evt);
-            }
-        });
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,16 +117,15 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         pInfoTitulo.setForeground(new java.awt.Color(255, 102, 51));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("Informações Pessoais");
 
         javax.swing.GroupLayout pInfoTituloLayout = new javax.swing.GroupLayout(pInfoTitulo);
         pInfoTitulo.setLayout(pInfoTituloLayout);
         pInfoTituloLayout.setHorizontalGroup(
             pInfoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pInfoTituloLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pInfoTituloLayout.setVerticalGroup(
             pInfoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,19 +137,19 @@ public class InformacoesDevedor extends javax.swing.JFrame {
 
         btnVoltar.setBackground(new java.awt.Color(255, 102, 51));
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
-        btnVoltar.setText("jButton1");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
             }
         });
 
-        btnInformacoesBuscar.setBackground(new java.awt.Color(255, 102, 51));
-        btnInformacoesBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
-        btnInformacoesBuscar.setText("Salvar");
-        btnInformacoesBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setBackground(new java.awt.Color(255, 102, 51));
+        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInformacoesBuscarActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
@@ -169,8 +161,8 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         lblSobrenome.setForeground(new java.awt.Color(255, 255, 255));
         lblSobrenome.setText("Sobrenome");
 
-        cbxCadastroSexo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxCadastroSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino", "Outros" }));
+        cbxSexo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino", "Outros" }));
 
         cbxEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
@@ -195,80 +187,84 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         pPrincipal.setLayout(pPrincipalLayout);
         pPrincipalLayout.setHorizontalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
+            .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addComponent(lblRua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtInformacoesRua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNumero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pPrincipalLayout.createSequentialGroup()
-                        .addComponent(lblCpf)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtInformacoesCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblRG)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSexo)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbxCadastroSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pInfoTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pInfoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pPrincipalLayout.createSequentialGroup()
-                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblRua)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnInformacoesBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pPrincipalLayout.createSequentialGroup()
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pPrincipalLayout.createSequentialGroup()
-                                .addComponent(lblNome)
+                                .addComponent(txtInformacoesRua)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtInformacoesNome, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(chbxAgiota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18))
+                                .addComponent(lblNumero)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pPrincipalLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnVoltar)
+                                .addGap(24, 24, 24)
+                                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pPrincipalLayout.createSequentialGroup()
+                                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(chbxAgiota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pPrincipalLayout.createSequentialGroup()
+                                        .addComponent(lblCpf)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtInformacoesCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblRG)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblSexo)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18))))
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(lblSobrenome))
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblTelefone)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtInformacoesTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pPrincipalLayout.createSequentialGroup()
+                                .addComponent(lblTelefone)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtInformacoesTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblEmail)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtInformacoesEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pPrincipalLayout.createSequentialGroup()
+                                .addComponent(lblCIdade)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtInformacoesCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
+                                .addComponent(lblEstado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblCep)
+                                .addGap(12, 12, 12)
+                                .addComponent(txtInformacoesCep, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
+                        .addGap(0, 59, Short.MAX_VALUE)
+                        .addComponent(txtInformacoesNome, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblEmail)
+                        .addComponent(lblSobrenome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtInformacoesEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblCIdade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtInformacoesCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(lblEstado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCep)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtInformacoesCep, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                        .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         pPrincipalLayout.setVerticalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +281,7 @@ public class InformacoesDevedor extends javax.swing.JFrame {
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCpf)
                     .addComponent(txtInformacoesCPF)
-                    .addComponent(cbxCadastroSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblRG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtRG))
@@ -296,14 +292,15 @@ public class InformacoesDevedor extends javax.swing.JFrame {
                     .addComponent(lblEmail)
                     .addComponent(txtInformacoesEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRua, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtInformacoesRua, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtNumero)
                         .addComponent(lblBairro)
-                        .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblRua, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtInformacoesRua, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pPrincipalLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -321,15 +318,17 @@ public class InformacoesDevedor extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInformacoesBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pInformacoesLayout = new javax.swing.GroupLayout(pInformacoes);
         pInformacoes.setLayout(pInformacoesLayout);
         pInformacoesLayout.setHorizontalGroup(
             pInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pInformacoesLayout.createSequentialGroup()
+                .addComponent(pPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pInformacoesLayout.setVerticalGroup(
             pInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,16 +345,15 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         pTitulo.setForeground(new java.awt.Color(255, 102, 51));
 
         lblSeguranca.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblSeguranca.setForeground(new java.awt.Color(255, 255, 255));
+        lblSeguranca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSeguranca.setText("Segurança");
 
         javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
         pTitulo.setLayout(pTituloLayout);
         pTituloLayout.setHorizontalGroup(
             pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSeguranca, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(lblSeguranca, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
         );
         pTituloLayout.setVerticalGroup(
             pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,7 +398,6 @@ public class InformacoesDevedor extends javax.swing.JFrame {
 
         btnSegurancaVoltar.setBackground(new java.awt.Color(255, 102, 51));
         btnSegurancaVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
-        btnSegurancaVoltar.setText("jButton1");
         btnSegurancaVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSegurancaVoltarActionPerformed(evt);
@@ -411,64 +408,54 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         pSegurancaPrincipa.setLayout(pSegurancaPrincipaLayout);
         pSegurancaPrincipaLayout.setHorizontalGroup(
             pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSegurancaPrincipaLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                        .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSegurançaExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSegurançaMudança, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblMudaSenha)
-                        .addContainerGap(494, Short.MAX_VALUE))
-                    .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                        .addComponent(btnSegurançaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblAltEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSegurancaVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                    .addComponent(btnSegurançaMudança)
+                    .addComponent(btnSegurançaExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMudaSenha)
+                    .addComponent(lblExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(btnSegurançaAlterar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblAltEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 430, Short.MAX_VALUE)
+                .addComponent(btnSegurancaVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
-            .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                    .addGap(147, 147, 147)
-                    .addComponent(lblExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(486, Short.MAX_VALUE)))
         );
         pSegurancaPrincipaLayout.setVerticalGroup(
             pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSegurancaPrincipaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(150, Short.MAX_VALUE)
                 .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblMudaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                        .addComponent(btnSegurançaExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSegurançaMudança, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSegurancaVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
                         .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSegurançaExcluir)
+                            .addComponent(lblExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSegurançaMudança, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMudaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnSegurançaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAltEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24))
-                    .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                        .addComponent(btnSegurancaVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                            .addComponent(lblAltEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(19, 19, 19))
             .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
                     .addGap(10, 10, 10)
                     .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(371, Short.MAX_VALUE)))
-            .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                    .addGap(147, 147, 147)
-                    .addComponent(lblExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(250, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout pSegurancaLayout = new javax.swing.GroupLayout(pSeguranca);
@@ -476,16 +463,16 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         pSegurancaLayout.setHorizontalGroup(
             pSegurancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSegurancaLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(pSegurancaPrincipa, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0)
+                .addComponent(pSegurancaPrincipa, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         pSegurancaLayout.setVerticalGroup(
             pSegurancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSegurancaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pSegurancaPrincipa, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0)
+                .addComponent(pSegurancaPrincipa, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         tpInformacoes.addTab("Segurança", pSeguranca);
@@ -494,9 +481,7 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tpInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(tpInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,26 +491,6 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public void deletarCliente(Pessoa novoCliente){
-        this.conectar.conectaBanco();
-        
-        String consultaCpf = this.txtInformacoesCPF.getText();
-        
-        try{
-            String deletarCpf = "DELETE from cadastroclientes where cpf = '" + consultaCpf + "'";
-                           
-            this.conectar.updateSQL (deletarCpf);
-            System.out.println(deletarCpf);
-            
-            
-            
-        } catch (Exception e) {
-            System.out.println("Erro ao Deletar Cliente"+ e.getMessage());
-            JOptionPane.showMessageDialog (null, "Erro ao Deletar Cliente");
-        }
-    }    
-    
     private void buscarLogado() {
         this.conectar.conectaBanco();
         
@@ -547,7 +512,6 @@ public class InformacoesDevedor extends javax.swing.JFrame {
                     +"agiota "
                     +"FROM pessoa "
                     +"WHERE id = " + idLogado + ";";
-            System.out.println(buscarCliente);
             this.conectar.executarSQL (buscarCliente);
             
             while (this.conectar.getResultSet().next()) {
@@ -575,58 +539,98 @@ public class InformacoesDevedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao buscar Cliente");
             
         } finally {
-            txtInformacoesCPF.setText(novoCliente.getCpf());
-            txtInformacoesNome.setText(novoCliente.getNome());
-            txtSobrenome.setText(novoCliente.getSobrenome());
-            txtRG.setText(novoCliente.getRg());
-            txtInformacoesEmail.setText(novoCliente.getEmail());
-            cbxCadastroSexo.setSelectedIndex(novoCliente.getSexoId());
-            txtInformacoesTelefone.setText(novoCliente.getTelefone());
-            cbxEstado.setSelectedIndex(novoCliente.getEstadoId());
-            txtInformacoesCidade.setText(novoCliente.getCidade());
-            txtInformacoesRua.setText(novoCliente.getRua());
-            txtNumero.setText(novoCliente.getNumero());
-            txtBairro.setText(novoCliente.getBairro());
-            txtInformacoesCep.setText(novoCliente.getCep());
-            chbxAgiota.setSelected(novoCliente.getAgiota());
             this.conectar.fechaBanco();
+            atualizarInputs();
         }    
     }
     
     
-    private void txtInformacoesNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInformacoesNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtInformacoesNomeActionPerformed
-
     private void btnSegurançaExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSegurançaExcluirActionPerformed
-        // TODO add your handling code here:
-       
+        this.conectar.conectaBanco();
+        
+        try{
+            String query = "DELETE FROM pessoa WHERE id = " + idLogado;
+            this.conectar.updateSQL(query);
+            JOptionPane.showMessageDialog(null, "Deletado com Sucesso!!!");
+            new Login().setVisible(true);
+            limparDados();
+            InformacoesPessoais.this.dispose();
+        } catch (Exception e) {
+            System.out.println("Erro ao deletar conta: "+ e.getMessage());
+            JOptionPane.showMessageDialog (null, "Erro ao deletar conta!");
+        } finally {
+            this.conectar.fechaBanco();
+        }
     }//GEN-LAST:event_btnSegurançaExcluirActionPerformed
-
-    private void btnSegurançaMudançaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSegurançaMudançaActionPerformed
-        new novoEmail().setVisible(true);
-        InformacoesDevedor.this.dispose();
-    }//GEN-LAST:event_btnSegurançaMudançaActionPerformed
 
     private void btnSegurançaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSegurançaAlterarActionPerformed
         new novoEmail().setVisible(true);
-        InformacoesDevedor.this.dispose();
+        InformacoesPessoais.this.dispose();
     }//GEN-LAST:event_btnSegurançaAlterarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         new MenuDevedor().setVisible(true);
-        InformacoesDevedor.this.dispose();
+        InformacoesPessoais.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnSegurancaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSegurancaVoltarActionPerformed
         new MenuDevedor().setVisible(true);
-        InformacoesDevedor.this.dispose();
+        InformacoesPessoais.this.dispose();
     }//GEN-LAST:event_btnSegurancaVoltarActionPerformed
 
-    private void btnInformacoesBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformacoesBuscarActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        this.conectar.conectaBanco();
+        
+        try{
+            String query = "UPDATE pessoa SET "+
+                "nome = '" + this.txtInformacoesNome.getText() + "', " +
+                "sobrenome = '" + this.txtSobrenome.getText() + "', " +
+                "cpf = '" + this.txtInformacoesCPF.getText() + "', " +
+                "email= '" + this.txtInformacoesEmail.getText() + "', " +
+                "rg = '" + this.txtRG.getText() + "', " +
+                "telefone = '" + this.txtInformacoesTelefone.getText() + "', " +
+                "sexo_id = " + this.cbxSexo.getSelectedIndex() + ", " +
+                "estado_id = " + this.cbxEstado.getSelectedIndex() + ", " +
+                "rua = '" + this.txtInformacoesRua.getText() + "', " +
+                "bairro = '" + this.txtBairro.getText() + "', " +
+                "cidade = '" + this.txtInformacoesCidade.getText() + "', "+
+                "cep = '" + this.txtInformacoesCep.getText() + "', "+
+                "numero = '" + this.txtNumero.getText() + "', "+
+                "agiota = " + this.chbxAgiota.isSelected() +
+                " WHERE id = " + idLogado;
 
-    }//GEN-LAST:event_btnInformacoesBuscarActionPerformed
+            this.conectar.updateSQL(query);
+            JOptionPane.showMessageDialog(null, "Informações atualizadas com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Erro ao atualizar informações: "+ e.getMessage());
+            JOptionPane.showMessageDialog (null, "Erro ao atualizar informações!");
+        } finally {
+            this.conectar.fechaBanco();
+            buscarLogado();
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
+    private void btnSegurançaMudançaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSegurançaMudançaActionPerformed
+        new novaSenha().setVisible(true);
+        InformacoesPessoais.this.dispose();
+    }//GEN-LAST:event_btnSegurançaMudançaActionPerformed
+
+    public void atualizarInputs(){
+        txtInformacoesCPF.setText(novoCliente.getCpf());
+        txtInformacoesNome.setText(novoCliente.getNome());
+        txtSobrenome.setText(novoCliente.getSobrenome());
+        txtRG.setText(novoCliente.getRg());
+        txtInformacoesEmail.setText(novoCliente.getEmail());
+        cbxSexo.setSelectedIndex(novoCliente.getSexoId());
+        txtInformacoesTelefone.setText(novoCliente.getTelefone());
+        cbxEstado.setSelectedIndex(novoCliente.getEstadoId());
+        txtInformacoesCidade.setText(novoCliente.getCidade());
+        txtInformacoesRua.setText(novoCliente.getRua());
+        txtNumero.setText(novoCliente.getNumero());
+        txtBairro.setText(novoCliente.getBairro());
+        txtInformacoesCep.setText(novoCliente.getCep());
+        chbxAgiota.setSelected(novoCliente.getAgiota());
+    }
     /**
      * @param args the command line arguments
      */
@@ -644,14 +648,26 @@ public class InformacoesDevedor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InformacoesDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InformacoesPessoais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InformacoesDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InformacoesPessoais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InformacoesDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InformacoesPessoais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InformacoesDevedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InformacoesPessoais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -660,20 +676,20 @@ public class InformacoesDevedor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformacoesDevedor().setVisible(true);
+                new InformacoesPessoais().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInformacoesBuscar;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnSegurancaVoltar;
     private javax.swing.JButton btnSegurançaAlterar;
     private javax.swing.JButton btnSegurançaExcluir;
     private javax.swing.JButton btnSegurançaMudança;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JComboBox<String> cbxCadastroSexo;
     private javax.swing.JComboBox<String> cbxEstado;
+    private javax.swing.JComboBox<String> cbxSexo;
     private javax.swing.JCheckBox chbxAgiota;
     private javax.swing.JLabel lblAltEmail;
     private javax.swing.JLabel lblBairro;

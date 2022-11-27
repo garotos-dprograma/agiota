@@ -440,7 +440,7 @@ public class Cadastro extends javax.swing.JFrame {
     
     private void btnCadastroLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroLimparActionPerformed
         // TODO add your handling code here:
-        novaPessoa.LimparCliente();
+        novaPessoa.limparDados();
         this.txtNome.setText("");
         this.txtSobrenome.setText("");
         this.txtRG.setText("");

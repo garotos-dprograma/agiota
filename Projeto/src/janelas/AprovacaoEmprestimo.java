@@ -440,7 +440,6 @@ public class AprovacaoEmprestimo extends javax.swing.JFrame {
                     + " email = '" + consultaEmail + "';"
                     ;
             this.conectar.updateSQL (atualizaCpf);
-            System.out.println(atualizaCpf);
             
             if(novoCliente.getNome() == ""){
                 JOptionPane.showMessageDialog(null, "Erro não Buscar E-mail");
@@ -466,7 +465,7 @@ public class AprovacaoEmprestimo extends javax.swing.JFrame {
 
     private void btnReprovar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReprovar1ActionPerformed
         // TODO add your handling code here:
-        novoCliente.LimparCliente();
+        novoCliente.limparDados();
         this.txtEmrpestimo.setText("");
       
     }//GEN-LAST:event_btnReprovar1ActionPerformed
@@ -532,7 +531,7 @@ public class AprovacaoEmprestimo extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         atualizarEmail(novoCliente);
-        new InformacoesDevedor().setVisible(true);
+        new InformacoesPessoais().setVisible(true);
         AprovacaoEmprestimo.this.dispose();
     }//GEN-LAST:event_btnBuscarActionPerformed
 

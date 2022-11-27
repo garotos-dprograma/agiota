@@ -1,5 +1,6 @@
 package janelas;
 
+import static classe.Gerenciador.limparDados;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 import static classe.Gerenciador.usuarioLogado;
@@ -263,7 +264,7 @@ public class MenuAgiota extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualConsultaActionPerformed
 
     private void btnAtualDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualDadosActionPerformed
-        new InformacoesAgiota().setVisible(true);
+        new InformacoesPessoais().setVisible(true);
         MenuAgiota.this.dispose();
     }//GEN-LAST:event_btnAtualDadosActionPerformed
 
@@ -274,6 +275,7 @@ public class MenuAgiota extends javax.swing.JFrame {
 
     private void btnAtualDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualDados1ActionPerformed
         new Login().setVisible(true);
+        limparDados();
         MenuAgiota.this.dispose();
     }//GEN-LAST:event_btnAtualDados1ActionPerformed
 

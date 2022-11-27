@@ -167,7 +167,7 @@ public class Pessoa {
         this.agiota = false;
     }
     
-    public void LimparCliente() {
+    public void limparDados() {
         this.setNome("");
         this.setRg("");
         this.setEmail("");

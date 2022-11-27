@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package janelas;
 
 import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author limal
- */
+
 public class novaSenha extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     Pessoa novoCliente = new Pessoa ();
@@ -191,13 +184,12 @@ public class novaSenha extends javax.swing.JFrame {
         String consultaSenha = this.pwdSenhaAntiga.getText();
         
         try{
-            String atualizaCpf = "UPDATE cadastroclientes SET "
+            String atualizaCpf = "UPDATE pessoa SET "
                     + "senha = '" + pwdTrocaSenha.getText() + "' "
                     + " WHERE "
                     + " senha = '" + consultaSenha + "';"
                     ;
-            this.conectar.updateSQL (atualizaCpf);
-            System.out.println(atualizaCpf);
+            this.conectar.updateSQL(atualizaCpf);
             
             if(novoCliente.getNome() == ""){
                 JOptionPane.showMessageDialog(null, "Erro não Buscar Senha");
@@ -226,13 +218,13 @@ public class novaSenha extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         atualizarSenha(novoCliente);
-         new InformacoesDevedor().setVisible(true);
+         new InformacoesPessoais().setVisible(true);
          novaSenha.this.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
-        novoCliente.LimparCliente();
+        novoCliente.limparDados();
         this.pwdSenhaAntiga.setText("");
         this.pwdTrocaSenha.setText("");
         this.pwdRepitaSenha.setText("");
@@ -241,7 +233,7 @@ public class novaSenha extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         
-         new InformacoesDevedor().setVisible(true);
+         new InformacoesPessoais().setVisible(true);
          novaSenha.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
