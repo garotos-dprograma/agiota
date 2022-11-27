@@ -10,9 +10,6 @@ public class Emprestimo extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     Pessoa novoCliente = new Pessoa();
     Divida divida = new Divida();
-    /**
-     * Creates new form novaSenha
-     */
     
     private int idDevedor;
 
@@ -37,7 +34,6 @@ public class Emprestimo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtemailAntigo2 = new javax.swing.JTextField();
         pPrincipal = new javax.swing.JPanel();
         lblValorEmprestimo = new javax.swing.JLabel();
         pTitulo = new javax.swing.JPanel();
@@ -52,12 +48,6 @@ public class Emprestimo extends javax.swing.JFrame {
         lblCpfDevedor = new javax.swing.JLabel();
         txtJuros = new javax.swing.JTextField();
         lblTaxaJuros = new javax.swing.JLabel();
-
-        txtemailAntigo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtemailAntigo2ActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -87,7 +77,7 @@ public class Emprestimo extends javax.swing.JFrame {
             .addGroup(pTituloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitulo)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         btnSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
@@ -108,7 +98,7 @@ public class Emprestimo extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(255, 0, 51));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Voltar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -121,21 +111,10 @@ public class Emprestimo extends javax.swing.JFrame {
 
         cbxParcela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "3", "6 ", "9", "12", "24", "48" }));
         cbxParcela.setToolTipText("");
-        cbxParcela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxParcelaActionPerformed(evt);
-            }
-        });
 
         lblCpfDevedor.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
         lblCpfDevedor.setForeground(new java.awt.Color(255, 255, 255));
         lblCpfDevedor.setText("CPF do devedor");
-
-        txtJuros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtJurosActionPerformed(evt);
-            }
-        });
 
         lblTaxaJuros.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
         lblTaxaJuros.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,10 +127,10 @@ public class Emprestimo extends javax.swing.JFrame {
             .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnLimpar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
-                .addGap(64, 64, 64)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLimpar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSolicitar)
                 .addContainerGap())
             .addGroup(pPrincipalLayout.createSequentialGroup()
@@ -162,7 +141,7 @@ public class Emprestimo extends javax.swing.JFrame {
                         .addComponent(lblValorEmprestimo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(lblCpfDevedor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblParcela)
                     .addComponent(cbxParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,12 +169,11 @@ public class Emprestimo extends javax.swing.JFrame {
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSolicitar)
-                        .addComponent(btnLimpar))
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSolicitar)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLimpar))
                 .addContainerGap())
         );
 
@@ -214,8 +192,9 @@ public class Emprestimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    public void getIdPorCpf(){
+    public boolean getIdPorCpf(){
         this.conectar.conectaBanco();
+        boolean sucess = false;
         
         String consultaEndividado = this.txtCPF.getText();
         
@@ -228,37 +207,41 @@ public class Emprestimo extends javax.swing.JFrame {
          while(this.conectar.getResultSet().next()){
              this.setIdDevedor(this.conectar.getResultSet().getInt(1));
          }
-                    
+         sucess = true;
         } catch(Exception e) {
             System.out.println("Erro ao procurar devedor"+ e.getMessage());
             JOptionPane.showMessageDialog (null, "Erro ao buscar id");
-        
         } finally {
            this.conectar.fechaBanco();
         }
+        return sucess;
     }
     
     
     public void criarDivida(Divida divida){
+        if(!getIdPorCpf())
+            return;
+        
         try{
+            this.conectar.conectaBanco();
             String criar = "insert into divida(devedorId, agiotaId, taxaJuros, parcelas, valorAtual, valorProMes) "
-                    + "values( "
+                    + "values("
                     + idDevedor + ", "
                     + idLogado + ", "
                     + this.txtJuros.getText() + ", "
                     + this.cbxParcela.getSelectedIndex() + ", "
                     + this.txtEmprestimo.getText() + ", "
-                    + "proxMes(" + this.txtEmprestimo.getText() 
-                    + ", " 
+                    + "proxMes(" + this.txtEmprestimo.getText() + ", " 
                     + this.txtJuros.getText() + ")"
-                    +"); ";
+                    +");";
             this.conectar.insertSQL(criar);
             
-            
+            new MenuAgiota().setVisible(true);
+            Emprestimo.this.dispose();
         }
-        
         catch(Exception e){
-            
+            System.out.println("Erro ao cadastrar dívida: "+ e.getMessage());
+            JOptionPane.showMessageDialog (null, "Erro ao cadastrar dívida!");
         }
         finally{
             this.conectar.fechaBanco();
@@ -266,39 +249,21 @@ public class Emprestimo extends javax.swing.JFrame {
     }
     
     private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
-        getIdPorCpf();
         criarDivida(divida);
-        new MenuAgiota().setVisible(true);
-        Emprestimo.this.dispose();
     }//GEN-LAST:event_btnSolicitarActionPerformed
 
-    private void txtemailAntigo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailAntigo2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailAntigo2ActionPerformed
-
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
-        novoCliente.LimparCliente();
+        novoCliente.limparDados();
         this.txtEmprestimo.setText("");
         this.cbxParcela.setSelectedIndex(0);
         this.txtCPF.setText("");
         this.txtJuros.setText("");
-      
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
         new MenuAgiota().setVisible(true);
         Emprestimo.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void cbxParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxParcelaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxParcelaActionPerformed
-
-    private void txtJurosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJurosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtJurosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,7 +322,6 @@ public class Emprestimo extends javax.swing.JFrame {
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtEmprestimo;
     private javax.swing.JTextField txtJuros;
-    private javax.swing.JTextField txtemailAntigo2;
     // End of variables declaration//GEN-END:variables
 
 }

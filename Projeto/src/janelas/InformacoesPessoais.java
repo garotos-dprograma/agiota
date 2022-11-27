@@ -30,8 +30,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         lblNome = new javax.swing.JLabel();
         txtInformacoesCPF = new javax.swing.JTextField();
         txtInformacoesNome = new javax.swing.JTextField();
-        lblEmail = new javax.swing.JLabel();
-        txtInformacoesEmail = new javax.swing.JTextField();
         lblSexo = new javax.swing.JLabel();
         lblTelefone = new javax.swing.JLabel();
         txtInformacoesTelefone = new javax.swing.JTextField();
@@ -84,10 +82,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         lblNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome");
-
-        lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmail.setText("E-mail ");
 
         lblSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblSexo.setForeground(new java.awt.Color(255, 255, 255));
@@ -216,20 +210,13 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pPrincipalLayout.createSequentialGroup()
                                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(chbxAgiota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pPrincipalLayout.createSequentialGroup()
-                                        .addComponent(lblCpf)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtInformacoesCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblRG)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblSexo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(0, 787, Short.MAX_VALUE))
+                            .addGroup(pPrincipalLayout.createSequentialGroup()
+                                .addComponent(lblCpf)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtInformacoesCPF)
+                                .addGap(628, 628, 628)))
                         .addGap(18, 18, 18))))
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,10 +227,10 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                                 .addComponent(lblTelefone)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtInformacoesTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblEmail)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblSexo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtInformacoesEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pPrincipalLayout.createSequentialGroup()
                                 .addComponent(lblCIdade)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,12 +245,17 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                                 .addComponent(txtInformacoesCep, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 59, Short.MAX_VALUE)
-                        .addComponent(txtInformacoesNome, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSobrenome)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
+                                .addComponent(txtInformacoesNome, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblSobrenome))
+                            .addComponent(lblRG, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         pPrincipalLayout.setVerticalGroup(
@@ -281,16 +273,14 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCpf)
                     .addComponent(txtInformacoesCPF)
-                    .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblRG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtRG))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelefone)
                     .addComponent(txtInformacoesTelefone)
-                    .addComponent(lblEmail)
-                    .addComponent(txtInformacoesEmail))
+                    .addComponent(lblSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -500,7 +490,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                     +"nome,"
                     +"sobrenome,"
                     +"rg,"
-                    +"email,"
                     +"sexo_id,"
                     +"telefone,"
                     +"estado_id,"
@@ -519,16 +508,15 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                 novoCliente.setNome(this.conectar.getResultSet().getString(2));
                 novoCliente.setSobrenome(this.conectar.getResultSet().getString(3));
                 novoCliente.setRg(this.conectar.getResultSet().getString(4));
-                novoCliente.setEmail(this.conectar.getResultSet().getString(5));
-                novoCliente.setSexoId(this.conectar.getResultSet().getInt(6));
-                novoCliente.setTelefone(this.conectar.getResultSet().getString(7));
-                novoCliente.setEstadoId(this.conectar.getResultSet().getInt(8));
-                novoCliente.setCidade(this.conectar.getResultSet().getString(9));
-                novoCliente.setRua(this.conectar.getResultSet().getString(10));
-                novoCliente.setNumero(this.conectar.getResultSet().getString(11));
-                novoCliente.setBairro(this.conectar.getResultSet().getString(12));
-                novoCliente.setCep(this.conectar.getResultSet().getString(13));
-                novoCliente.setAgiota(this.conectar.getResultSet().getBoolean(14));
+                novoCliente.setSexoId(this.conectar.getResultSet().getInt(5));
+                novoCliente.setTelefone(this.conectar.getResultSet().getString(6));
+                novoCliente.setEstadoId(this.conectar.getResultSet().getInt(7));
+                novoCliente.setCidade(this.conectar.getResultSet().getString(8));
+                novoCliente.setRua(this.conectar.getResultSet().getString(9));
+                novoCliente.setNumero(this.conectar.getResultSet().getString(10));
+                novoCliente.setBairro(this.conectar.getResultSet().getString(11));
+                novoCliente.setCep(this.conectar.getResultSet().getString(12));
+                novoCliente.setAgiota(this.conectar.getResultSet().getBoolean(13));
             }
             
             if ("".equals(novoCliente.getCpf())){
@@ -586,7 +574,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                 "nome = '" + this.txtInformacoesNome.getText() + "', " +
                 "sobrenome = '" + this.txtSobrenome.getText() + "', " +
                 "cpf = '" + this.txtInformacoesCPF.getText() + "', " +
-                "email= '" + this.txtInformacoesEmail.getText() + "', " +
                 "rg = '" + this.txtRG.getText() + "', " +
                 "telefone = '" + this.txtInformacoesTelefone.getText() + "', " +
                 "sexo_id = " + this.cbxSexo.getSelectedIndex() + ", " +
@@ -620,7 +607,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         txtInformacoesNome.setText(novoCliente.getNome());
         txtSobrenome.setText(novoCliente.getSobrenome());
         txtRG.setText(novoCliente.getRg());
-        txtInformacoesEmail.setText(novoCliente.getEmail());
         cbxSexo.setSelectedIndex(novoCliente.getSexoId());
         txtInformacoesTelefone.setText(novoCliente.getTelefone());
         cbxEstado.setSelectedIndex(novoCliente.getEstadoId());
@@ -696,7 +682,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
     private javax.swing.JLabel lblCIdade;
     private javax.swing.JLabel lblCep;
     private javax.swing.JLabel lblCpf;
-    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblExcluirConta;
     private javax.swing.JLabel lblMudaSenha;
@@ -720,7 +705,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
     private javax.swing.JTextField txtInformacoesCPF;
     private javax.swing.JTextField txtInformacoesCep;
     private javax.swing.JTextField txtInformacoesCidade;
-    private javax.swing.JTextField txtInformacoesEmail;
     private javax.swing.JTextField txtInformacoesNome;
     private javax.swing.JTextField txtInformacoesRua;
     private javax.swing.JTextField txtInformacoesTelefone;

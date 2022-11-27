@@ -38,7 +38,6 @@ public class ConsultaDevedor extends javax.swing.JFrame {
                 });
             }
         } catch (Exception e) {
-            System.out.println(e);
             System.out.println("Erro ao listar dívidas! " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao listar dívidas!");
             

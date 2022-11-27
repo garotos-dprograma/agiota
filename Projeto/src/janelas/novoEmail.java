@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package janelas;
 
+import static classe.Gerenciador.idLogado;
 import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author limal
- */
+
 public class novoEmail extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     Pessoa novoCliente = new Pessoa ();
@@ -31,7 +25,6 @@ public class novoEmail extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtemailAntigo2 = new javax.swing.JTextField();
         pPrincipal = new javax.swing.JPanel();
         lblNovoEmail = new javax.swing.JLabel();
         pTitulo = new javax.swing.JPanel();
@@ -45,12 +38,6 @@ public class novoEmail extends javax.swing.JFrame {
         txtRepNovoEmail = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
 
-        txtemailAntigo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtemailAntigo2ActionPerformed(evt);
-            }
-        });
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo E-mail");
 
@@ -58,20 +45,20 @@ public class novoEmail extends javax.swing.JFrame {
 
         lblNovoEmail.setBackground(new java.awt.Color(0, 0, 0));
         lblNovoEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNovoEmail.setText("Nova E-mail");
+        lblNovoEmail.setText("Novo E-mail");
 
         pTitulo.setBackground(new java.awt.Color(0, 0, 0));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("Alteração de Senha");
+        lblTitulo.setText("Alteração de e-mail");
 
         javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
         pTitulo.setLayout(pTituloLayout);
         pTituloLayout.setHorizontalGroup(
             pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
+                .addContainerGap(124, Short.MAX_VALUE)
                 .addComponent(lblTitulo)
                 .addGap(117, 117, 117))
         );
@@ -102,24 +89,6 @@ public class novoEmail extends javax.swing.JFrame {
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparActionPerformed(evt);
-            }
-        });
-
-        txtNovoEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNovoEmailActionPerformed(evt);
-            }
-        });
-
-        txtEmailAnt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailAntActionPerformed(evt);
-            }
-        });
-
-        txtRepNovoEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRepNovoEmailActionPerformed(evt);
             }
         });
 
@@ -200,62 +169,35 @@ public class novoEmail extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        
-
     public void atualizarEmail(Pessoa novoCliente){
         this.conectar.conectaBanco();
         
         String consultaEmail = this.txtEmailAnt.getText();
         
         try{
-            String atualizaCpf = "UPDATE cadastroclientes SET "
+            String atualizaCpf = "UPDATE pessoa SET "
                     + "email = '" + txtNovoEmail.getText() + "' "
-                    + " WHERE "
-                    + " email = '" + consultaEmail + "';"
-                    ;
-            this.conectar.updateSQL (atualizaCpf);
-            System.out.println(atualizaCpf);
-            
-            if(novoCliente.getNome() == ""){
-                JOptionPane.showMessageDialog(null, "Erro não Buscar E-mail");
-            }         
+                    + " WHERE id = " + idLogado
+                    + " AND email = '" + consultaEmail + "';";
+            this.conectar.updateSQL(atualizaCpf);
+            JOptionPane.showMessageDialog (null, "E-mail alterado com sucesso!");
+            new InformacoesPessoais().setVisible(true);
+            novoEmail.this.dispose();
         } catch(Exception e) {
-            System.out.println("Erro ao Atualizar Cliente"+ e.getMessage());
-            JOptionPane.showMessageDialog (null, "Erro ao buscar Email");
-        
+            System.out.println("Erro ao atuazlidar email: "+ e.getMessage());
+            JOptionPane.showMessageDialog (null, "Erro ao atualizar e-mail! Email errado ou não condizente com funcionário logado.");
         } finally {
-            txtNovoEmail.setText(novoCliente.getSenha());
-          
-            
+            this.conectar.fechaBanco();
         }
     }
     
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
         atualizarEmail(novoCliente);
-        new InformacoesDevedor().setVisible(true);
-         novoEmail.this.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
-
-    private void txtNovoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovoEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNovoEmailActionPerformed
-
-    private void txtEmailAntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailAntActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailAntActionPerformed
-
-    private void txtemailAntigo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailAntigo2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailAntigo2ActionPerformed
-
-    private void txtRepNovoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepNovoEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRepNovoEmailActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
-        novoCliente.LimparCliente();
+        novoCliente.limparDados();
         this.txtEmailAnt.setText("");
         this.txtNovoEmail.setText("");
         this.txtRepNovoEmail.setText("");
@@ -264,7 +206,7 @@ public class novoEmail extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         
-        new InformacoesDevedor().setVisible(true);
+        new InformacoesPessoais().setVisible(true);
         novoEmail.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
