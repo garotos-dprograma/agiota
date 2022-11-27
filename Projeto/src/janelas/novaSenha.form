@@ -155,9 +155,6 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JPasswordField" name="pwdTrocaSenha">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pwdTrocaSenhaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblRepSenha">
           <Properties>
@@ -168,9 +165,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="pwdRepitaSenha">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pwdRepitaSenhaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSenhaAnt">
           <Properties>

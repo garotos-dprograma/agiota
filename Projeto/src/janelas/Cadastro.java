@@ -4,17 +4,10 @@ import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
-
-/**
- *
- * @author limal
- */
 public class Cadastro extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     Pessoa novaPessoa = new Pessoa();
-    /**
-     * Creates new form Cadastro
-     */
+
     public Cadastro() {
         initComponents();
     }
@@ -392,6 +385,9 @@ public class Cadastro extends javax.swing.JFrame {
         novo.setSenha(pwdSenha.getText());
         novo.setAgiota(chbxAgiota.isSelected());
         
+        if(verificarCpfJaCadastrado())
+            return false;
+        
         try{
             String query = "INSERT INTO pessoa ("
                     +"nome,"
@@ -438,10 +434,38 @@ public class Cadastro extends javax.swing.JFrame {
         return sucesso;
     }
     
+    private boolean verificarCpfJaCadastrado(){
+        this.conectar.conectaBanco();
+        String cpfExistente = "";
+        
+        try{
+            String buscarCliente = "SELECT cpf FROM pessoa WHERE cpf = '" + this.txtCpf.getText() + "';";
+            this.conectar.executarSQL (buscarCliente);
+            
+            
+            while (this.conectar.getResultSet().next()) {
+                cpfExistente = this.conectar.getResultSet().getString(1);
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao consultar CPF já cadastrado: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao consultar CPF já cadastrado, não foi possível realizar o cadastro!");
+            return true;
+        } finally {
+            this.conectar.fechaBanco();
+        }
+        
+        if (!"".equals(cpfExistente)){
+            JOptionPane.showMessageDialog(null, "Já existe um cadastro para esse CPF!");
+            return true;
+        }
+        
+        return false;
+    }
+    
     private void btnCadastroLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroLimparActionPerformed
-        // TODO add your handling code here:
         novaPessoa.limparDados();
         this.txtNome.setText("");
+        this.txtBairro.setText("");
         this.txtSobrenome.setText("");
         this.txtRG.setText("");
         this.txtEmail.setText("");

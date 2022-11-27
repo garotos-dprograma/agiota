@@ -122,21 +122,14 @@
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="chbxAgiota" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
                                               <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="lblCpf" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="txtInformacoesCPF" min="-2" pref="201" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="lblRG" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="txtRG" min="-2" pref="175" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="cbxSexo" min="-2" pref="159" max="-2" attributes="0"/>
-                                              </Group>
                                           </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="787" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblCpf" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtInformacoesCPF" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="628" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -152,10 +145,10 @@
                                           <Component id="lblTelefone" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="txtInformacoesTelefone" min="-2" pref="158" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtInformacoesEmail" min="-2" pref="346" max="-2" attributes="0"/>
+                                          <Component id="cbxSexo" min="-2" pref="159" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblCIdade" min="-2" max="-2" attributes="0"/>
@@ -174,12 +167,20 @@
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="59" max="32767" attributes="0"/>
-                                  <Component id="txtInformacoesNome" min="-2" pref="212" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lblSobrenome" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="txtInformacoesNome" min="-2" pref="212" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lblSobrenome" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="lblRG" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtSobrenome" min="-2" pref="523" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtRG" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="txtSobrenome" min="-2" pref="523" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -202,8 +203,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtInformacoesCPF" alignment="3" max="32767" attributes="0"/>
-                              <Component id="cbxSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblSexo" alignment="3" max="32767" attributes="0"/>
                               <Component id="lblRG" alignment="3" max="32767" attributes="0"/>
                               <Component id="txtRG" alignment="3" max="32767" attributes="0"/>
                           </Group>
@@ -211,8 +210,8 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtInformacoesTelefone" alignment="3" max="32767" attributes="0"/>
-                              <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtInformacoesEmail" alignment="3" max="32767" attributes="0"/>
+                              <Component id="lblSexo" alignment="3" max="32767" attributes="0"/>
+                              <Component id="cbxSexo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -270,19 +269,6 @@
                 <Component class="javax.swing.JTextField" name="txtInformacoesCPF">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtInformacoesNome">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblEmail">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="18" style="0"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="E-mail "/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtInformacoesEmail">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblSexo">
                   <Properties>

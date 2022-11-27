@@ -1,17 +1,14 @@
 package janelas;
 
+import static classe.Gerenciador.idLogado;
 import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 
-
 public class novaSenha extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
-    Pessoa novoCliente = new Pessoa ();
+    Pessoa novoCliente = new Pessoa();
 
-    /**
-     * Creates new form novaSenha
-     */
     public novaSenha() {
         initComponents();
     }
@@ -70,20 +67,8 @@ public class novaSenha extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        pwdTrocaSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdTrocaSenhaActionPerformed(evt);
-            }
-        });
-
         lblRepSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblRepSenha.setText("Repetir Nova Senha");
-
-        pwdRepitaSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdRepitaSenhaActionPerformed(evt);
-            }
-        });
 
         lblSenhaAnt.setText("Senha Antiga");
 
@@ -178,7 +163,7 @@ public class novaSenha extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        public void atualizarSenha(Pessoa novoCliente){
+    public void atualizarSenha(Pessoa novoCliente){
         this.conectar.conectaBanco();
         
         String consultaSenha = this.pwdSenhaAntiga.getText();
@@ -186,44 +171,25 @@ public class novaSenha extends javax.swing.JFrame {
         try{
             String atualizaCpf = "UPDATE pessoa SET "
                     + "senha = '" + pwdTrocaSenha.getText() + "' "
-                    + " WHERE "
-                    + " senha = '" + consultaSenha + "';"
-                    ;
+                    + " WHERE id = " + idLogado
+                    + " senha = '" + consultaSenha + "';";
             this.conectar.updateSQL(atualizaCpf);
-            
-            if(novoCliente.getNome() == ""){
-                JOptionPane.showMessageDialog(null, "Erro não Buscar Senha");
-            }         
+            JOptionPane.showMessageDialog (null, "Senha atualizada com sucesso!");
+            new InformacoesPessoais().setVisible(true);
+            novaSenha.this.dispose();
         } catch(Exception e) {
             System.out.println("Erro ao Atualizar Cliente"+ e.getMessage());
             JOptionPane.showMessageDialog (null, "Erro ao buscar Senha");
-        
         } finally {
-            pwdTrocaSenha.setText(novoCliente.getSenha());
-          
-            
+            this.conectar.fechaBanco();
         }
     }
 
-    
-    
-    private void pwdTrocaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdTrocaSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pwdTrocaSenhaActionPerformed
-
-    private void pwdRepitaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdRepitaSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pwdRepitaSenhaActionPerformed
-
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
         atualizarSenha(novoCliente);
-         new InformacoesPessoais().setVisible(true);
-         novaSenha.this.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
         novoCliente.limparDados();
         this.pwdSenhaAntiga.setText("");
         this.pwdTrocaSenha.setText("");
@@ -231,8 +197,6 @@ public class novaSenha extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-        
          new InformacoesPessoais().setVisible(true);
          novaSenha.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
