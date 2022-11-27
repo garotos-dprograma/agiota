@@ -57,10 +57,8 @@ public class DividaAtual extends javax.swing.JFrame {
         lblDividaTotalValor = new javax.swing.JLabel();
         btnAtualConsulta = new javax.swing.JButton();
         btnAtualDados = new javax.swing.JButton();
-        btnAtualNovo = new javax.swing.JButton();
         lblConsulta = new javax.swing.JLabel();
         lblMeusDados = new javax.swing.JLabel();
-        lblEmprestimo = new javax.swing.JLabel();
         btnAtualDados1 = new javax.swing.JButton();
         lblLogoff = new javax.swing.JLabel();
         lblVoceEstaDevendo = new javax.swing.JLabel();
@@ -110,24 +108,14 @@ public class DividaAtual extends javax.swing.JFrame {
             }
         });
 
-        btnAtualNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/mao_com_dinheiro.png"))); // NOI18N
-        btnAtualNovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualNovoActionPerformed(evt);
-            }
-        });
-
         lblConsulta.setBackground(new java.awt.Color(255, 255, 255));
+        lblConsulta.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lblConsulta.setForeground(new java.awt.Color(255, 255, 255));
         lblConsulta.setText("Consulta");
 
         lblMeusDados.setBackground(new java.awt.Color(255, 255, 255));
         lblMeusDados.setForeground(new java.awt.Color(255, 255, 255));
         lblMeusDados.setText("Meus Dados");
-
-        lblEmprestimo.setBackground(new java.awt.Color(255, 255, 255));
-        lblEmprestimo.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmprestimo.setText("Novo Emprestimo");
 
         btnAtualDados1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logoff.png"))); // NOI18N
         btnAtualDados1.addActionListener(new java.awt.event.ActionListener() {
@@ -170,16 +158,11 @@ public class DividaAtual extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pInicialLayout.createSequentialGroup()
                         .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pInicialLayout.createSequentialGroup()
-                                .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAtualNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pInicialLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(lblConsulta)
-                                .addGap(62, 62, 62)
-                                .addComponent(lblEmprestimo)))
-                        .addGap(131, 131, 131)
+                                .addGap(51, 51, 51)
+                                .addComponent(lblConsulta)))
+                        .addGap(89, 89, 89)
                         .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblMeusDados))
@@ -208,18 +191,21 @@ public class DividaAtual extends javax.swing.JFrame {
                     .addComponent(lblVoceEstaDevendo)
                     .addComponent(lblTotalAgiotas, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAgiotas))
-                .addGap(24, 24, 24)
-                .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAtualNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pInicialLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pInicialLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(lblConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -274,12 +260,6 @@ public class DividaAtual extends javax.swing.JFrame {
         DividaAtual.this.dispose();
     }//GEN-LAST:event_btnAtualDadosActionPerformed
 
-    private void btnAtualNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualNovoActionPerformed
-        // TODO add your handling code here:
-        new Emprestimo().setVisible(true);
-        DividaAtual.this.dispose();
-    }//GEN-LAST:event_btnAtualNovoActionPerformed
-
     private void btnAtualConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualConsultaActionPerformed
         // TODO add your handling code here:
         new ConsultaDivida(usuarioLogado).setVisible(true);
@@ -331,12 +311,10 @@ public class DividaAtual extends javax.swing.JFrame {
     private javax.swing.JButton btnAtualConsulta;
     private javax.swing.JButton btnAtualDados;
     private javax.swing.JButton btnAtualDados1;
-    private javax.swing.JButton btnAtualNovo;
     private javax.swing.JLabel lblAgiotas;
     private javax.swing.JLabel lblConsulta;
     private javax.swing.JLabel lblDividaAtual;
     private javax.swing.JLabel lblDividaTotalValor;
-    private javax.swing.JLabel lblEmprestimo;
     private javax.swing.JLabel lblLogoff;
     private javax.swing.JLabel lblMeusDados;
     private javax.swing.JLabel lblOla;

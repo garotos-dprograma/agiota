@@ -4,6 +4,8 @@ import classe.Pessoa;
 import conexoes.MySQL;
 import java.awt.Toolkit;
 import java.util.Arrays;
+import static classe.Gerenciador.idLogado;
+import classe.Gerenciador;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -11,6 +13,7 @@ public class Login extends javax.swing.JFrame {
     boolean focus = false;
     String mostrarSenha = "/resources/eye.png";
     MySQL conectar = new MySQL();
+    
     
     public Login() {
         initComponents();
@@ -268,6 +271,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro ao efetuar login!");
             
         } finally {
+            idLogado = usuarioLogado.getId();
             this.conectar.fechaBanco();
             if(sucesso){
                 if(this.usuarioLogado.getAgiota()){

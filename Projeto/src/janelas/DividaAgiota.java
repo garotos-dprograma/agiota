@@ -279,7 +279,7 @@ public class DividaAgiota extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualDadosActionPerformed
 
     private void btnAtualNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualNovoActionPerformed
-        new AprovacaoEmprestimo().setVisible(true);
+        new Emprestimo().setVisible(true);
         DividaAgiota.this.dispose();
     }//GEN-LAST:event_btnAtualNovoActionPerformed
 

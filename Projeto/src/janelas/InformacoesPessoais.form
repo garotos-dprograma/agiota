@@ -32,10 +32,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Component id="tpInformacoes" min="-2" pref="546" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="tpInformacoes" min="-2" pref="546" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -142,20 +139,20 @@
                                                   <Component id="txtInformacoesRua" pref="316" max="32767" attributes="0"/>
                                                   <Component id="txtInformacoesCargo" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
                                                       <Component id="lblCep" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="txtInformacoesCep" min="-2" pref="227" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="btnVoltar" min="-2" pref="100" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
                                                       <Component id="btnInformacoesBuscar" min="-2" pref="105" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="btnVoltar" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -194,9 +191,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="pInfoTitulo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="19" max="32767" attributes="0"/>
+                              <EmptySpace pref="12" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtInformacoesCPF" pref="32" max="32767" attributes="0"/>
+                                  <Component id="txtInformacoesCPF" pref="26" max="32767" attributes="0"/>
                                   <Component id="lblCpf" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -243,9 +240,9 @@
                                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnVoltar" max="32767" attributes="0"/>
-                                          <Component id="btnInformacoesBuscar" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="btnInformacoesBuscar" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="btnVoltar" alignment="3" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>

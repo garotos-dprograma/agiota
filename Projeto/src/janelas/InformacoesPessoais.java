@@ -21,7 +21,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
     public InformacoesPessoais() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -189,17 +189,17 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtInformacoesRua, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
                                     .addComponent(txtInformacoesCargo))
-                                .addGap(18, 18, 18)
-                                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(pPrincipalLayout.createSequentialGroup()
                                         .addComponent(lblCep)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtInformacoesCep, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(40, 40, 40))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                                        .addComponent(btnInformacoesBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)))
-                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(pPrincipalLayout.createSequentialGroup()
+                                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnInformacoesBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(pPrincipalLayout.createSequentialGroup()
                         .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEmail)
@@ -228,9 +228,9 @@ public class InformacoesPessoais extends javax.swing.JFrame {
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pInfoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtInformacoesCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(txtInformacoesCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                     .addComponent(lblCpf))
                 .addGap(18, 18, 18)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -268,9 +268,9 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                             .addComponent(txtInformacoesCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnInformacoesBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnInformacoesBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
 
@@ -408,12 +408,10 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         pSegurancaPrincipaLayout.setVerticalGroup(
             pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSegurancaPrincipaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblMudaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                        .addGap(122, 255, Short.MAX_VALUE)
-                        .addComponent(lblMudaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSegurançaExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSegurançaMudança, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -468,9 +466,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(tpInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(tpInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -525,13 +521,13 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                 novoCliente.setCpf(this.conectar.getResultSet().getString(1));
                 novoCliente.setNome(this.conectar.getResultSet().getString(2));
                 novoCliente.setEmail(this.conectar.getResultSet().getString(3));
-                novoCliente.setSexo(this.conectar.getResultSet().getString(4));
+                novoCliente.setSexoId(this.conectar.getResultSet().getInt(4));
                 novoCliente.setTelefone(this.conectar.getResultSet().getString(5));
-                novoCliente.setEstado(this.conectar.getResultSet().getString(6));
+                novoCliente.setEstadoId(this.conectar.getResultSet().getInt(6));
                 novoCliente.setCidade(this.conectar.getResultSet().getString(7));
                 novoCliente.setRua(this.conectar.getResultSet().getString(8));
                 novoCliente.setCep(this.conectar.getResultSet().getString(9));
-                novoCliente.setCargo(this.conectar.getResultSet().getString(10));
+                novoCliente.setAgiota(Boolean.getBoolean(this.conectar.getResultSet().getString(10)));
             }
             if (novoCliente.getCpf() == ""){
                 JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
@@ -545,13 +541,13 @@ public class InformacoesPessoais extends javax.swing.JFrame {
             txtInformacoesCPF.setText(novoCliente.getCpf());
             txtInformacoesNome.setText(novoCliente.getNome());
             txtInformacoesEmail.setText(novoCliente.getEmail());
-            txtInformacoesSexo.setText(novoCliente.getSexo());
+            txtInformacoesSexo.setText(String.valueOf(novoCliente.getSexoId()));
             txtInformacoesTelefone.setText(novoCliente.getTelefone());
-            txtInformacoesEstado.setText(novoCliente.getEstado());
+            txtInformacoesEstado.setText(String.valueOf(novoCliente.getEstadoId()));
             txtInformacoesCidade.setText(novoCliente.getCidade());
             txtInformacoesRua.setText(novoCliente.getRua());
             txtInformacoesCep.setText(novoCliente.getCep());
-            txtInformacoesCargo.setText(novoCliente.getCargo());
+            txtInformacoesCargo.setText(String.valueOf(novoCliente.getAgiota()));
             this.conectar.fechaBanco();
         } 
         

@@ -3,15 +3,17 @@ package janelas;
 import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
+import static classe.Gerenciador.idLogado;
 
 public class InformacoesAgiota extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     Pessoa novoCliente = new Pessoa ();
 
+    
     public InformacoesAgiota() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -467,23 +469,25 @@ public class InformacoesAgiota extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void buscarAgiota(Pessoa novoCliente) {
         this.conectar.conectaBanco();
         String consultaCpf = this.txtAgiotaCpf.getText ();
         
         try{
-            String buscarAgiota = "SELECT"
+            String buscarAgiota = "SELECT "
                     +"cpf,"
                     +"nome,"
                     +"email,"
-                    +"sexo,"
+                    +"sexo_id,"
                     +"telefone,"
-                    +"estado,"
+                    +"estado_id,"
                     +"cidade,"
                     +"rua,"    
                     +"cep,"
-                    +"cargo,"
+                    +"agiota"
+                    + " FROM "
+                    + "Pessoa"
                     + " WHERE "
                         + " cpf = '" + consultaCpf + "';"
                     ;
@@ -494,13 +498,13 @@ public class InformacoesAgiota extends javax.swing.JFrame {
                 novoCliente.setCpf(this.conectar.getResultSet().getString(1));
                 novoCliente.setNome(this.conectar.getResultSet().getString(2));
                 novoCliente.setEmail(this.conectar.getResultSet().getString(3));
-                novoCliente.setSexo(this.conectar.getResultSet().getString(4));
+                novoCliente.setSexoId(this.conectar.getResultSet().getInt(4));
                 novoCliente.setTelefone(this.conectar.getResultSet().getString(5));
-                novoCliente.setEstado(this.conectar.getResultSet().getString(6));
+                novoCliente.setEstadoId(this.conectar.getResultSet().getInt(6));
                 novoCliente.setCidade(this.conectar.getResultSet().getString(7));
                 novoCliente.setRua(this.conectar.getResultSet().getString(8));
                 novoCliente.setCep(this.conectar.getResultSet().getString(9));
-                novoCliente.setCargo(this.conectar.getResultSet().getString(10));
+                novoCliente.setAgiota(Boolean.getBoolean(this.conectar.getResultSet().getString(10)));
             }
             if (novoCliente.getCpf() == ""){
                 JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
@@ -514,13 +518,13 @@ public class InformacoesAgiota extends javax.swing.JFrame {
             txtAgiotaCpf.setText(novoCliente.getCpf());
             txtAgiotaNome.setText(novoCliente.getNome());
             txtAgiotaEmail.setText(novoCliente.getEmail());
-            txtAgiotaSexo.setText(novoCliente.getSexo());
+            txtAgiotaSexo.setText(String.valueOf(novoCliente.getSexoId()));
             txtAgiotaTelefone.setText(novoCliente.getTelefone());
-            txtAgiotaEstado.setText(novoCliente.getEstado());
+            txtAgiotaEstado.setText(String.valueOf(novoCliente.getEstadoId()));
             txtAgiotaCidade.setText(novoCliente.getCidade());
             txtAgiotaRua.setText(novoCliente.getRua());
             txtAgiotaCep.setText(novoCliente.getCep());
-            txtAgiotaCargo.setText(novoCliente.getCargo());
+            txtAgiotaCargo.setText(String.valueOf(novoCliente.getAgiota()));
             this.conectar.fechaBanco();
         } 
     }
@@ -556,7 +560,7 @@ public class InformacoesAgiota extends javax.swing.JFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
         
-        new DividaAgiota().setVisible(true);
+        new DividaAgiota(novoCliente).setVisible(true);
         InformacoesAgiota.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 

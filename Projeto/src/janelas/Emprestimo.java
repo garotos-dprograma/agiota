@@ -5,8 +5,11 @@
 package janelas;
 
 import classe.Pessoa;
+import classe.Divida;
 import conexoes.MySQL;
+import janelas.DividaAgiota;
 import javax.swing.JOptionPane;
+import static classe.Gerenciador.idLogado;
 
 /**
  *
@@ -15,9 +18,23 @@ import javax.swing.JOptionPane;
 public class Emprestimo extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     Pessoa novoCliente = new Pessoa ();
+    Divida divida = new Divida();
     /**
      * Creates new form novaSenha
      */
+    
+    private int idDevedor;
+
+    public int getIdDevedor() {
+        return idDevedor;
+    }
+
+    public void setIdDevedor(int idDevedor) {
+        this.idDevedor = idDevedor;
+    }
+    
+    
+    
     public Emprestimo() {
         initComponents();
     }
@@ -40,6 +57,13 @@ public class Emprestimo extends javax.swing.JFrame {
         btnLimpar = new javax.swing.JButton();
         txtEmprestimo = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        cbxParcela = new javax.swing.JComboBox<>();
+        txtCPF = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtJuros = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         txtemailAntigo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,7 +77,7 @@ public class Emprestimo extends javax.swing.JFrame {
 
         lblDigite.setBackground(new java.awt.Color(0, 0, 0));
         lblDigite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblDigite.setText("Digite um Valor");
+        lblDigite.setText("Digite o Valor Atual");
 
         pTitulo.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -109,6 +133,26 @@ public class Emprestimo extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Parcela");
+
+        cbxParcela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "3", "6 ", "9", "12", "24", "48" }));
+        cbxParcela.setToolTipText("");
+        cbxParcela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxParcelaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("CPF");
+
+        txtJuros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJurosActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Taxa de Juros(%)");
+
         javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
         pPrincipal.setLayout(pPrincipalLayout);
         pPrincipalLayout.setHorizontalGroup(
@@ -116,32 +160,56 @@ public class Emprestimo extends javax.swing.JFrame {
             .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                        .addComponent(btnLimpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)
-                        .addGap(64, 64, 64)
-                        .addComponent(btnSolicitar))
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txtEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(btnLimpar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addGap(64, 64, 64)
+                .addComponent(btnSolicitar)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblDigite, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
+            .addGroup(pPrincipalLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pPrincipalLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pPrincipalLayout.createSequentialGroup()
+                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtEmprestimo, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblDigite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1)
+                            .addComponent(cbxParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtJuros))
+                        .addGap(40, 40, 40))))
         );
         pPrincipalLayout.setVerticalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(lblDigite)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(lblDigite))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbxParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmprestimo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel4)
+                .addGap(28, 28, 28)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(6, 6, 6)
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSolicitar)
@@ -169,35 +237,64 @@ public class Emprestimo extends javax.swing.JFrame {
     public void atualizarEmail(Pessoa novoCliente){
         this.conectar.conectaBanco();
         
-        String consultaEmail = this.txtEmprestimo.getText();
+        String consultaEndividado = this.txtCPF.getText();
         
         try{
-            String atualizaCpf = "UPDATE cadastroclientes SET "
-                    + "email = '" + txtEmprestimo.getText() + "' "
+            var pegarId = "Select id from  pessoa "
                     + " WHERE "
-                    + " email = '" + consultaEmail + "';"
+                    + " cpf = '" + consultaEndividado + "';"
                     ;
-            this.conectar.updateSQL (atualizaCpf);
-            System.out.println(atualizaCpf);
+            this.conectar.executarSQL(pegarId);
+         while(this.conectar.getResultSet().next()){
+             this.setIdDevedor(Integer.parseInt(this.conectar.getResultSet().getString(1)));
+         }
             
-            if(novoCliente.getNome() == ""){
-                JOptionPane.showMessageDialog(null, "Erro não Buscar E-mail");
-            }         
+           
+                    
         } catch(Exception e) {
-            System.out.println("Erro ao Atualizar Cliente"+ e.getMessage());
-            JOptionPane.showMessageDialog (null, "Erro ao buscar Email");
+            System.out.println("Erro ao procurar devedor"+ e.getMessage());
+            JOptionPane.showMessageDialog (null, "Erro ao buscar id");
         
         } finally {
-            txtEmprestimo.setText(novoCliente.getSenha());
+           
           
             
+        }
+    }
+    
+    
+    public void criarDivida(Divida divida){
+        try{
+            var criar = "insert into divida(devedorId, agiotaId, taxaJuros, parcelas, valorAtual, valorProMes) "
+        
+                    + "values( "
+                    + idDevedor + ", "
+                    + idLogado + ", "
+                    + this.txtJuros.getText() + ", "
+                    + this.cbxParcela.getSelectedIndex() + ", "
+                    + this.txtEmprestimo.getText() + ", "
+                    + "proxMes(" + this.txtEmprestimo.getText() 
+                    + ", " 
+                    + this.txtJuros.getText() + ")"
+                    +"); ";
+            this.conectar.insertSQL(criar);
+            
+            
+        }
+        
+        catch(Exception e){
+            
+        }
+        finally{
+            this.conectar.fechaBanco();
         }
     }
     
     private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
         // TODO add your handling code here:
         atualizarEmail(novoCliente);
-        new DividaAtual().setVisible(true);
+        criarDivida(divida);
+        new DividaAgiota().setVisible(true);
          Emprestimo.this.dispose();
     }//GEN-LAST:event_btnSolicitarActionPerformed
 
@@ -213,14 +310,25 @@ public class Emprestimo extends javax.swing.JFrame {
         // TODO add your handling code here:
         novoCliente.LimparCliente();
         this.txtEmprestimo.setText("");
+        this.cbxParcela.setSelectedIndex(0);
+        this.txtCPF.setText("");
+        this.txtJuros.setText("");
       
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        new DividaAtual().setVisible(true);
+        new DividaAgiota().setVisible(true);
         Emprestimo.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void cbxParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxParcelaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxParcelaActionPerformed
+
+    private void txtJurosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJurosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJurosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,11 +376,18 @@ public class Emprestimo extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSolicitar;
+    private javax.swing.JComboBox<String> cbxParcela;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblDigite;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pPrincipal;
     private javax.swing.JPanel pTitulo;
+    private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtEmprestimo;
+    private javax.swing.JTextField txtJuros;
     private javax.swing.JTextField txtemailAntigo2;
     // End of variables declaration//GEN-END:variables
 

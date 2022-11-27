@@ -45,7 +45,6 @@ public class ConsultaAgiota extends javax.swing.JFrame {
 
         lblOla.setBackground(new java.awt.Color(0, 0, 0));
         lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        lblOla.setForeground(new java.awt.Color(0, 0, 0));
         lblOla.setText("Olá, Agiota");
 
         btnVoltar.setBackground(new java.awt.Color(220, 174, 50));
@@ -64,7 +63,7 @@ public class ConsultaAgiota extends javax.swing.JFrame {
             .addGroup(pTituloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblOla)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 814, Short.MAX_VALUE)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -85,29 +84,10 @@ public class ConsultaAgiota extends javax.swing.JFrame {
         tConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Nome", "CPF", "RG", "Rua", "Numero", "Telefone", "Valor Pago", "Valor Devendo"
+                "Nome", "CPF", "RG", "Rua", "Numero", "Telefone", "Valor Atual", "Valor Proximo Mês"
             }
         ) {
             Class[] types = new Class [] {
@@ -118,6 +98,7 @@ public class ConsultaAgiota extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tConsulta.setToolTipText("");
         tConsulta.setEnabled(false);
         tConsulta.setRowHeight(25);
         SPConsulta.setViewportView(tConsulta);
@@ -134,20 +115,20 @@ public class ConsultaAgiota extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addComponent(SPConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE)
+                        .addComponent(SPConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(pFuncionalLayout.createSequentialGroup()
                         .addComponent(lblConsulta)
-                        .addGap(16, 883, Short.MAX_VALUE))))
+                        .addGap(16, 871, Short.MAX_VALUE))))
         );
         pFuncionalLayout.setVerticalGroup(
             pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFuncionalLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblConsulta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SPConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addComponent(SPConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,14 +136,18 @@ public class ConsultaAgiota extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -174,7 +159,7 @@ public class ConsultaAgiota extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     public void buscarDividas(){
-        String columnNames[] = {"Nome", "CPF", "RG", "Telefone", "Rua", "Nº", "Valor pago", "Valor devendo"};
+        String columnNames[] = {"Nome", "CPF", "RG", "Telefone", "Rua", "Nº", "Valor Atual", "Valor Proximo "};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
         try{
             this.conectar.conectaBanco();
@@ -185,8 +170,8 @@ public class ConsultaAgiota extends javax.swing.JFrame {
                 "pessoa.telefone," +
                 "pessoa.rua, " +
                 "pessoa.numero, " +
-                "ABS(divida.valorAtual - divida.valorInicial) AS valorPago," +
-                "ABS(divida.valorAtual) AS valorDevendo " +
+                "divida.valorAtual ," +
+                "divida.valorProMes " +
                 "FROM divida " +
                 "JOIN pessoa ON pessoa.Id = divida.devedorId " +
                 "WHERE divida.agiotaId = " + this.usuarioLogado.getId();

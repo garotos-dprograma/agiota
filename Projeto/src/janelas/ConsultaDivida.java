@@ -4,6 +4,7 @@ import classe.Pessoa;
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static classe.Gerenciador.idLogado; 
 
 
 public class ConsultaDivida extends javax.swing.JFrame {
@@ -21,19 +22,19 @@ public class ConsultaDivida extends javax.swing.JFrame {
     }
     
     public void buscarDividas(){
-        String columnNames[] = {"Credor", "Valor inicial", "Valor atual", "Status"};
+        String columnNames[] = {"Credor", "Valor Atual", "Valor Proximo Mês", "Status"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
         try{
             this.conectar.conectaBanco();
             String query = "SELECT " +
                 "pessoa.nome, " +
-                "divida.valorInicial, " +
                 "divida.valorAtual, " +
+                "divida.valorProMes, " +
                 "Situacao.nome " +
                 "FROM divida " +
                 "JOIN pessoa ON pessoa.Id = divida.agiotaId " +
                 "JOIN situacao ON situacao.id = divida.situacaoDivida " +
-                "WHERE divida.devedorId = " + this.usuarioLogado.getId();
+                "WHERE divida.devedorId = " + idLogado;
             this.conectar.executarSQL(query);
             while (this.conectar.getResultSet().next()) {
                 model.addRow(new String[]{
@@ -119,33 +120,14 @@ public class ConsultaDivida extends javax.swing.JFrame {
         tConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Credor", "Valor inicial", "Valor atual", "Status"
+                "Credor", "Valor Atual", "Valor Proximo mês", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -153,6 +135,11 @@ public class ConsultaDivida extends javax.swing.JFrame {
             }
         });
         tConsulta.setRowHeight(25);
+        tConsulta.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                tConsultaComponentRemoved(evt);
+            }
+        });
         spLista.setViewportView(tConsulta);
 
         lblConsulta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -205,6 +192,10 @@ public class ConsultaDivida extends javax.swing.JFrame {
         new DividaAtual().setVisible(true);
         ConsultaDivida.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void tConsultaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_tConsultaComponentRemoved
+       
+    }//GEN-LAST:event_tConsultaComponentRemoved
 
     /**
      * @param args the command line arguments
