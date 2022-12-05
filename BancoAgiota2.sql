@@ -52,9 +52,3 @@ create function proxMes (valorInicial float, taxaJuros float) returns float dete
   end$
 
 delimiter ;
-
-/* testes
-select * from pessoa;
-insert into divida(devedorId, agiotaId,taxaJuros, valorAtual, parcelas, valorProMes)         
-                    values( 1, 2,5, 100, 6, proxMes(100, 5));
-*/

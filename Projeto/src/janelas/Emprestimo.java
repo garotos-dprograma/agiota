@@ -36,8 +36,6 @@ public class Emprestimo extends javax.swing.JFrame {
 
         pPrincipal = new javax.swing.JPanel();
         lblValorEmprestimo = new javax.swing.JLabel();
-        pTitulo = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
         btnSolicitar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         txtEmprestimo = new javax.swing.JTextField();
@@ -48,37 +46,18 @@ public class Emprestimo extends javax.swing.JFrame {
         lblCpfDevedor = new javax.swing.JLabel();
         txtJuros = new javax.swing.JTextField();
         lblTaxaJuros = new javax.swing.JLabel();
+        lblBanner = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pPrincipal.setBackground(new java.awt.Color(255, 102, 51));
+        pPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblValorEmprestimo.setBackground(new java.awt.Color(0, 0, 0));
-        lblValorEmprestimo.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        lblValorEmprestimo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblValorEmprestimo.setForeground(new java.awt.Color(255, 255, 255));
         lblValorEmprestimo.setText("Digite o valor do empréstimo");
-
-        pTitulo.setBackground(new java.awt.Color(0, 0, 0));
-
-        lblTitulo.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Cadastrar empréstimo");
-        lblTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
-        pTitulo.setLayout(pTituloLayout);
-        pTituloLayout.setHorizontalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        pTituloLayout.setVerticalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitulo)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        pPrincipal.add(lblValorEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
 
         btnSolicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
         btnSolicitar.setText("Cadastrar");
@@ -87,6 +66,7 @@ public class Emprestimo extends javax.swing.JFrame {
                 btnSolicitarActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
 
         btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
         btnLimpar.setText("Limpar");
@@ -95,8 +75,10 @@ public class Emprestimo extends javax.swing.JFrame {
                 btnLimparActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 332, -1, -1));
+        pPrincipal.add(txtEmprestimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 182, -1));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 0, 51));
+        btnCancelar.setBackground(new java.awt.Color(220, 174, 50));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Voltar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,78 +86,32 @@ public class Emprestimo extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
 
-        lblParcela.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        lblParcela.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblParcela.setForeground(new java.awt.Color(255, 255, 255));
         lblParcela.setText("Parcela");
+        pPrincipal.add(lblParcela, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
 
         cbxParcela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "3", "6 ", "9", "12", "24", "48" }));
         cbxParcela.setToolTipText("");
+        pPrincipal.add(cbxParcela, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 170, 80, -1));
+        pPrincipal.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 180, -1));
 
-        lblCpfDevedor.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        lblCpfDevedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblCpfDevedor.setForeground(new java.awt.Color(255, 255, 255));
         lblCpfDevedor.setText("CPF do devedor");
+        pPrincipal.add(lblCpfDevedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 109, -1));
+        pPrincipal.add(txtJuros, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 94, -1));
 
-        lblTaxaJuros.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        lblTaxaJuros.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblTaxaJuros.setForeground(new java.awt.Color(255, 255, 255));
         lblTaxaJuros.setText("Taxa de Juros(%)");
+        pPrincipal.add(lblTaxaJuros, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
 
-        javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
-        pPrincipal.setLayout(pPrincipalLayout);
-        pPrincipalLayout.setHorizontalGroup(
-            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLimpar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSolicitar)
-                .addContainerGap())
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtEmprestimo, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblValorEmprestimo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblCpfDevedor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblParcela)
-                    .addComponent(cbxParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTaxaJuros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtJuros))
-                .addGap(40, 40, 40))
-        );
-        pPrincipalLayout.setVerticalGroup(
-            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblParcela)
-                    .addComponent(lblValorEmprestimo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbxParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmprestimo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCpfDevedor)
-                    .addComponent(lblTaxaJuros))
-                .addGap(6, 6, 6)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSolicitar)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLimpar))
-                .addContainerGap())
-        );
+        lblBanner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/novoemprestimo.png"))); // NOI18N
+        pPrincipal.add(lblBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -317,13 +253,12 @@ public class Emprestimo extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSolicitar;
     private javax.swing.JComboBox<String> cbxParcela;
+    private javax.swing.JLabel lblBanner;
     private javax.swing.JLabel lblCpfDevedor;
     private javax.swing.JLabel lblParcela;
     private javax.swing.JLabel lblTaxaJuros;
-    private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblValorEmprestimo;
     private javax.swing.JPanel pPrincipal;
-    private javax.swing.JPanel pTitulo;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtEmprestimo;
     private javax.swing.JTextField txtJuros;

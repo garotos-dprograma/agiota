@@ -52,22 +52,20 @@ public class MenuDevedor extends javax.swing.JFrame {
         lblDividaTotalValor = new javax.swing.JLabel();
         btnAtualConsulta = new javax.swing.JButton();
         btnAtualDados = new javax.swing.JButton();
-        lblConsulta = new javax.swing.JLabel();
-        lblMeusDados = new javax.swing.JLabel();
         btnAtualDados1 = new javax.swing.JButton();
-        lblLogoff = new javax.swing.JLabel();
         lblVoceEstaDevendo = new javax.swing.JLabel();
         lblDividaAtual = new javax.swing.JLabel();
         lblTotalAgiotas = new javax.swing.JLabel();
         lblAgiotas = new javax.swing.JLabel();
-        pTitulo = new javax.swing.JPanel();
         lblOla = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pInicial.setBackground(new java.awt.Color(0, 0, 0));
+        pInicial.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pDivida.setBackground(new java.awt.Color(255, 51, 51));
+        pDivida.setBackground(new java.awt.Color(220, 174, 50));
 
         lblDividaTotalValor.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 24)); // NOI18N
         lblDividaTotalValor.setForeground(new java.awt.Color(255, 255, 255));
@@ -78,8 +76,8 @@ public class MenuDevedor extends javax.swing.JFrame {
             pDividaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pDividaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblDividaTotalValor, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(lblDividaTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pDividaLayout.setVerticalGroup(
             pDividaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,164 +87,81 @@ public class MenuDevedor extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnAtualConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/consultar.png"))); // NOI18N
+        pInicial.add(pDivida, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 720, -1));
+
+        btnAtualConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/consulat2.png"))); // NOI18N
         btnAtualConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualConsultaActionPerformed(evt);
             }
         });
+        pInicial.add(btnAtualConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 220, 70));
 
-        btnAtualDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/dados.png"))); // NOI18N
+        btnAtualDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/dados2.png"))); // NOI18N
         btnAtualDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualDadosActionPerformed(evt);
             }
         });
+        pInicial.add(btnAtualDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 130, 40));
 
-        lblConsulta.setBackground(new java.awt.Color(255, 255, 255));
-        lblConsulta.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 48)); // NOI18N
-        lblConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        lblConsulta.setText("Consulta");
-
-        lblMeusDados.setBackground(new java.awt.Color(255, 255, 255));
-        lblMeusDados.setForeground(new java.awt.Color(255, 255, 255));
-        lblMeusDados.setText("Meus Dados");
-
-        btnAtualDados1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logoff.png"))); // NOI18N
+        btnAtualDados1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logoff2.png"))); // NOI18N
         btnAtualDados1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualDados1ActionPerformed(evt);
             }
         });
+        pInicial.add(btnAtualDados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 520, 110, 40));
 
-        lblLogoff.setBackground(new java.awt.Color(255, 255, 255));
-        lblLogoff.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogoff.setText("Log Off");
-
-        lblVoceEstaDevendo.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        lblVoceEstaDevendo.setForeground(new java.awt.Color(255, 102, 102));
+        lblVoceEstaDevendo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblVoceEstaDevendo.setForeground(new java.awt.Color(220, 174, 50));
         lblVoceEstaDevendo.setText("Você está devendo para");
+        pInicial.add(lblVoceEstaDevendo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, -1, -1));
 
-        lblDividaAtual.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
-        lblDividaAtual.setForeground(new java.awt.Color(255, 255, 255));
+        lblDividaAtual.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lblDividaAtual.setForeground(new java.awt.Color(220, 174, 50));
         lblDividaAtual.setText("Dívida atual total:");
+        pInicial.add(lblDividaAtual, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
 
         lblTotalAgiotas.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         lblTotalAgiotas.setForeground(new java.awt.Color(255, 102, 102));
+        pInicial.add(lblTotalAgiotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 45, 16));
 
-        lblAgiotas.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
-        lblAgiotas.setForeground(new java.awt.Color(255, 102, 102));
+        lblAgiotas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblAgiotas.setForeground(new java.awt.Color(220, 174, 50));
         lblAgiotas.setText("agiotas.");
+        pInicial.add(lblAgiotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, -1, -1));
 
-        javax.swing.GroupLayout pInicialLayout = new javax.swing.GroupLayout(pInicial);
-        pInicial.setLayout(pInicialLayout);
-        pInicialLayout.setHorizontalGroup(
-            pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pInicialLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pInicialLayout.createSequentialGroup()
-                        .addComponent(lblDividaAtual)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pInicialLayout.createSequentialGroup()
-                        .addComponent(pDivida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pInicialLayout.createSequentialGroup()
-                        .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pInicialLayout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(lblConsulta)))
-                        .addGap(89, 89, 89)
-                        .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMeusDados))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLogoff)
-                            .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pInicialLayout.createSequentialGroup()
-                        .addComponent(lblVoceEstaDevendo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTotalAgiotas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAgiotas)
-                        .addGap(562, 562, 562))))
-        );
-        pInicialLayout.setVerticalGroup(
-            pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pInicialLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(lblDividaAtual)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pDivida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVoceEstaDevendo)
-                    .addComponent(lblTotalAgiotas, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAgiotas))
-                .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pInicialLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pInicialLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pInicialLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(pInicialLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(lblConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
+        lblOla.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblOla.setForeground(new java.awt.Color(220, 174, 50));
+        lblOla.setText("Olá, Devedor");
+        lblOla.setToolTipText("");
+        pInicial.add(lblOla, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 110, 30));
 
-        pTitulo.setBackground(new java.awt.Color(255, 51, 51));
-        pTitulo.setForeground(new java.awt.Color(255, 102, 51));
-
-        lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        lblOla.setForeground(new java.awt.Color(255, 255, 255));
-        lblOla.setText("Olá, Endividado");
-
-        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
-        pTitulo.setLayout(pTituloLayout);
-        pTituloLayout.setHorizontalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pTituloLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblOla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(670, 670, 670))
-        );
-        pTituloLayout.setVerticalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(lblOla)
-                .addContainerGap())
-        );
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/menudevedor.png"))); // NOI18N
+        lblLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLogoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblLogoMouseEntered(evt);
+            }
+        });
+        pInicial.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1080, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 1066, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -268,6 +183,14 @@ public class MenuDevedor extends javax.swing.JFrame {
         limparDados();
         MenuDevedor.this.dispose();
     }//GEN-LAST:event_btnAtualDados1ActionPerformed
+
+    private void lblLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLogoMouseClicked
+
+    private void lblLogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLogoMouseEntered
 
     /**
      * @param args the command line arguments
@@ -310,16 +233,13 @@ public class MenuDevedor extends javax.swing.JFrame {
     private javax.swing.JButton btnAtualDados;
     private javax.swing.JButton btnAtualDados1;
     private javax.swing.JLabel lblAgiotas;
-    private javax.swing.JLabel lblConsulta;
     private javax.swing.JLabel lblDividaAtual;
     private javax.swing.JLabel lblDividaTotalValor;
-    private javax.swing.JLabel lblLogoff;
-    private javax.swing.JLabel lblMeusDados;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblOla;
     private javax.swing.JLabel lblTotalAgiotas;
     private javax.swing.JLabel lblVoceEstaDevendo;
     private javax.swing.JPanel pDivida;
     private javax.swing.JPanel pInicial;
-    private javax.swing.JPanel pTitulo;
     // End of variables declaration//GEN-END:variables
 }
