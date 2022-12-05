@@ -24,8 +24,6 @@ public class novaSenha extends javax.swing.JFrame {
 
         pPrincipal = new javax.swing.JPanel();
         lblNovaSenha = new javax.swing.JLabel();
-        pTitulo = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
         pwdTrocaSenha = new javax.swing.JPasswordField();
         lblRepSenha = new javax.swing.JLabel();
         pwdRepitaSenha = new javax.swing.JPasswordField();
@@ -34,43 +32,32 @@ public class novaSenha extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        lblBanner = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nova Senha");
 
         pPrincipal.setBackground(new java.awt.Color(255, 102, 51));
+        pPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNovaSenha.setBackground(new java.awt.Color(0, 0, 0));
-        lblNovaSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNovaSenha.setText("Nova Senha");
+        lblNovaSenha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblNovaSenha.setForeground(new java.awt.Color(255, 255, 255));
+        lblNovaSenha.setText("Nova senha");
+        pPrincipal.add(lblNovaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 100, -1));
+        pPrincipal.add(pwdTrocaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 129, -1));
 
-        pTitulo.setBackground(new java.awt.Color(0, 0, 0));
+        lblRepSenha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblRepSenha.setForeground(new java.awt.Color(255, 255, 255));
+        lblRepSenha.setText("Repetir senha");
+        pPrincipal.add(lblRepSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
+        pPrincipal.add(pwdRepitaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 129, -1));
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("Alteração de Senha");
-
-        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
-        pTitulo.setLayout(pTituloLayout);
-        pTituloLayout.setHorizontalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(117, 117, 117))
-        );
-        pTituloLayout.setVerticalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitulo)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-
-        lblRepSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblRepSenha.setText("Repetir Nova Senha");
-
+        lblSenhaAnt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSenhaAnt.setForeground(new java.awt.Color(255, 255, 255));
         lblSenhaAnt.setText("Senha Antiga");
+        pPrincipal.add(lblSenhaAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
+        pPrincipal.add(pwdSenhaAntiga, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 129, -1));
 
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
         btnSalvar.setText("Salvar");
@@ -79,6 +66,7 @@ public class novaSenha extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, -1));
 
         btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
         btnLimpar.setText("Limpar");
@@ -87,8 +75,9 @@ public class novaSenha extends javax.swing.JFrame {
                 btnLimparActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 0, 51));
+        btnCancelar.setBackground(new java.awt.Color(220, 174, 50));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -96,58 +85,11 @@ public class novaSenha extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
-        javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
-        pPrincipal.setLayout(pPrincipalLayout);
-        pPrincipalLayout.setHorizontalGroup(
-            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSenhaAnt)
-                    .addComponent(lblNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pwdTrocaSenha)
-                    .addComponent(lblRepSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addComponent(pwdRepitaSenha)
-                    .addComponent(pwdSenhaAntiga))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLimpar)
-                .addGap(66, 66, 66)
-                .addComponent(btnCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalvar)
-                .addContainerGap())
-        );
-        pPrincipalLayout.setVerticalGroup(
-            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSenhaAnt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pwdSenhaAntiga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(lblNovaSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pwdTrocaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblRepSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pwdRepitaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnLimpar)
-                    .addComponent(btnCancelar))
-                .addContainerGap())
-        );
+        lblBanner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/novasenha.png"))); // NOI18N
+        pPrincipal.add(lblBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,6 +105,22 @@ public class novaSenha extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        new InformacoesPessoais().setVisible(true);
+        novaSenha.this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        novoCliente.limparDados();
+        this.pwdSenhaAntiga.setText("");
+        this.pwdTrocaSenha.setText("");
+        this.pwdRepitaSenha.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        atualizarSenha(novoCliente);
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     public void atualizarSenha(Pessoa novoCliente){
         this.conectar.conectaBanco();
         
@@ -172,7 +130,7 @@ public class novaSenha extends javax.swing.JFrame {
             String atualizaCpf = "UPDATE pessoa SET "
                     + "senha = '" + pwdTrocaSenha.getText() + "' "
                     + " WHERE id = " + idLogado
-                    + " senha = '" + consultaSenha + "';";
+                    + " AND senha = '" + consultaSenha + "';";
             this.conectar.updateSQL(atualizaCpf);
             JOptionPane.showMessageDialog (null, "Senha atualizada com sucesso!");
             new InformacoesPessoais().setVisible(true);
@@ -184,22 +142,6 @@ public class novaSenha extends javax.swing.JFrame {
             this.conectar.fechaBanco();
         }
     }
-
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        atualizarSenha(novoCliente);
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        novoCliente.limparDados();
-        this.pwdSenhaAntiga.setText("");
-        this.pwdTrocaSenha.setText("");
-        this.pwdRepitaSenha.setText("");
-    }//GEN-LAST:event_btnLimparActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-         new InformacoesPessoais().setVisible(true);
-         novaSenha.this.dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,12 +182,11 @@ public class novaSenha extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel lblBanner;
     private javax.swing.JLabel lblNovaSenha;
     private javax.swing.JLabel lblRepSenha;
     private javax.swing.JLabel lblSenhaAnt;
-    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pPrincipal;
-    private javax.swing.JPanel pTitulo;
     private javax.swing.JPasswordField pwdRepitaSenha;
     private javax.swing.JPasswordField pwdSenhaAntiga;
     private javax.swing.JPasswordField pwdTrocaSenha;

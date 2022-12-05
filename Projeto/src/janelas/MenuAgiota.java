@@ -23,9 +23,8 @@ public class MenuAgiota extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pTitulo = new javax.swing.JPanel();
-        lblOla = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        lblOla = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblTotalDividas = new javax.swing.JLabel();
@@ -34,48 +33,28 @@ public class MenuAgiota extends javax.swing.JFrame {
         btnAtualConsulta = new javax.swing.JButton();
         btnAtualDados = new javax.swing.JButton();
         btnAtualNovo = new javax.swing.JButton();
-        lblConsulta = new javax.swing.JLabel();
-        lblMeusDados = new javax.swing.JLabel();
-        lblAprovar = new javax.swing.JLabel();
         btnAtualDados1 = new javax.swing.JButton();
-        lblLogoff = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pTitulo.setBackground(new java.awt.Color(220, 174, 50));
-        pTitulo.setForeground(new java.awt.Color(220, 174, 50));
-
-        lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        lblOla.setText("Olá, Agiota");
-
-        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
-        pTitulo.setLayout(pTituloLayout);
-        pTituloLayout.setHorizontalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pTituloLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblOla, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                .addGap(665, 665, 665))
-        );
-        pTituloLayout.setVerticalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(lblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblOla.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblOla.setForeground(new java.awt.Color(220, 174, 50));
+        lblOla.setText("Olá, Agiota");
+        jPanel2.add(lblOla, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, 30));
 
         jPanel3.setBackground(new java.awt.Color(220, 174, 50));
 
-        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Total de clientes devendo:");
 
         lblTotalDividas.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblTotalDividas.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Total de dívidas:");
 
         lblTotalDevedores.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
@@ -95,7 +74,7 @@ public class MenuAgiota extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTotalDividas, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,124 +90,61 @@ public class MenuAgiota extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        btnAtualConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/consultar.png"))); // NOI18N
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
+
+        btnAtualConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/consulat2.png"))); // NOI18N
         btnAtualConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualConsultaActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAtualConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 230, 80));
 
-        btnAtualDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/dados.png"))); // NOI18N
+        btnAtualDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/dados2.png"))); // NOI18N
         btnAtualDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualDadosActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAtualDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 130, 40));
 
-        btnAtualNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/mao_com_dinheiro.png"))); // NOI18N
+        btnAtualNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cadastrardivida.png"))); // NOI18N
         btnAtualNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualNovoActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAtualNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 250, 80));
 
-        lblConsulta.setBackground(new java.awt.Color(255, 255, 255));
-        lblConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        lblConsulta.setText("Consulta");
-
-        lblMeusDados.setBackground(new java.awt.Color(255, 255, 255));
-        lblMeusDados.setForeground(new java.awt.Color(255, 255, 255));
-        lblMeusDados.setText("Meus Dados");
-
-        lblAprovar.setBackground(new java.awt.Color(255, 255, 255));
-        lblAprovar.setForeground(new java.awt.Color(255, 255, 255));
-        lblAprovar.setText("Cadastrar empréstimo");
-
-        btnAtualDados1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logoff.png"))); // NOI18N
+        btnAtualDados1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logoff2.png"))); // NOI18N
         btnAtualDados1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualDados1ActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAtualDados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 120, 40));
 
-        lblLogoff.setBackground(new java.awt.Color(255, 255, 255));
-        lblLogoff.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogoff.setText("Log Off");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(lblConsulta)))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblAprovar)
-                        .addGap(27, 27, 27)
-                        .addComponent(lblMeusDados))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnAtualNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblLogoff)
-                        .addGap(52, 52, 52))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAprovar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAtualConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAtualDados, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAtualNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblLogoff, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAtualDados1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/menuagiota.png"))); // NOI18N
+        lblLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLogoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblLogoMouseEntered(evt);
+            }
+        });
+        jPanel2.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, 1080, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 512, Short.MAX_VALUE)
         );
 
         pack();
@@ -279,6 +195,14 @@ public class MenuAgiota extends javax.swing.JFrame {
         MenuAgiota.this.dispose();
     }//GEN-LAST:event_btnAtualDados1ActionPerformed
 
+    private void lblLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLogoMouseClicked
+
+    private void lblLogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLogoMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -326,13 +250,9 @@ public class MenuAgiota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lblAprovar;
-    private javax.swing.JLabel lblConsulta;
-    private javax.swing.JLabel lblLogoff;
-    private javax.swing.JLabel lblMeusDados;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblOla;
     private javax.swing.JLabel lblTotalDevedores;
     private javax.swing.JLabel lblTotalDividas;
-    private javax.swing.JPanel pTitulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,117 +27,58 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         tpInformacoes = new javax.swing.JTabbedPane();
         pInformacoes = new javax.swing.JPanel();
         pPrincipal = new javax.swing.JPanel();
-        lblNome = new javax.swing.JLabel();
         txtInformacoesCPF = new javax.swing.JTextField();
         txtInformacoesNome = new javax.swing.JTextField();
-        lblSexo = new javax.swing.JLabel();
-        lblTelefone = new javax.swing.JLabel();
         txtInformacoesTelefone = new javax.swing.JTextField();
-        lblEstado = new javax.swing.JLabel();
-        lblCIdade = new javax.swing.JLabel();
         txtInformacoesCidade = new javax.swing.JTextField();
-        lblRua = new javax.swing.JLabel();
         txtInformacoesRua = new javax.swing.JTextField();
-        lblCep = new javax.swing.JLabel();
         txtInformacoesCep = new javax.swing.JTextField();
-        pInfoTitulo = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        lblCpf = new javax.swing.JLabel();
-        lblSobrenome = new javax.swing.JLabel();
         txtSobrenome = new javax.swing.JTextField();
         cbxSexo = new javax.swing.JComboBox<>();
         cbxEstado = new javax.swing.JComboBox<>();
-        lblNumero = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
-        lblBairro = new javax.swing.JLabel();
         txtBairro = new javax.swing.JTextField();
-        lblRG = new javax.swing.JLabel();
         txtRG = new javax.swing.JTextField();
         chbxAgiota = new javax.swing.JCheckBox();
+        lblCadastro = new javax.swing.JLabel();
         pSeguranca = new javax.swing.JPanel();
         pSegurancaPrincipa = new javax.swing.JPanel();
-        pTitulo = new javax.swing.JPanel();
-        lblSeguranca = new javax.swing.JLabel();
         btnSegurançaExcluir = new javax.swing.JButton();
-        lblMudaSenha = new javax.swing.JLabel();
         btnSegurançaMudança = new javax.swing.JButton();
         btnSegurançaAlterar = new javax.swing.JButton();
-        lblExcluirConta = new javax.swing.JLabel();
-        lblAltEmail = new javax.swing.JLabel();
-        btnSegurancaVoltar = new javax.swing.JButton();
+        lblCadastro1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Informações Pessoais");
 
-        tpInformacoes.setBackground(new java.awt.Color(255, 102, 51));
+        tpInformacoes.setBackground(new java.awt.Color(220, 174, 50));
         tpInformacoes.setForeground(new java.awt.Color(255, 255, 255));
         tpInformacoes.setPreferredSize(new java.awt.Dimension(839, 406));
 
         pInformacoes.setBackground(new java.awt.Color(0, 0, 0));
 
         pPrincipal.setBackground(new java.awt.Color(0, 0, 0));
-
-        lblNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNome.setForeground(new java.awt.Color(255, 255, 255));
-        lblNome.setText("Nome");
-
-        lblSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblSexo.setForeground(new java.awt.Color(255, 255, 255));
-        lblSexo.setText("Sexo");
-
-        lblTelefone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTelefone.setForeground(new java.awt.Color(255, 255, 255));
-        lblTelefone.setText("Telefone\n");
-
-        lblEstado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblEstado.setForeground(new java.awt.Color(255, 255, 255));
-        lblEstado.setText("Estado\n");
-
-        lblCIdade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblCIdade.setForeground(new java.awt.Color(255, 255, 255));
-        lblCIdade.setText("Cidade");
-
-        lblRua.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblRua.setForeground(new java.awt.Color(255, 255, 255));
-        lblRua.setText("Rua");
-
-        lblCep.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblCep.setForeground(new java.awt.Color(255, 255, 255));
-        lblCep.setText("CEP");
-
-        pInfoTitulo.setBackground(new java.awt.Color(255, 102, 51));
-        pInfoTitulo.setForeground(new java.awt.Color(255, 102, 51));
-
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Informações Pessoais");
-
-        javax.swing.GroupLayout pInfoTituloLayout = new javax.swing.GroupLayout(pInfoTitulo);
-        pInfoTitulo.setLayout(pInfoTituloLayout);
-        pInfoTituloLayout.setHorizontalGroup(
-            pInfoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        pInfoTituloLayout.setVerticalGroup(
-            pInfoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pInfoTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        pPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pPrincipal.add(txtInformacoesCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 70, -1));
+        pPrincipal.add(txtInformacoesNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 160, -1));
+        pPrincipal.add(txtInformacoesTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 280, -1));
+        pPrincipal.add(txtInformacoesCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 200, -1));
+        pPrincipal.add(txtInformacoesRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 230, -1));
+        pPrincipal.add(txtInformacoesCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 110, -1));
 
         btnVoltar.setBackground(new java.awt.Color(255, 102, 51));
-        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/botaovoltar.png"))); // NOI18N
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 108, 37));
 
-        btnSalvar.setBackground(new java.awt.Color(255, 102, 51));
+        btnSalvar.setBackground(new java.awt.Color(220, 174, 50));
+        btnSalvar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
         btnSalvar.setText("Salvar");
@@ -146,171 +87,27 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 410, 120, 40));
+        pPrincipal.add(txtSobrenome, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, 200, -1));
 
-        lblCpf.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblCpf.setForeground(new java.awt.Color(255, 255, 255));
-        lblCpf.setText("CPF");
-
-        lblSobrenome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblSobrenome.setForeground(new java.awt.Color(255, 255, 255));
-        lblSobrenome.setText("Sobrenome");
-
-        cbxSexo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino", "Outros" }));
+        pPrincipal.add(cbxSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 140, -1));
 
-        cbxEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        pPrincipal.add(cbxEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 100, -1));
+        pPrincipal.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 50, -1));
+        pPrincipal.add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 200, -1));
+        pPrincipal.add(txtRG, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 100, -1));
 
-        lblNumero.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNumero.setForeground(new java.awt.Color(255, 255, 255));
-        lblNumero.setText("nº");
-
-        lblBairro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblBairro.setForeground(new java.awt.Color(255, 255, 255));
-        lblBairro.setText("Bairro:");
-
-        lblRG.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblRG.setForeground(new java.awt.Color(255, 255, 255));
-        lblRG.setText("RG:");
-
-        chbxAgiota.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chbxAgiota.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         chbxAgiota.setForeground(new java.awt.Color(255, 255, 255));
         chbxAgiota.setText("Agiota");
+        pPrincipal.add(chbxAgiota, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 106, 28));
 
-        javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
-        pPrincipal.setLayout(pPrincipalLayout);
-        pPrincipalLayout.setHorizontalGroup(
-            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addComponent(pInfoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pPrincipalLayout.createSequentialGroup()
-                                .addComponent(lblRua)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtInformacoesRua)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNumero)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pPrincipalLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnVoltar)
-                                .addGap(24, 24, 24)
-                                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pPrincipalLayout.createSequentialGroup()
-                                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(chbxAgiota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 787, Short.MAX_VALUE))
-                            .addGroup(pPrincipalLayout.createSequentialGroup()
-                                .addComponent(lblCpf)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtInformacoesCPF)
-                                .addGap(628, 628, 628)))
-                        .addGap(18, 18, 18))))
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pPrincipalLayout.createSequentialGroup()
-                                .addComponent(lblTelefone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtInformacoesTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblSexo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pPrincipalLayout.createSequentialGroup()
-                                .addComponent(lblCIdade)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtInformacoesCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)
-                                .addComponent(lblEstado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblCep)
-                                .addGap(12, 12, 12)
-                                .addComponent(txtInformacoesCep, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                                .addComponent(txtInformacoesNome, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblSobrenome))
-                            .addComponent(lblRG, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-        );
-        pPrincipalLayout.setVerticalGroup(
-            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pInfoTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtInformacoesNome)
-                    .addComponent(lblSobrenome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCpf)
-                    .addComponent(txtInformacoesCPF)
-                    .addComponent(lblRG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtRG))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefone)
-                    .addComponent(txtInformacoesTelefone)
-                    .addComponent(lblSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNumero)
-                        .addComponent(lblBairro)
-                        .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblRua, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtInformacoesRua, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtInformacoesCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtInformacoesCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCep, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chbxAgiota, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
+        lblCadastro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/atualizardados.png"))); // NOI18N
+        lblCadastro.setToolTipText("");
+        pPrincipal.add(lblCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1050, 600));
 
         javax.swing.GroupLayout pInformacoesLayout = new javax.swing.GroupLayout(pInformacoes);
         pInformacoes.setLayout(pInformacoesLayout);
@@ -322,7 +119,9 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         );
         pInformacoesLayout.setVerticalGroup(
             pInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pInformacoesLayout.createSequentialGroup()
+                .addComponent(pPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         tpInformacoes.addTab("Informações Pessoais", pInformacoes);
@@ -330,123 +129,36 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         pSegurancaPrincipa.setBackground(new java.awt.Color(0, 0, 0));
         pSegurancaPrincipa.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         pSegurancaPrincipa.setPreferredSize(new java.awt.Dimension(839, 406));
+        pSegurancaPrincipa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pTitulo.setBackground(new java.awt.Color(255, 102, 51));
-        pTitulo.setForeground(new java.awt.Color(255, 102, 51));
-
-        lblSeguranca.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblSeguranca.setForeground(new java.awt.Color(255, 255, 255));
-        lblSeguranca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSeguranca.setText("Segurança");
-
-        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
-        pTitulo.setLayout(pTituloLayout);
-        pTituloLayout.setHorizontalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblSeguranca, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
-        );
-        pTituloLayout.setVerticalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSeguranca, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        btnSegurançaExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/deletar 1.png"))); // NOI18N
+        btnSegurançaExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/excluirconta.png"))); // NOI18N
         btnSegurançaExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSegurançaExcluirActionPerformed(evt);
             }
         });
+        pSegurancaPrincipa.add(btnSegurançaExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
 
-        lblMudaSenha.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblMudaSenha.setForeground(new java.awt.Color(255, 255, 255));
-        lblMudaSenha.setText("Mudança de Senha");
-
-        btnSegurançaMudança.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ver_senha.png"))); // NOI18N
+        btnSegurançaMudança.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/alterarsenha.png"))); // NOI18N
         btnSegurançaMudança.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSegurançaMudançaActionPerformed(evt);
             }
         });
+        pSegurancaPrincipa.add(btnSegurançaMudança, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, 100));
 
-        btnSegurançaAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/email.png"))); // NOI18N
+        btnSegurançaAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/alteraremail.png"))); // NOI18N
         btnSegurançaAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSegurançaAlterarActionPerformed(evt);
             }
         });
+        pSegurancaPrincipa.add(btnSegurançaAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, -1, 100));
 
-        lblExcluirConta.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblExcluirConta.setForeground(new java.awt.Color(255, 255, 255));
-        lblExcluirConta.setText("Excluir Conta");
-
-        lblAltEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblAltEmail.setForeground(new java.awt.Color(255, 255, 255));
-        lblAltEmail.setText("Alterar Email");
-
-        btnSegurancaVoltar.setBackground(new java.awt.Color(255, 102, 51));
-        btnSegurancaVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
-        btnSegurancaVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSegurancaVoltarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pSegurancaPrincipaLayout = new javax.swing.GroupLayout(pSegurancaPrincipa);
-        pSegurancaPrincipa.setLayout(pSegurancaPrincipaLayout);
-        pSegurancaPrincipaLayout.setHorizontalGroup(
-            pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSegurançaMudança)
-                    .addComponent(btnSegurançaExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMudaSenha)
-                    .addComponent(lblExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(btnSegurançaAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAltEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 430, Short.MAX_VALUE)
-                .addComponent(btnSegurancaVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        pSegurancaPrincipaLayout.setVerticalGroup(
-            pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSegurancaPrincipaLayout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSegurancaVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                        .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSegurançaExcluir)
-                            .addComponent(lblExcluirConta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSegurançaMudança, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMudaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSegurançaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAltEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(19, 19, 19))
-            .addGroup(pSegurancaPrincipaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pSegurancaPrincipaLayout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(371, Short.MAX_VALUE)))
-        );
+        lblCadastro1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCadastro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/seguranca.png"))); // NOI18N
+        lblCadastro1.setToolTipText("");
+        pSegurancaPrincipa.add(lblCadastro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1050, 600));
 
         javax.swing.GroupLayout pSegurancaLayout = new javax.swing.GroupLayout(pSeguranca);
         pSeguranca.setLayout(pSegurancaLayout);
@@ -454,14 +166,14 @@ public class InformacoesPessoais extends javax.swing.JFrame {
             pSegurancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSegurancaLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pSegurancaPrincipa, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+                .addComponent(pSegurancaPrincipa, javax.swing.GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         pSegurancaLayout.setVerticalGroup(
             pSegurancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSegurancaLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pSegurancaPrincipa, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
+                .addComponent(pSegurancaPrincipa, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -471,11 +183,13 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tpInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+            .addComponent(tpInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tpInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tpInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -560,11 +274,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         new MenuDevedor().setVisible(true);
         InformacoesPessoais.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnSegurancaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSegurancaVoltarActionPerformed
-        new MenuDevedor().setVisible(true);
-        InformacoesPessoais.this.dispose();
-    }//GEN-LAST:event_btnSegurancaVoltarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         this.conectar.conectaBanco();
@@ -669,7 +378,6 @@ public class InformacoesPessoais extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton btnSegurancaVoltar;
     private javax.swing.JButton btnSegurançaAlterar;
     private javax.swing.JButton btnSegurançaExcluir;
     private javax.swing.JButton btnSegurançaMudança;
@@ -677,29 +385,12 @@ public class InformacoesPessoais extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxEstado;
     private javax.swing.JComboBox<String> cbxSexo;
     private javax.swing.JCheckBox chbxAgiota;
-    private javax.swing.JLabel lblAltEmail;
-    private javax.swing.JLabel lblBairro;
-    private javax.swing.JLabel lblCIdade;
-    private javax.swing.JLabel lblCep;
-    private javax.swing.JLabel lblCpf;
-    private javax.swing.JLabel lblEstado;
-    private javax.swing.JLabel lblExcluirConta;
-    private javax.swing.JLabel lblMudaSenha;
-    private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblNumero;
-    private javax.swing.JLabel lblRG;
-    private javax.swing.JLabel lblRua;
-    private javax.swing.JLabel lblSeguranca;
-    private javax.swing.JLabel lblSexo;
-    private javax.swing.JLabel lblSobrenome;
-    private javax.swing.JLabel lblTelefone;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JPanel pInfoTitulo;
+    private javax.swing.JLabel lblCadastro;
+    private javax.swing.JLabel lblCadastro1;
     private javax.swing.JPanel pInformacoes;
     private javax.swing.JPanel pPrincipal;
     private javax.swing.JPanel pSeguranca;
     private javax.swing.JPanel pSegurancaPrincipa;
-    private javax.swing.JPanel pTitulo;
     private javax.swing.JTabbedPane tpInformacoes;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtInformacoesCPF;

@@ -25,58 +25,29 @@ public class ConsultaAgiota extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pTitulo = new javax.swing.JPanel();
-        lblOla = new javax.swing.JLabel();
-        btnVoltar = new javax.swing.JButton();
         pFuncional = new javax.swing.JPanel();
+        btnVoltar = new javax.swing.JButton();
         SPConsulta = new javax.swing.JScrollPane();
         tConsulta = new javax.swing.JTable();
         lblConsulta = new javax.swing.JLabel();
+        lblOla = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta Agiota");
 
-        pTitulo.setBackground(new java.awt.Color(220, 174, 50));
-        pTitulo.setForeground(new java.awt.Color(220, 174, 50));
+        pFuncional.setBackground(new java.awt.Color(0, 0, 0));
+        pFuncional.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblOla.setBackground(new java.awt.Color(0, 0, 0));
-        lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        lblOla.setForeground(new java.awt.Color(255, 255, 255));
-        lblOla.setText("Olá, Agiota");
-
-        btnVoltar.setBackground(new java.awt.Color(220, 174, 50));
+        btnVoltar.setBackground(new java.awt.Color(255, 51, 51));
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/botaovoltar.png"))); // NOI18N
         btnVoltar.setBorder(null);
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
-        pTitulo.setLayout(pTituloLayout);
-        pTituloLayout.setHorizontalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblOla)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pTituloLayout.setVerticalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addGroup(pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblOla, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        ImageIcon image = new ImageIcon(getClass().getResource("/resources/voltar.png"));
-        btnVoltar.setIcon(new ImageIcon(image.getImage().getScaledInstance(38, 38, Image.SCALE_DEFAULT)));
-
-        pFuncional.setBackground(new java.awt.Color(0, 0, 0));
+        pFuncional.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 120, 110, 40));
 
         tConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tConsulta.setModel(new javax.swing.table.DefaultTableModel(
@@ -100,57 +71,55 @@ public class ConsultaAgiota extends javax.swing.JFrame {
         tConsulta.setRowHeight(25);
         SPConsulta.setViewportView(tConsulta);
 
-        lblConsulta.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
-        lblConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        lblConsulta.setText("Consultar dívidas");
+        pFuncional.add(SPConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 168, 1032, 378));
 
-        javax.swing.GroupLayout pFuncionalLayout = new javax.swing.GroupLayout(pFuncional);
-        pFuncional.setLayout(pFuncionalLayout);
-        pFuncionalLayout.setHorizontalGroup(
-            pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pFuncionalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addComponent(SPConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 1049, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addComponent(lblConsulta)
-                        .addGap(16, 871, Short.MAX_VALUE))))
-        );
-        pFuncionalLayout.setVerticalGroup(
-            pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFuncionalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblConsulta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SPConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
+        lblConsulta.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lblConsulta.setForeground(new java.awt.Color(220, 174, 50));
+        lblConsulta.setText("Dívidas Ativas");
+        pFuncional.add(lblConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
+
+        lblOla.setBackground(new java.awt.Color(0, 0, 0));
+        lblOla.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        lblOla.setForeground(new java.awt.Color(220, 174, 50));
+        lblOla.setText("Olá, Agiota");
+        pFuncional.add(lblOla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, 38));
+
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/consultaagiota.png"))); // NOI18N
+        lblLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLogoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblLogoMouseEntered(evt);
+            }
+        });
+        pFuncional.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1060, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pFuncional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(pFuncional, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLogoMouseClicked
+
+    private void lblLogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLogoMouseEntered
+
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
         new MenuAgiota().setVisible(true);
         ConsultaAgiota.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -238,9 +207,9 @@ public class ConsultaAgiota extends javax.swing.JFrame {
     private javax.swing.JScrollPane SPConsulta;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel lblConsulta;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblOla;
     private javax.swing.JPanel pFuncional;
-    private javax.swing.JPanel pTitulo;
     private javax.swing.JTable tConsulta;
     // End of variables declaration//GEN-END:variables
 }

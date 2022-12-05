@@ -29,32 +29,48 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         pLogo = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         pFuncional = new javax.swing.JPanel();
+        lblSenha = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        lblEntrar = new javax.swing.JLabel();
         pwdSenha = new javax.swing.JPasswordField();
         lblInaConta1 = new javax.swing.JLabel();
         btnCriarConta = new javax.swing.JButton();
-        txtEntrar = new javax.swing.JLabel();
         btnlblEntrar = new javax.swing.JLabel();
         lblMostrarSenha = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblBanner = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pLogo.setBackground(new java.awt.Color(220, 174, 50));
 
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logo.png"))); // NOI18N
+        lblLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLogoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblLogoMouseEntered(evt);
+            }
+        });
+
         javax.swing.GroupLayout pLogoLayout = new javax.swing.GroupLayout(pLogo);
         pLogo.setLayout(pLogoLayout);
         pLogoLayout.setHorizontalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+            .addGroup(pLogoLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         pLogoLayout.setVerticalGroup(
             pLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pLogoLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pFuncional.setBackground(new java.awt.Color(0, 0, 0));
@@ -63,6 +79,14 @@ public class Login extends javax.swing.JFrame {
                 pFuncionalMouseEntered(evt);
             }
         });
+
+        lblSenha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblSenha.setForeground(new java.awt.Color(255, 255, 255));
+        lblSenha.setText("Senha:");
+
+        lblEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail.setText("Email:");
 
         txtEmail.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txtEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -76,10 +100,11 @@ public class Login extends javax.swing.JFrame {
                 txtEmailFocusLost(evt);
             }
         });
-
-        lblEntrar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        lblEntrar.setText("ENTRAR");
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         pwdSenha.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         pwdSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -96,6 +121,7 @@ public class Login extends javax.swing.JFrame {
 
         lblInaConta1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblInaConta1.setForeground(new java.awt.Color(255, 255, 255));
+        lblInaConta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInaConta1.setText("Não possui conta?");
 
         btnCriarConta.setBackground(new java.awt.Color(0, 0, 0));
@@ -107,12 +133,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtEntrar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        txtEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        txtEntrar.setText("Entrar");
-
         btnlblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/button.png"))); // NOI18N
+        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/botao.png"))); // NOI18N
         btnlblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnlblEntrarMouseClicked(evt);
@@ -130,64 +152,58 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Senha");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("E-mail");
+        lblBanner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/banner.png"))); // NOI18N
 
         javax.swing.GroupLayout pFuncionalLayout = new javax.swing.GroupLayout(pFuncional);
         pFuncional.setLayout(pFuncionalLayout);
         pFuncionalLayout.setHorizontalGroup(
             pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFuncionalLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEntrar)
-                    .addComponent(jLabel2)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(txtEntrar))
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCriarConta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnlblEntrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(pwdSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMostrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFuncionalLayout.createSequentialGroup()
+                        .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnlblEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pFuncionalLayout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnCriarConta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblEmail)
+                            .addComponent(lblSenha)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pFuncionalLayout.createSequentialGroup()
+                                .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblMostrarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(70, 70, 70))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFuncionalLayout.createSequentialGroup()
+                        .addComponent(lblBanner)
+                        .addGap(60, 60, 60))))
         );
         pFuncionalLayout.setVerticalGroup(
             pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFuncionalLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(lblEntrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(2, 2, 2)
-                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMostrarSenha))
+                .addGap(25, 25, 25)
+                .addComponent(lblBanner)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pFuncionalLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(txtEntrar))
-                    .addComponent(btnlblEntrar))
-                .addGap(26, 26, 26)
+                .addComponent(lblEmail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pFuncionalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCriarConta))
-                .addContainerGap(100, Short.MAX_VALUE))
+                    .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMostrarSenha))
+                .addGap(33, 33, 33)
+                .addComponent(btnlblEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCriarConta)
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,7 +233,6 @@ public class Login extends javax.swing.JFrame {
     private void pwdSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdSenhaFocusLost
         if(pwdSenha.getText().isEmpty()){
             pwdSenha.setEchoChar((char)0);
-            pwdSenha.setText("Senha");
         }
         if(!pwdSenha.getText().equals("Senha"))
         pwdSenha.setEchoChar('*');
@@ -237,8 +252,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailFocusGained
 
     private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
-        if(txtEmail.getText().equals(""))
-            txtEmail.setText("E-mail");
+
     }//GEN-LAST:event_txtEmailFocusLost
 
     private void btnlblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlblEntrarMouseClicked
@@ -283,11 +297,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnlblEntrarMouseClicked
     
     private void btnlblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlblEntrarMouseEntered
-        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/button light.png")));
+        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/botao claro.png")));
     }//GEN-LAST:event_btnlblEntrarMouseEntered
 
     private void pFuncionalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pFuncionalMouseEntered
-        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/button.png")));
+        btnlblEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/botao.png")));
     }//GEN-LAST:event_pFuncionalMouseEntered
 
     private void lblMostrarSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMostrarSenhaMouseClicked
@@ -303,6 +317,18 @@ public class Login extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_lblMostrarSenhaMouseClicked
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void lblLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLogoMouseClicked
+
+    private void lblLogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblLogoMouseEntered
 
     /**
      * @param args the command line arguments
@@ -343,18 +369,17 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCriarConta;
     private javax.swing.JLabel btnlblEntrar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel lblEntrar;
+    private javax.swing.JLabel lblBanner;
+    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblInaConta1;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMostrarSenha;
+    private javax.swing.JLabel lblSenha;
     private javax.swing.JPanel pFuncional;
     private javax.swing.JPanel pLogo;
     private javax.swing.JPasswordField pwdSenha;
 
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JLabel txtEntrar;
     // End of variables declaration//GEN-END:variables
     private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/incognito.png")));

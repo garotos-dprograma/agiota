@@ -27,8 +27,6 @@ public class novoEmail extends javax.swing.JFrame {
 
         pPrincipal = new javax.swing.JPanel();
         lblNovoEmail = new javax.swing.JLabel();
-        pTitulo = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
         lblRepEmail = new javax.swing.JLabel();
         lblEmailAnt = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JButton();
@@ -37,44 +35,29 @@ public class novoEmail extends javax.swing.JFrame {
         txtEmailAnt = new javax.swing.JTextField();
         txtRepNovoEmail = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
+        lblBanner = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo E-mail");
 
         pPrincipal.setBackground(new java.awt.Color(255, 102, 51));
+        pPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNovoEmail.setBackground(new java.awt.Color(0, 0, 0));
-        lblNovoEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblNovoEmail.setText("Novo E-mail");
+        lblNovoEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblNovoEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblNovoEmail.setText("Novo email");
+        pPrincipal.add(lblNovoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
-        pTitulo.setBackground(new java.awt.Color(0, 0, 0));
+        lblRepEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblRepEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblRepEmail.setText("Repita o email");
+        pPrincipal.add(lblRepEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 129, -1));
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo.setText("Alteração de e-mail");
-
-        javax.swing.GroupLayout pTituloLayout = new javax.swing.GroupLayout(pTitulo);
-        pTitulo.setLayout(pTituloLayout);
-        pTituloLayout.setHorizontalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pTituloLayout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(117, 117, 117))
-        );
-        pTituloLayout.setVerticalGroup(
-            pTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitulo)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-
-        lblRepEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblRepEmail.setText("Repetir Novo E-mail");
-
-        lblEmailAnt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblEmailAnt.setText("E-mail Antigo");
+        lblEmailAnt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblEmailAnt.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmailAnt.setText("Email antigo");
+        pPrincipal.add(lblEmailAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
         btnSalvar.setText("Salvar");
@@ -83,6 +66,7 @@ public class novoEmail extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, -1));
 
         btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
         btnLimpar.setText("Limpar");
@@ -91,8 +75,12 @@ public class novoEmail extends javax.swing.JFrame {
                 btnLimparActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
+        pPrincipal.add(txtNovoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 162, -1));
+        pPrincipal.add(txtEmailAnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 162, -1));
+        pPrincipal.add(txtRepNovoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 162, -1));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 0, 51));
+        btnCancelar.setBackground(new java.awt.Color(220, 174, 50));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,60 +88,11 @@ public class novoEmail extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        pPrincipal.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
-        javax.swing.GroupLayout pPrincipalLayout = new javax.swing.GroupLayout(pPrincipal);
-        pPrincipal.setLayout(pPrincipalLayout);
-        pPrincipalLayout.setHorizontalGroup(
-            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLimpar)
-                .addGap(69, 69, 69)
-                .addComponent(btnCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalvar)
-                .addContainerGap())
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEmailAnt)
-                    .addComponent(lblNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtRepNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmailAnt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pPrincipalLayout.createSequentialGroup()
-                        .addComponent(lblRepEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pPrincipalLayout.setVerticalGroup(
-            pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pPrincipalLayout.createSequentialGroup()
-                .addComponent(pTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblEmailAnt)
-                .addGap(15, 15, 15)
-                .addComponent(txtEmailAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblNovoEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblRepEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRepNovoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnLimpar)
-                    .addComponent(btnCancelar))
-                .addContainerGap())
-        );
+        lblBanner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/novoemail.png"))); // NOI18N
+        pPrincipal.add(lblBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,16 +189,14 @@ public class novoEmail extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel lblBanner;
     private javax.swing.JLabel lblEmailAnt;
     private javax.swing.JLabel lblNovoEmail;
     private javax.swing.JLabel lblRepEmail;
-    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pPrincipal;
-    private javax.swing.JPanel pTitulo;
     private javax.swing.JTextField txtEmailAnt;
     private javax.swing.JTextField txtNovoEmail;
     private javax.swing.JTextField txtRepNovoEmail;
-    private javax.swing.JTextField txtemailAntigo2;
     // End of variables declaration//GEN-END:variables
 
 }
