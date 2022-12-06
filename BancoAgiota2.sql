@@ -52,3 +52,13 @@ create function proxMes (valorInicial float, taxaJuros float) returns float dete
   end$
 
 delimiter ;
+delimiter $
+create trigger dete_divida after delete on pessoa
+for each row
+	begin
+		delete from divida where old.id = devedorId;
+        delete from divida where old.id = agiotaId;
+    end$
+delimiter ;
+select * from pessoa;
+select * from divida

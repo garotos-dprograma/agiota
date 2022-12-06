@@ -5,6 +5,8 @@ import conexoes.MySQL;
 import javax.swing.JOptionPane;
 import static classe.Gerenciador.idLogado;
 import static classe.Gerenciador.limparDados;
+import static classe.Gerenciador.usuarioLogado;
+import static classe.Gerenciador.gerUsuarioLogado;
 
 public class InformacoesPessoais extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
@@ -271,7 +273,12 @@ public class InformacoesPessoais extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSegurançaAlterarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+       if(usuarioLogado.getAgiota()){
+           new MenuAgiota().setVisible(true);
+       }
+       else{
         new MenuDevedor().setVisible(true);
+       }
         InformacoesPessoais.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 

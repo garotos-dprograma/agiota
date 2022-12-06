@@ -122,7 +122,7 @@ public class MenuAgiota extends javax.swing.JFrame {
                 btnAtualDados1ActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAtualDados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 120, 40));
+        jPanel2.add(btnAtualDados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 450, 120, 40));
 
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/menuagiota.png"))); // NOI18N
@@ -144,7 +144,7 @@ public class MenuAgiota extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 512, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 574, Short.MAX_VALUE)
         );
 
         pack();
